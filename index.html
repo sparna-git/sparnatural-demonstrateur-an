@@ -100,16 +100,17 @@
 
         <div style="text-align:right; padding-bottom:10px;">
           <span style="font-size:90%; font-style: italic;"> 
-               Querying <a id="endpoint" href="http://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2Ffr.dbpedia.org%2Fsparql">http://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2Ffr.dbpedia.org%2Fsparql</a>
+               Querying <a id="endpoint" href="http://graphdb.sparna.fr/repositories/AN">http://graphdb.sparna.fr/repositories/AN</a>
                </span>
         </div>
 
         <!-- This is where Sparnatural is inserted -->
         <div id="sparnatural-container"></div>
+        <input type="hidden" id="query-json"></input>
 
         <!-- -->
         <div style="font-style: italic; font-size:0.9em;">
-          <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; Toggle SPARQL editor</a>
+          <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; Toggle SPARQL editor</a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; Share</a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; Export as JSON</a>
         </div>
 
       </div>
@@ -165,6 +166,42 @@
 
   </main><!-- End #main -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shareModalLabel">Share query</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="overflow:hidden;">
+          <a id="share-link" href="#"></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="jsonModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="jsonModelLabel">Export query as JSON</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="overflow:hidden;">
+          <textarea class="form-control" rows="20" id="export-json" style="width:100%" readonly="readonly"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
@@ -189,6 +226,9 @@
     <!-- Sparnatural Javascript -->
     <script type="text/javascript" src="./sparnatural.js"></script>
 
+    <!-- Json url (Compression) -->
+    <script src="https://cdn.jsdelivr.net/gh/masotime/json-url@master/dist/browser/json-url.js"></script>
+
   <!-- /Sparnatural-specific -->
 
 
@@ -204,7 +244,7 @@
       var sparnatural;
       $( document ).ready(function($) {          
 
-        sparnatural = $('#sparnatural-container').Sparnatural({
+        sparnatural = document.getElementById('sparnatural-container').Sparnatural({
           config: "sparnatural-config.ttl",
           language: lang,
           maxDepth: 4,                                                                        
@@ -215,38 +255,52 @@
           list : null,
           defaultEndpoint : $('#endpoint').text(),
           onQueryUpdated: function(queryString, queryJson) {
-            queryString = semanticPostProcess(queryString, queryJson);
-            queryString = displayLabelPostProcess(queryString, queryJson);
-            queryString = orderByPostProcess(queryString, queryJson);
+            queryString = semanticPostProcess(queryString);
+            queryString = displayLabelPostProcess(queryString);
+            queryString = orderByPostProcess(queryString);
             $('#sparql code').html(queryString.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
             yasqe.setValue(queryString);
             yasqe.query();
+
+            // save query
+            document.getElementById('query-json').value = JSON.stringify(queryJson);
           }
         });
 
+        // load ?query= param if present
+        var UrlString = window.location.search;
+        var urlParams = new URLSearchParams(UrlString);
+        if (urlParams.has("query") === true) {
+          var compressedJson = urlParams.get("query") ;
+          var compressCodec = JsonUrl('lzma');
+          compressCodec.decompress(compressedJson).then(json => {
+            sparnatural.loadQuery(JSON.parse(json)) ;
+          });
+        }
+
       }) ;
 
-      prefixesPostProcess = function(queryString, queryJson) {
+      prefixesPostProcess = function(queryString) {
         if(queryString.indexOf("rdf-schema#") == -1) {
           queryString = queryString.replace("SELECT ", "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \nSELECT ");
         }
         return queryString;
       }
 
-      displayLabelPostProcess = function(queryString, queryJson) {
-        queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+      displayLabelPostProcess = function(queryString) {
+        // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         return queryString;
       }
 
-      orderByPostProcess = function(queryString, queryJson) {
+      orderByPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 100");
-        queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT (STR(?theLabel) AS ?label) ?this");
-        queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 1000");
+        // queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT (STR(?theLabel) AS ?label) ?this");
+        // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 1000");
         return queryString;
       }
 
-      semanticPostProcess = function(queryString, queryJson) {
-        queryString = prefixesPostProcess(queryString, queryJson);
+      semanticPostProcess = function(queryString) {
+        queryString = prefixesPostProcess(queryString);
         queryString = sparnatural.expandSparql(queryString);
         return queryString;
       }
@@ -280,7 +334,30 @@
           document.getElementById('sparql-toggle-icon').className = 'fad fa-eye fa-fw';
         }
         return false;        
-      } ; 
+      } ;
+
+      document.getElementById('share').onclick = function() {
+        var compressCodec = JsonUrl('lzma');
+        console.log("Compressing JSON");
+              console.log(document.getElementById('query-json').value);
+        compressCodec.compress(document.getElementById('query-json').value).then(result => {
+          var url = window.location.pathname;
+          url += '?query='+result ;
+          $('#share-link').text(url);
+          $('#share-link').attr('href', url);
+          $('#shareModal').modal('show');
+        });
+      }
+        
+      document.getElementById('export').onclick = function() {
+          var jsonString = JSON.stringify(
+              JSON.parse(document.getElementById('query-json').value),
+              null,
+              2
+            );
+          $('#export-json').val(jsonString);
+          $('#exportModal').modal('show');       
+      } 
     </script>
   </script>
 
