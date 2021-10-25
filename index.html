@@ -356,7 +356,7 @@
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
         // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
-        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ?this (IRI((CONCAT('http://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");
+        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ?this (IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");
         return queryString;
       }
 
