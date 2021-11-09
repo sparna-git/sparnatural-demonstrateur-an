@@ -407,8 +407,6 @@
 
       document.getElementById('share').onclick = function() {
         var compressCodec = JsonUrl('lzma');
-        console.log("Compressing JSON");
-        console.log(document.getElementById('query-json').value);
         compressCodec.compress(document.getElementById('query-json').value).then(result => {
           var url = window.location.pathname;
           url += '?query='+result ;

@@ -17,8 +17,8 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSubdivision
 :aPourSubdivision rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                  rdfs:domain :Organization ;
-                  rdfs:range :Organization ;
+                  rdfs:domain :Ministere ;
+                  rdfs:range :Ministere ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#groupIsSourceOfGroupSubdivisionRelation>/<https://www.ica.org/standards/RiC/ontology#groupSubdivisionRelationHasTarget>" ;
                   rdfs:label "a pour subdivision"@fr .
 
@@ -35,7 +35,11 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estProvenanceDe
 :estProvenanceDe rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                 rdfs:domain :Organization ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :Ministere
+                                             :Organization
+                                           )
+                             ] ;
                  rdfs:range :RecordResource ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
                  rdfs:label "a produit"@fr .
@@ -59,6 +63,14 @@
 :Date rdf:type owl:Class ;
       rdfs:subClassOf rdfs:Literal ;
       rdfs:label "Date"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Ministere
+:Ministere rdf:type owl:Class ;
+           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
+           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadLegalStatus> <http://data.culture.fr/thesaurus/resource/ark:/67717/52976160-9459-49db-94cb-245844db9dff>" ;
+           rdfs:label "Ministère"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Organization
