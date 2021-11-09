@@ -20,8 +20,9 @@
                   rdfs:domain :Ministere ;
                   rdfs:range :Ministere ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#groupIsSourceOfGroupSubdivisionRelation>/<https://www.ica.org/standards/RiC/ontology#groupSubdivisionRelationHasTarget>" ;
-                  rdfs:label "a pour subdivision"@fr .
-
+                  rdfs:label "a pour subdivision"@fr ;
+                  config:tooltip "Une explication en français sur <i>a pour subdivision</i>"@fr ;
+.
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateCreation
 :dateCreation rdf:type owl:ObjectProperty ;
@@ -78,7 +79,9 @@
               rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody>" ;
-              rdfs:label "Organisme"@fr .
+              rdfs:label "Organisme"@fr ;
+              config:tooltip "Une explication en français sur <i>Organisme</i>"@fr ;
+.
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#RecordResource
