@@ -161,10 +161,16 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#a_une_reproduction
 :a_une_reproduction rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#NonSelectableProperty> ;
-                    rdfs:domain :RecordResource ;
+                    rdfs:domain [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Minute
+                                                :Record
+                                                :RecordResource
+                                                :Repertoire
+                                              )
+                                ] ;
                     rdfs:range :ReproductionNumerique ;
                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasInstantiation>" ;
-                    rdfs:label "a pour reproduction"@fr .
+                    rdfs:label "a pour copie numérique"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateCreation
@@ -390,8 +396,8 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#QuartierOuParoisse
 :QuartierOuParoisse rdf:type owl:Class ;
                     rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
-                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType> ?placeType. VALUES ?placeType { <http://data.archives-nationales.culture.gouv.fr/placeType/quartier> <http://data.archives-nationales.culture.gouv.fr/placeType/paroisse> }" ;
-                    rdfs:label "Quartier ou Paroisse"@fr .
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType> ?placeType. VALUES ?placeType { <http://data.archives-nationales.culture.gouv.fr/placeType/quartier> <http://data.archives-nationales.culture.gouv.fr/placeType/paroisse> <http://data.archives-nationales.culture.gouv.fr/placeType/arrondissement%20municipal>}" ;
+                    rdfs:label "Quartier, paroisse ou arrondissement"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Record
@@ -422,7 +428,7 @@ FILTER(?RRFormType != <https://www.ica.org/standards/RiC/vocabularies/documentar
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#ReproductionNumerique
 :ReproductionNumerique rdf:type owl:Class ;
                        rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
-                       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Instantiation>;<http://purl.org/dc/elements/1.1/format> \"image/jpeg\"" ;
+                       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Instantiation>;<http://purl.org/dc/elements/1.1/format> \"image/jpeg\"@en" ;
                        rdfs:label "Reproduction numérique"@fr .
 
 

@@ -353,10 +353,12 @@
 
       displayLabelPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+                queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+        queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
         // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
-        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ?this (IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");
+        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT (STR(?theLabel) AS ?nom) (IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");
         return queryString;
       }
 
@@ -407,8 +409,6 @@
 
       document.getElementById('share').onclick = function() {
         var compressCodec = JsonUrl('lzma');
-        console.log("Compressing JSON");
-        console.log(document.getElementById('query-json').value);
         compressCodec.compress(document.getElementById('query-json').value).then(result => {
           var url = window.location.pathname;
           url += '?query='+result ;
