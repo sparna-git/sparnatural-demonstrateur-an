@@ -154,6 +154,7 @@
                         ] ;
             rdfs:range [ rdf:type owl:Class ;
                          owl:unionOf ( :Activite
+                                       :Edifice
                                        :Lieu
                                        :Notaire
                                        :Organization
@@ -165,6 +166,21 @@
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
             rdfs:label "A pour sujet"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujetVoie
+:aPourSujetVoie rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :Record
+                                            :RecordResource
+                                            :Repertoire
+                                          )
+                            ] ;
+                rdfs:range :Voie ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ,
+                                                                                             "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
+                rdfs:label "Concerne la voie"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeDocument
@@ -276,6 +292,7 @@
               rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
               rdfs:domain [ rdf:type owl:Class ;
                             owl:unionOf ( :Activite
+                                          :Edifice
                                           :Lieu
                                           :Notaire
                                           :Organization
@@ -358,6 +375,35 @@
                      rdfs:label "est le type de document de"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#lieuAPourNom
+:lieuAPourNom rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( :Edifice
+                                          :Lieu
+                                          :QuartierOuParoisse
+                                          :Voie
+                                        )
+                          ] ;
+              rdfs:range :Nom ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2000/01/rdf-schema#label>" ;
+              rdfs:label "lieu a pour nom"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#mentionneUnNom
+:mentionneUnNom rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :Record
+                                            :RecordResource
+                                            :Repertoire
+                                          )
+                            ] ;
+                rdfs:range :Nom ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>/<http://www.w3.org/2000/01/rdf-schema#label>" ;
+                rdfs:label "mentionne un nom"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#provenance
 :provenance rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
@@ -413,6 +459,14 @@ rdfs:Literal rdf:type owl:Class .
       rdfs:subClassOf rdfs:Literal ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Une date associée à une entité historique telle que ressource archivistique, personne, organisme...)."@fr ;
       rdfs:label "Date"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Edifice
+:Edifice rdf:type owl:Class ;
+         rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType><http://data.archives-nationales.culture.gouv.fr/placeType/am%C3%A9nagement%20ou%20construction>" ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Edifice dans les limites actuelles de Paris."@fr ;
+         rdfs:label "Edifice"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Etude
@@ -536,6 +590,7 @@ FILTER(?RRFormType != <https://www.ica.org/standards/RiC/vocabularies/documentar
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Voie
 :Voie rdf:type owl:Class ;
       rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType><http://data.archives-nationales.culture.gouv.fr/placeType/voie%20urbaine>" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute voie située dans Paris, qu'elle ait disparu ou qu'elle existe toujours."@fr ;
       rdfs:label "Voie"@fr .
 
