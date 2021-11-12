@@ -401,7 +401,7 @@
                             ] ;
                 rdfs:range :Nom ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>/<http://www.w3.org/2000/01/rdf-schema#label>" ;
-                rdfs:label "mentionne un nom propre"@fr .
+                rdfs:label "mentionne un agent qui a pour nom"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#provenance
