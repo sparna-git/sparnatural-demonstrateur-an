@@ -60,6 +60,22 @@
                      rdfs:label "A exercé dans le quartier"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourActivite
+:aPourActivite rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :Etude
+                                           :Notaire
+                                           :Organization
+                                           :Personne
+                                         )
+                           ] ;
+               rdfs:range :Activite ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#agentIsTargetOfPerformanceRelation>/<https://www.ica.org/standards/RiC/ontology#performanceRelationHasSource>/<https://www.ica.org/standards/RiC/ontology#hasActivityType>" ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_alpha ;
+               rdfs:label "a pour activité"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourCote
 :aPourCote rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#StringEqualsProperty> ;
@@ -474,6 +490,13 @@ rdfs:Literal rdf:type owl:Class .
        rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
        <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody> ; <https://www.ica.org/standards/RiC/ontology#hasOrHadCorporateBodyType><http://data.archives-nationales.culture.gouv.fr/corporateBodyType/FRAN_RI_104-d5blomr902-13lmns87apgev>" ;
        rdfs:label "Etude notariale"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Fonction
+:Fonction rdf:type owl:Class ;
+          rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#ActivityType>" ;
+          rdfs:label "Fonction"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Intitule
