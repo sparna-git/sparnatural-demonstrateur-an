@@ -50,14 +50,6 @@
 <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> rdf:type owl:ObjectProperty .
 
 
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aExerceDansQuartier
-:aExerceDansQuartier rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
-                     rdfs:label "a exercé dans le quartier"@fr .
-
-
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourActivite
 :aPourActivite rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
@@ -124,9 +116,20 @@
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
             owl:inverseOf :estLeSujetDe ;
             rdfs:domain :RecordResource ;
+            rdfs:range :Lieu ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
             rdfs:label "a pour sujet"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujetPersonne
+:aPourSujetPersonne rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                    rdfs:domain :RecordResource ;
+                    rdfs:range :Personne ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+                    rdfs:label "a pour sujet"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujetVoie
@@ -239,9 +242,11 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estLeSujetDe
 :estLeSujetDe rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
+              rdfs:domain :Lieu ;
+              rdfs:range :RecordResource ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_alpha> ;
-              rdfs:label "Est le sujet de"@fr .
+              rdfs:label "est le sujet de"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estMembreDe
@@ -286,6 +291,16 @@
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
                      rdfs:label "est le type de document de"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#exerceDansLieu
+:exerceDansLieu rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                rdfs:domain :Personne ;
+                rdfs:range :Lieu ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
+                rdfs:label "a exercé dans le lieu"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#lieuAPourNom
