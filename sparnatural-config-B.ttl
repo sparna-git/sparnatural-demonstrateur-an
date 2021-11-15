@@ -172,6 +172,17 @@
           rdfs:label "a pour nom"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourPredecesseur
+:aPourPredecesseur rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                   owl:inverseOf :aPourSuccesseur ;
+                   rdfs:domain :Notaire ;
+                   rdfs:range :Notaire ;
+                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "(<https://www.ica.org/standards/RiC/ontology#agentIsTargetOfAgentTemporalRelation>/<https://www.ica.org/standards/RiC/ontology#agentTemporalRelationHasSource>)+" ;
+                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
+                   rdfs:label "a pour prédécesseur"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourProvenance
 :aPourProvenance rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
