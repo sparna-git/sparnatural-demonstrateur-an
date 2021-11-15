@@ -56,7 +56,7 @@
                rdfs:domain :Personne ;
                rdfs:range :Activite ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
-               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_alpha ;
                rdfs:label "a pour activité"@fr .
 
 
@@ -146,7 +146,7 @@
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerne
 :concerne rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
           owl:inverseOf :estConcernePar ;
           rdfs:domain :Archives ;
           rdfs:range [ rdf:type owl:Class ;
@@ -157,14 +157,14 @@
                                    )
                      ] ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
           rdfs:label "concerne"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
 :dateDebut rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-           rdfs:domain :RecordResource ;
+           rdfs:domain :Archives ;
            rdfs:range :Date ;
            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
            rdfs:label "a pour date de début"@fr .
@@ -199,7 +199,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateFin
 :dateFin rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-         rdfs:domain :RecordResource ;
+         rdfs:domain :Archives ;
          rdfs:range :Date ;
          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
          rdfs:label "a pour date de fin"@fr .
@@ -298,7 +298,7 @@
                                              :Personne
                                            )
                              ] ;
-                 rdfs:range :RecordResource ;
+                 rdfs:range :Archives ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_count> ;
                  rdfs:label "a produit"@fr .
@@ -327,6 +327,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#mentionneUnNom
 :mentionneUnNom rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
+                rdfs:domain :Archives ;
                 rdfs:range :Nom ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>/<http://www.w3.org/2000/01/rdf-schema#label>" ;
                 rdfs:label "mentionne un agent qui a pour nom"@fr .
@@ -344,7 +345,7 @@
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#provenance
 :provenance rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
+            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
             rdfs:domain :Archives ;
             rdfs:range [ rdf:type owl:Class ;
                          owl:unionOf ( :Organization
@@ -353,7 +354,7 @@
                        ] ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent qui produit, accumule ou gère cette ressource."@fr ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
             rdfs:label "a pour provenance"@fr .
 
 

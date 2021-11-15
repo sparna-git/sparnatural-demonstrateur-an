@@ -72,7 +72,7 @@
                      rdfs:domain :Notaire ;
                      rdfs:range :QuartierOuParoisse ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
                      rdfs:label "A exercé dans le quartier"@fr .
 
 
@@ -95,7 +95,6 @@
                                        :GroupeDeDocuments
                                        :Item
                                        :ListeActes
-                                       :MentionActe
                                        :Record
                                        :Repertoire
                                      )
@@ -171,7 +170,7 @@
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourProvenance
 :aPourProvenance rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                 rdfs:subPropertyOf :aPourMembre ;
                  owl:inverseOf :estProvenanceDe ;
                  rdfs:domain [ rdf:type owl:Class ;
                                owl:unionOf ( :Archive
@@ -199,7 +198,12 @@
 :aPourTypeDeDocument rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                      owl:inverseOf :estTypeDeDocumentDe ;
-                     rdfs:domain :Record ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Item
+                                                 :MentionActe
+                                                 :Record
+                                               )
+                                 ] ;
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>|<https://www.ica.org/standards/RiC/ontology#hasRecordState>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
@@ -240,6 +244,17 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
 :dateDebut rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :Archive
+                                       :Fonds
+                                       :GroupeDeDocuments
+                                       :Item
+                                       :ListeActes
+                                       :MentionActe
+                                       :Record
+                                       :Repertoire
+                                     )
+                       ] ;
            rdfs:range :Date ;
            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
            rdfs:label "a pour date de début"@fr .
@@ -272,6 +287,17 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateFin
 :dateFin rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( :Archive
+                                     :Fonds
+                                     :GroupeDeDocuments
+                                     :Item
+                                     :ListeActes
+                                     :MentionActe
+                                     :Record
+                                     :Repertoire
+                                   )
+                     ] ;
          rdfs:range :Date ;
          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
          rdfs:label "a pour date de fin"@fr .
@@ -426,7 +452,11 @@
 :estTypeDeDocumentDe rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
                      rdfs:domain :TypeDeDocument ;
-                     rdfs:range :Record ;
+                     rdfs:range [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Item
+                                                :Record
+                                              )
+                                ] ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>|^<https://www.ica.org/standards/RiC/ontology#hasRecordState>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
                      rdfs:label "est le type de document de"@fr .
