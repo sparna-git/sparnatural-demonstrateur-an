@@ -55,7 +55,7 @@
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                rdfs:domain :Personne ;
                rdfs:range :Activite ;
-               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#agentIsTargetOfPerformanceRelation>/<https://www.ica.org/standards/RiC/ontology#performanceRelationHasSource>/<https://www.ica.org/standards/RiC/ontology#hasActivityType>" ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
                rdfs:label "a pour activité"@fr .
 
@@ -72,7 +72,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourIntitule
 :aPourIntitule rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
-               rdfs:domain :RecordResource ;
+               rdfs:domain :Archives ;
                rdfs:range :Intitule ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2000/01/rdf-schema#label>" ;
                rdfs:label "A pour intitulé"@fr .
@@ -93,43 +93,25 @@
 :aPourNom rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
           rdfs:domain [ rdf:type owl:Class ;
-                        owl:unionOf ( :Organization
+                        owl:unionOf ( :Lieu
+                                      :Organization
                                       :Personne
                                     )
                       ] ;
           rdfs:range :Nom ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadAgentName>/<http://www.w3.org/2000/01/rdf-schema#label>" ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadAgentName>/<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2000/01/rdf-schema#label>" ;
           rdfs:label "a pour nom"@fr .
-
-
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSubdivision
-:aPourSubdivision rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                  rdfs:domain :Organization ;
-                  rdfs:range :Organization ;
-                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#groupIsSourceOfGroupSubdivisionRelation>/<https://www.ica.org/standards/RiC/ontology#groupSubdivisionRelationHasTarget>" ;
-                  rdfs:label "a pour subdivision"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujet
 :aPourSujet rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
             owl:inverseOf :estLeSujetDe ;
-            rdfs:domain :RecordResource ;
-            rdfs:range :Lieu ;
+            rdfs:domain :Archives ;
+            rdfs:range :MotMatiere ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
             rdfs:label "a pour sujet"@fr .
-
-
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujetPersonne
-:aPourSujetPersonne rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                    rdfs:domain :RecordResource ;
-                    rdfs:range :Personne ;
-                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
-                    <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
-                    rdfs:label "a pour sujet"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDOrganisation
@@ -146,7 +128,7 @@
 :aPourTypeDeDocument rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                      owl:inverseOf :estTypeDeDocumentDe ;
-                     rdfs:domain :RecordResource ;
+                     rdfs:domain :Archives ;
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
@@ -156,10 +138,27 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#a_une_reproduction
 :a_une_reproduction rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#NonSelectableProperty> ;
-                    rdfs:domain :RecordResource ;
+                    rdfs:domain :Archives ;
                     rdfs:range :ReproductionNumerique ;
                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasInstantiation>" ;
                     rdfs:label "a pour copie numérique"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerne
+:concerne rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+          owl:inverseOf :estConcernePar ;
+          rdfs:domain :Archives ;
+          rdfs:range [ rdf:type owl:Class ;
+                       owl:unionOf ( :Activite
+                                     :Lieu
+                                     :Organization
+                                     :Personne
+                                   )
+                     ] ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+          rdfs:label "concerne"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
@@ -232,13 +231,28 @@
                   rdfs:label "a pour date de fin d'existence"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estConcernePar
+:estConcernePar rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :Lieu
+                                            :Organization
+                                            :Personne
+                                          )
+                            ] ;
+                rdfs:range :Archives ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
+                rdfs:label "est concerné par"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estLeSujetDe
 :estLeSujetDe rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
-              rdfs:domain :Lieu ;
-              rdfs:range :RecordResource ;
+              rdfs:domain :MotMatiere ;
+              rdfs:range :Archives ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_alpha> ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
               rdfs:label "est le sujet de"@fr .
 
 
@@ -310,14 +324,6 @@
                 rdfs:label "a exercé dans le lieu"@fr .
 
 
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#lieuAPourNom
-:lieuAPourNom rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
-              rdfs:range :Nom ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2000/01/rdf-schema#label>" ;
-              rdfs:label "lieu a pour nom"@fr .
-
-
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#mentionneUnNom
 :mentionneUnNom rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
@@ -339,7 +345,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#provenance
 :provenance rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
-            rdfs:domain :RecordResource ;
+            rdfs:domain :Archives ;
             rdfs:range [ rdf:type owl:Class ;
                          owl:unionOf ( :Organization
                                        :Personne
@@ -369,6 +375,14 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#ActivityType>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionné dans un document."@fr ;
           rdfs:label "Activité"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Archives
+:Archives rdf:type owl:Class ;
+          rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 1 ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
+          rdfs:label "Archives"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Cote
@@ -405,9 +419,19 @@ rdfs:Literal rdf:type owl:Class .
 :Lieu rdf:type owl:Class ;
       rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-map-marker-alt" ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 4 ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>"@fr ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute entité géo-historique, qu'il s'agisse d'un lieu habité, d'un édifice, d'une circonscription, d'un lieu naturel. Ici, inclut notamment les quartiers et paroisses de Paris, les voies parisiennes et les édifices mentionnés dans les archives notariales, qu'ils existent toujours ou non."@fr ;
       rdfs:label "Lieu"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#MotMatiere
+:MotMatiere rdf:type owl:Class ;
+            rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 6 ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
+            rdfs:comment "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
+            rdfs:label "Mot-matière"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Nom
@@ -420,6 +444,7 @@ rdfs:Literal rdf:type owl:Class .
 :Organization rdf:type owl:Class ;
               rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 3 ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody>" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et surtout toutes les collectivités mentionnées dans les archives notariales."@fr ;
               rdfs:label "Organisme"@fr .
@@ -436,6 +461,7 @@ rdfs:Literal rdf:type owl:Class .
 :Personne rdf:type owl:Class ;
           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-user" ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 2 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
           rdfs:label "Personne"@fr .
@@ -445,7 +471,7 @@ rdfs:Literal rdf:type owl:Class .
 :RecordResource rdf:type owl:Class ;
                 rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-archive" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#RecordResource>" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
                 rdfs:label "Ressource archivistique"@fr .
 
@@ -454,7 +480,7 @@ rdfs:Literal rdf:type owl:Class .
 :ReproductionNumerique rdf:type owl:Class ;
                        rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                        <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-images" ;
-                       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Instantiation>;<http://purl.org/dc/elements/1.1/format> \"image/jpeg\"@en" ;
+                       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#CopieNumerique>" ;
                        rdfs:label "Reproduction numérique"@fr .
 
 
@@ -470,7 +496,8 @@ rdfs:Literal rdf:type owl:Class .
 :TypeDeDocument rdf:type owl:Class ;
                 rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "?docType VALUES ?docType { <https://www.ica.org/standards/RiC/ontology#DocumentaryFormType> <https://www.ica.org/standards/RiC/ontology#RecordState> <https://www.ica.org/standards/RiC/ontology#RecordSetType> }" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#TypeItem>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que \"copie authentique\" (très peu utiisé dans ce corpus)."@fr ;
                 rdfs:label "Type de document"@fr .
 
@@ -515,4 +542,4 @@ rdfs:Literal rdf:type owl:Class .
                                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
