@@ -75,7 +75,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div id="logo">
-        <h1><a href="index.html" data-i18n="page.title"></a></h1>
+        <h1><a href="index-A.html" data-i18n="page.title"></a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -125,8 +125,17 @@
 
         <!-- -->
         <div class="row">
-          <div style="font-style: italic; font-size:0.9em;">
-            <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
+          <div class="col-md">       
+
+            <div style="font-style: italic; font-size:0.9em;">
+              <button type="button" class="btn btn-success" data-i18n="actions.execute" id="trigger-search"></button>&nbsp;&nbsp;
+              <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="float-end"></div>
           </div>
         </div>
 
@@ -279,6 +288,7 @@
             'actions.toggle': 'Toggle SPARQL editor',
             'actions.share': 'Share',            
             'actions.export': 'Export',
+            'actions.execute': 'Search',
             'share.modal.title': 'Direct query link',
             'share.modal.close': 'Close',
             'export.modal.title': 'Query as JSON',
@@ -295,6 +305,7 @@
             'actions.toggle': 'Afficher/Masquer éditeur SPARQL',
             'actions.share': 'Partager',            
             'actions.export': 'Exporter',
+            'actions.execute': 'Rechercher',
             'share.modal.title': 'Lien direct vers la requête',
             'share.modal.close': 'Fermer',
             'export.modal.title': 'Requête JSON',
@@ -324,7 +335,7 @@
             queryString = orderByPostProcess(queryString);
             $('#sparql code').html(queryString.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
             yasqe.setValue(queryString);
-            yasqe.query();
+            // yasqe.query();
 
             // save query
             document.getElementById('query-json').value = JSON.stringify(queryJson);
@@ -356,7 +367,7 @@
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
-        
+
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
@@ -368,7 +379,7 @@
       orderByPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 100");
         // queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT (STR(?theLabel) AS ?label) ?this");
-        // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 1000");
+        queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?theLabel LIMIT 10000");
         return queryString;
       }
 
@@ -436,6 +447,10 @@
         if(sampleQueries.hasOwnProperty(key)) {
             sparnatural.loadQuery(sampleQueries[key]) ;
         }
+      }
+
+      document.getElementById('trigger-search').onclick = function() {
+        yasqe.query();
       }
     </script>
   </script>
