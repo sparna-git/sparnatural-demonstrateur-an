@@ -70,6 +70,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aExerceDansQuartier
 :aExerceDansQuartier rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                     owl:inverseOf :estQuartierDExerciceDe ;
                      rdfs:domain :Notaire ;
                      rdfs:range :QuartierOuParoisse ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
@@ -80,7 +81,12 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourActivite
 :aPourActivite rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-               rdfs:domain :Personne ;
+               owl:inverseOf :estActiviteDe ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :Notaire
+                                           :Personne
+                                         )
+                           ] ;
                rdfs:range :Activite ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
@@ -172,7 +178,6 @@
                  owl:inverseOf :estProvenanceDe ;
                  rdfs:domain [ rdf:type owl:Class ;
                                owl:unionOf ( :Archive
-                                             :Fonds
                                              :GroupeDeDocuments
                                              :Item
                                              :ListeActes
@@ -213,17 +218,15 @@
           owl:inverseOf :estConcernePar ;
           rdfs:domain [ rdf:type owl:Class ;
                         owl:unionOf ( :Archive
-                                      :Fonds
                                       :GroupeDeDocuments
                                       :Item
-                                      :ListeActes
                                       :MentionActe
                                       :Record
-                                      :Repertoire
                                     )
                       ] ;
           rdfs:range [ rdf:type owl:Class ;
-                       owl:unionOf ( :Edifice
+                       owl:unionOf ( :Activite
+                                     :Edifice
                                      :Lieu
                                      :Notaire
                                      :Organization
@@ -240,11 +243,19 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerneActivite
 :concerneActivite rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                  rdfs:domain :Item ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( :Archive
+                                              :GroupeDeDocuments
+                                              :Item
+                                              :ListeActes
+                                              :MentionActe
+                                              :Record
+                                            )
+                              ] ;
                   rdfs:range :Activite ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
-                  rdfs:label "concerne"@fr .
+                  rdfs:label "concerne l'activité"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
@@ -333,6 +344,20 @@
                   rdfs:label "Date de fin d'existence"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estActiviteDe
+:estActiviteDe rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+               rdfs:domain :Activite ;
+               rdfs:range [ rdf:type owl:Class ;
+                            owl:unionOf ( :Notaire
+                                          :Personne
+                                        )
+                          ] ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
+               rdfs:label "est l'activité de"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estConcernePar
 :estConcernePar rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
@@ -349,13 +374,10 @@
                             ] ;
                 rdfs:range [ rdf:type owl:Class ;
                              owl:unionOf ( :Archive
-                                           :Fonds
                                            :GroupeDeDocuments
                                            :Item
-                                           :ListeActes
                                            :MentionActe
                                            :Record
-                                           :Repertoire
                                          )
                            ] ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#isOrWasSubjectOf>" ;
@@ -370,15 +392,14 @@
                rdfs:domain [ rdf:type owl:Class ;
                              owl:unionOf ( :Archive
                                            :GroupeDeDocuments
+                                           :Item
                                            :ListeActes
                                            :Record
                                          )
                            ] ;
                rdfs:range [ rdf:type owl:Class ;
                             owl:unionOf ( :Archive
-                                          :Fonds
                                           :GroupeDeDocuments
-                                          :ListeActes
                                           :Repertoire
                                         )
                           ] ;
@@ -419,7 +440,6 @@
                              ] ;
                  rdfs:range [ rdf:type owl:Class ;
                               owl:unionOf ( :Archive
-                                            :Fonds
                                             :GroupeDeDocuments
                                             :Item
                                             :ListeActes
@@ -473,15 +493,14 @@
         rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
         rdfs:domain [ rdf:type owl:Class ;
                       owl:unionOf ( :Archive
-                                    :Fonds
                                     :GroupeDeDocuments
-                                    :ListeActes
                                     :Repertoire
                                   )
                     ] ;
         rdfs:range [ rdf:type owl:Class ;
                      owl:unionOf ( :Archive
                                    :GroupeDeDocuments
+                                   :Item
                                    :ListeActes
                                    :Record
                                  )
