@@ -265,7 +265,7 @@
                                      )
                        ] ;
            rdfs:range :Date ;
-           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
+           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
            rdfs:label "a pour date de début"@fr .
 
 
@@ -289,7 +289,7 @@
                                               )
                                 ] ;
                     rdfs:range :Date ;
-                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
                     rdfs:label "date de début d'existence"@fr .
 
 
@@ -308,7 +308,7 @@
                                    )
                      ] ;
          rdfs:range :Date ;
-         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
          rdfs:label "a pour date de fin"@fr .
 
 
@@ -332,7 +332,7 @@
                                             )
                               ] ;
                   rdfs:range :Date ;
-                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
                   rdfs:label "Date de fin d'existence"@fr .
 
 
