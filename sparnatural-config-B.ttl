@@ -218,6 +218,17 @@
                  rdfs:label "a pour successeur"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourType
+:aPourType rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :Archive
+                                       :GroupeDeDocuments
+                                     )
+                       ] ;
+           rdfs:label "a pour type"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeDocument
 :aPourTypeDeDocument rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
@@ -231,6 +242,20 @@
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>|<https://www.ica.org/standards/RiC/ontology#hasRecordState>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
                      rdfs:label "a pour type de document"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeGroupeDocuments
+:aPourTypeGroupeDocuments rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Archive
+                                                      :GroupeDeDocuments
+                                                    )
+                                      ] ;
+                          rdfs:range :TypeGroupeDocuments ;
+                          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasRecordSetType>" ;
+                          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
+                          rdfs:label "a pour type de groupe de documents"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aRelationFamilialeAvec
@@ -804,6 +829,13 @@ rdfs:Literal rdf:type owl:Class .
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#PlaceType>"@fr ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> ""@fr ;
             rdfs:label "Type de lieu"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#TypeGroupeDocuments
+:TypeGroupeDocuments rdf:type owl:Class ;
+                     rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#RecordSetType>" ;
+                     rdfs:label "Type de groupe de documents"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Voie
