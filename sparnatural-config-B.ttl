@@ -692,6 +692,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Personne
 :Personne rdf:type owl:Class ;
           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-user" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
           rdfs:label "Personne"@fr .
