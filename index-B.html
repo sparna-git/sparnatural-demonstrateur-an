@@ -348,12 +348,15 @@
         if(queryString.indexOf("rdf-schema#") == -1) {
           queryString = queryString.replace("SELECT ", "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \nSELECT ");
         }
+        queryString = queryString.replace("SELECT ", "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> \nSELECT ");
         return queryString;
       }
 
       displayLabelPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
-        queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+        // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+        queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
+
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
