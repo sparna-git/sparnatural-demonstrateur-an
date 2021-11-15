@@ -97,7 +97,12 @@
     <!-- ======= Sparnatural Section ======= -->
     <section id="sparnatural-section">
       <div class="container">
-
+        <div class="row">
+          <div class="col-md">
+            <p>Ce démonstrateur, construit avec l'outil <a href="http://sparnatural.eu" target="_blank">Sparnatural</a> (en cours d'évolution) vous permet d'interroger une partie des métadonnées décrivant les archives des notaires de Paris conservées aux Archives nationales. Ces métadonnées ont été sémantisées conformément à l'ontologie <a href="https://www.ica.org/standards/RiC/ontology">RiC-O (Records In Contexts)</a>. Ce démonstrateur est lui-même <b>en cours de développement</b> ; de plus les métadonnées qu'il permet d'interroger sont susceptibles d'évoluer dans les prochaines semaines. Par ailleurs les IRIs des ressources RDF ne sont actuellement pas déréférençables.</p>
+            <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface simple et généraliste d'exploration dans ces métadonnées</b>, qui pourrait être utilisée pour d'autres métadonnées archivistiques.</p>
+          </div>
+        </div>
         <div class="row" style="padding-bottom:10px;">
           <div class="col-md-6">
             <form>
@@ -127,7 +132,7 @@
         <div class="row">
           <div class="col-md">       
 
-            <div style="font-style: italic; font-size:0.9em;">
+            <div style="font-style: italic; font-size:0.9em; padding-top:0.3em; padding-left:0.3em;">
               <button type="button" class="btn btn-success" data-i18n="actions.execute" id="trigger-search"></button>&nbsp;&nbsp;
               <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
             </div>
