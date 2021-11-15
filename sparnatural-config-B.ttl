@@ -170,7 +170,7 @@
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourProvenance
 :aPourProvenance rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :aPourMembre ;
+                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                  owl:inverseOf :estProvenanceDe ;
                  rdfs:domain [ rdf:type owl:Class ;
                                owl:unionOf ( :Archive
