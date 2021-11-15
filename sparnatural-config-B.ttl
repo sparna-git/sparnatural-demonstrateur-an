@@ -197,6 +197,16 @@
                  rdfs:label "a pour provenance"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSuccesseur
+:aPourSuccesseur rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                 rdfs:domain :Notaire ;
+                 rdfs:range :Notaire ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "(<https://www.ica.org/standards/RiC/ontology#agentIsSourceOfAgentTemporalRelation>/<https://www.ica.org/standards/RiC/ontology#agentTemporalRelationHasTarget>)+" ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
+                 rdfs:label "a pour successeur"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeDocument
 :aPourTypeDeDocument rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
@@ -210,6 +220,16 @@
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>|<https://www.ica.org/standards/RiC/ontology#hasRecordState>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
                      rdfs:label "a pour type de document"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aRelationFamilialeAvec
+:aRelationFamilialeAvec rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                        rdfs:domain :Notaire ;
+                        rdfs:range :Notaire ;
+                        <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#personHasFamilyRelation>/<https://www.ica.org/standards/RiC/ontology#familyRelationConnects>" ;
+                        <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
+                        rdfs:label "a une relation familiale avec"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerne
