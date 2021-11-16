@@ -709,6 +709,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#MotMatiere
 :MotMatiere rdf:type owl:Class ;
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-tags" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 18 ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre. Exemples : église; guerre 1914-1918."@fr ;
