@@ -411,6 +411,8 @@
 
       // link yasqe and yasr
       yasqe.on("queryResponse", function(_yasqe, response, duration) {
+        document.getElementById('trigger-search').disabled = false;
+        document.getElementById('trigger-search').classList.remove('disabled');
         yasr.setResponse(response, duration);
       });
 
@@ -456,6 +458,8 @@
       }
 
       document.getElementById('trigger-search').onclick = function() {
+        document.getElementById('trigger-search').disabled = true;
+        document.getElementById('trigger-search').classList.add('disabled');
         yasqe.query();
       }
     </script>
