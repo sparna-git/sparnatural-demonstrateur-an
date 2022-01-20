@@ -18,8 +18,13 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/timeline.css" rel="stylesheet">
 
   <!-- Sparnatural-specific -->
+
+    <!-- Vis.js for timeline -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+
 
     <!-- Font Awesome -->    
     <link rel="stylesheet" href="assets/fa/css/all.min.css" />
@@ -241,6 +246,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/demo.js"></script>
+  <script src="assets/js/timeline.js"></script>
   <script src="sampleQueries-A.js"></script>
 
   <!-- Sparnatural-specific -->
@@ -255,6 +261,9 @@
 
     <!-- YASGUI stuff -->
     <script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>
+
+    <!-- vis.js for the timeline -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 
     <!-- Sparnatural Javascript -->
     <script type="text/javascript" src="./sparnatural.js"></script>
@@ -372,20 +381,20 @@
       displayLabelPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
-        queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
+        // queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
 
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
         // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
-        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT (STR(?theLabel) AS ?nom) (IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");
+        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ((IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/'))))) AS ?page)");
         return queryString;
       }
 
       orderByPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 100");
         // queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT (STR(?theLabel) AS ?label) ?this");
-        queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?theLabel LIMIT 10000");
+        queryString = queryString.replace(new RegExp('}$'), "}\nLIMIT 10000");
         return queryString;
       }
 
@@ -404,8 +413,12 @@
         copyEndpointOnNewTab: false
       });
 
+      Yasr.registerPlugin("Timeline",Timeline);
       const yasr = new Yasr(document.getElementById("yasr"), {
-        pluginOrder: ["table"]
+        pluginOrder: ["table", "Timeline"],
+        // disable persistency
+        persistencyExpire: 0,
+        maxPersistentResponseSize: 0
       });
 
 
