@@ -346,7 +346,10 @@
       displayLabelPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
-        // queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
+        if(queryString.includes("?this WHERE")) {
+          queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
+          queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT ?this (STR(?theLabel) AS ?label)");
+        }
 
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
