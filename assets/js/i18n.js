@@ -17,7 +17,10 @@ $.i18n().load( {
         'export.modal.title': 'Query as JSON',
         'export.modal.close': 'Close',
         'example.placeholder': 'Load example query...',
-        'example.1.title': 'Les archives qui concernent J.-B. Poquelin'
+        'example.A.1.title': 'Les archives qui concernent J.-B. Poquelin',
+        'example.A.2.title': 'Inventaires après décès d\'orfèvres au 17e siècle',
+        'example.B.1.title': 'Groupes de documents produits par des notaires ayant exercé dans le quartier StGermain l\'Auxerrois entre 1550 et 1700',
+        'example.B.2.title': 'Items concernant le Louvre et ayant une copie numérique',
       },
       'fr': {
         'page.title': 'Records In Contexts + Sparnatural : démonstrateur Archives nationales',
@@ -37,7 +40,9 @@ $.i18n().load( {
         'export.modal.title': 'Requête JSON',
         'export.modal.close': 'Fermer',
         'example.placeholder': 'Charger une requête d\'exemple...',
-        'example.1.title': 'Les archives qui concernent J.-B. Poquelin',
-        'example.2.title': 'Inventaires après décès d\'orfèvres au 17e siècle',
+        'example.A.1.title': 'Les archives qui concernent J.-B. Poquelin',
+        'example.A.2.title': 'Inventaires après décès d\'orfèvres au 17e siècle',
+        'example.B.1.title': 'Groupes de documents produits par des notaires ayant exercé dans le quartier StGermain l\'Auxerrois entre 1550 et 1700',
+        'example.B.2.title': 'Items concernant le Louvre et ayant une copie numérique',
       }
   } ); 
