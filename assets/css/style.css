@@ -44,7 +44,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  /* background: linear-gradient(45deg, #1de099, #1dc8cd); */
+  background: linear-gradient(45deg, #67caf2, #44708e);
   color: #fff;
   border-radius: 4px 4px 0 0;
   right: 15px;
@@ -84,7 +85,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 90px;
   transition: all 0.5s;
   z-index: 997;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  /* background: linear-gradient(45deg, #1de099, #1dc8cd); */
+  background: linear-gradient(45deg, #67caf2, #44708e);
 }
 
 #header.header-transparent {
