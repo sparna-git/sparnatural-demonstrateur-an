@@ -757,6 +757,7 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> "11" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
           rdfs:label "Personne"@fr .
 
 
@@ -776,6 +777,7 @@ rdfs:Literal rdf:type owl:Class .
         <http://data.sparna.fr/ontologies/sparnatural-config-core#order> "05" ;
         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Record>" ;
         <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute pièce d'archives au sein des archives notariales, hors répertoires. Inclut en particulier les minutes notariales."@fr ;
+        <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourIntitule ;
         rdfs:label "Document"@fr .
 
 

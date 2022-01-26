@@ -396,6 +396,7 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 1 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourIntitule ;
           rdfs:label "Archives"@fr .
 
 
@@ -479,6 +480,7 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 2 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
           rdfs:label "Personne"@fr .
 
 

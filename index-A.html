@@ -270,6 +270,7 @@
 
     <!-- Sparnatural Javascript -->
     <script type="text/javascript" src="./sparnatural.js"></script>
+    <script type="text/javascript" src="./sparnatural-yasgui-plugins.js"></script>
 
     <!-- Json url (Compression) -->
     <script src="https://cdn.jsdelivr.net/gh/masotime/json-url@master/dist/browser/json-url.js"></script>
@@ -350,17 +351,21 @@
       displayLabelPostProcess = function(queryString) {
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
         // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+        /*
         if(queryString.includes("?this WHERE")) {
           queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
           queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT ?this (STR(?theLabel) AS ?label)");
         }
+        */
         
 
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
         // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
+        /*
         queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ((IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/'))))) AS ?page)");
+        */
         return queryString;
       }
 
@@ -386,9 +391,20 @@
         copyEndpointOnNewTab: false
       });
 
+      Yasr.registerPlugin("LabelledUriTable",SparnaturalYasguiPlugins.TableX);
       Yasr.registerPlugin("Timeline",Timeline);
+      Yasr.plugins.LabelledUriTable.defaults.labelledUriAdapter = function(uri) {
+        console.log("adapter called on "+uri);
+        if(uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
+          return "https://sparnatural-demo-anf.huma-num.fr/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
+        } else {
+          return uri;
+        }
+      };
+      delete Yasr.plugins['table'];
+      delete Yasr.plugins['response'];
       const yasr = new Yasr(document.getElementById("yasr"), {
-        pluginOrder: ["table", "Timeline"],
+        pluginOrder: ["LabelledUriTable", "Timeline"],
         // disable persistency
         persistencyExpire: 0,
         maxPersistentResponseSize: 0
