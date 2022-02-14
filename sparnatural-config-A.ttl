@@ -18,6 +18,10 @@
 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> rdf:type owl:AnnotationProperty .
 
 
+###  http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty
+<http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> rdf:type owl:AnnotationProperty .
+
+
 ###  http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString
 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> rdf:type owl:AnnotationProperty .
 
@@ -363,6 +367,8 @@
                                        :Personne
                                      )
                        ] ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent qui produit, accumule ou gère cette ressource."@fr ;
             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
@@ -393,10 +399,10 @@ rdfs:Literal rdf:type owl:Class .
 :Archives rdf:type owl:Class ;
           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-archive" ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourIntitule ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 1 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourIntitule ;
           rdfs:label "Archives"@fr .
 
 
@@ -419,6 +425,7 @@ rdfs:Literal rdf:type owl:Class .
 :DocumentaryFormType rdf:type owl:Class ;
                      rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#DocumentaryFormType>" ;
                      rdfs:label "Type de document"@fr .
 
@@ -434,8 +441,9 @@ rdfs:Literal rdf:type owl:Class .
 :Lieu rdf:type owl:Class ;
       rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-map-marker-alt" ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 4 ;
-      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>"@fr ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute entité géo-historique, qu'il s'agisse d'un lieu habité, d'un édifice, d'une circonscription, d'un lieu naturel. Ici, inclut notamment les quartiers et paroisses de Paris, les voies parisiennes et les édifices mentionnés dans les archives notariales, qu'ils existent toujours ou non."@fr ;
       rdfs:label "Lieu"@fr .
 
@@ -477,10 +485,10 @@ rdfs:Literal rdf:type owl:Class .
 :Personne rdf:type owl:Class ;
           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-user" ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 2 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
           rdfs:label "Personne"@fr .
 
 
@@ -551,4 +559,11 @@ rdfs:Literal rdf:type owl:Class .
                                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#query_list_label_with_range_count> .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_toto_alpha
+:list_toto_alpha rdf:type owl:NamedIndividual ,
+                          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://my.com> ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_alpha> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
