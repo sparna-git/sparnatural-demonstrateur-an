@@ -441,7 +441,7 @@ rdfs:Literal rdf:type owl:Class .
 :Lieu rdf:type owl:Class ;
       rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-map-marker-alt" ;
-      <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 4 ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute entité géo-historique, qu'il s'agisse d'un lieu habité, d'un édifice, d'une circonscription, d'un lieu naturel. Ici, inclut notamment les quartiers et paroisses de Paris, les voies parisiennes et les édifices mentionnés dans les archives notariales, qu'ils existent toujours ou non."@fr ;
@@ -452,6 +452,7 @@ rdfs:Literal rdf:type owl:Class .
 :MotMatiere rdf:type owl:Class ;
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-tags" ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 6 ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
             rdfs:comment "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
@@ -468,6 +469,7 @@ rdfs:Literal rdf:type owl:Class .
 :Organization rdf:type owl:Class ;
               rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> :aPourNom ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 3 ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody>" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et surtout toutes les collectivités mentionnées dans les archives notariales."@fr ;
@@ -505,6 +507,7 @@ rdfs:Literal rdf:type owl:Class .
 :TypeDOrganisation rdf:type owl:Class ;
                    rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                    <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "far fa-building" ;
+                   <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBodyType>" ;
                    rdfs:label "Type d'organisme"@fr .
 
@@ -513,6 +516,7 @@ rdfs:Literal rdf:type owl:Class .
 :TypeDeDocument rdf:type owl:Class ;
                 rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#TypeItem>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que \"copie authentique\" (très peu utiisé dans ce corpus)."@fr ;
@@ -522,6 +526,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#TypeDeLieu
 :TypeDeLieu rdf:type owl:Class ;
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#PlaceType>"@fr ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> ""@fr ;
             rdfs:label "Type de lieu"@fr .
