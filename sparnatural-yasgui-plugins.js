@@ -27232,8 +27232,10 @@ var TableX = /** @class */ (function () {
         return bindings.map(function (binding, rowId) { return __spreadArray([rowId + 1], vars.map(function (variable) { var _a; return (_a = binding[variable]) !== null && _a !== void 0 ? _a : ""; }), true); });
     };
     TableX.prototype.getUriLinkFromBinding = function (binding, prefixes) {
-        var href = binding.value;
-        var visibleString = href;
+        // ***** TableX MODIFICATION
+        var href = (this.config.uriHrefAdapter) ? this.config.uriHrefAdapter(binding.value) : binding.value;
+        var visibleString = binding.value;
+        // ***** TableX MODIFICATION    
         var prefixed = false;
         if (prefixes) {
             for (var prefixLabel in prefixes) {
@@ -27250,7 +27252,7 @@ var TableX = /** @class */ (function () {
     };
     // ***** TableX MODIFICATION
     TableX.prototype.getLabelledUriLinkFromBinding = function (binding) {
-        var href = (this.config.labelledUriAdapter) ? this.config.labelledUriAdapter(binding.value) : binding.value;
+        var href = (this.config.uriHrefAdapter) ? this.config.uriHrefAdapter(binding.value) : binding.value;
         var visibleString = binding.label;
         // Hide brackets when prefixed or compact
         return "<a class='iri' target='".concat(this.config.openIriInNewWindow ? "_blank" : "_self", "'").concat(this.config.openIriInNewWindow ? " ref='noopener noreferrer'" : "", " href='").concat(href, "'>").concat(visibleString, "</a>");
@@ -27543,7 +27545,7 @@ var TableX = /** @class */ (function () {
                 },
             },
         },
-        labelledUriAdapter: undefined,
+        uriHrefAdapter: undefined,
     };
     return TableX;
 }());

@@ -389,7 +389,7 @@
 
       Yasr.registerPlugin("LabelledUriTable",SparnaturalYasguiPlugins.TableX);
       Yasr.registerPlugin("Timeline",Timeline);
-      Yasr.plugins.LabelledUriTable.defaults.labelledUriAdapter = function(uri) {
+      Yasr.plugins.LabelledUriTable.defaults.uriHrefAdapter = function(uri) {
         console.log("adapter called on "+uri);
         if(uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
           return "https://sparnatural-demo-anf.huma-num.fr/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
