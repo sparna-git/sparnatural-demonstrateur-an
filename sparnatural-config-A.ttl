@@ -405,6 +405,7 @@ rdfs:Literal rdf:type owl:Class .
 :Activite rdf:type owl:Class ;
           rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-briefcase" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#ActivityType>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionné dans un document."@fr ;
           rdfs:label "Activité"@fr .
@@ -449,6 +450,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Intitule
 :Intitule rdf:type owl:Class ;
           rdfs:subClassOf rdfs:Literal ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-paragraph" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Un intitulé ou une analyse brève d'une ressource archivistique, en général établie par un archiviste."@fr ;
           rdfs:label "Intitulé"@fr .
 
@@ -478,6 +480,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Nom
 :Nom rdf:type owl:Class ;
      rdfs:subClassOf rdfs:Literal ;
+     <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-signature" ;
      rdfs:label "Nom"@fr .
 
 
@@ -542,6 +545,7 @@ rdfs:Literal rdf:type owl:Class .
 :TypeDeLieu rdf:type owl:Class ;
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-globe" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#PlaceType>"@fr ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorisation des lieux"@fr ;
             rdfs:label "Type de lieu"@fr .
