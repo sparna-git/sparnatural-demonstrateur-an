@@ -331,16 +331,6 @@
                  rdfs:label "a produit"@fr .
 
 
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estTypeDeDocumentDe
-:estTypeDeDocumentDe rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
-                     rdfs:domain :TypeDeDocument ;
-                     rdfs:range :Archives ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>|^<https://www.ica.org/standards/RiC/ontology#hasRecordState>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
-                     rdfs:label "est le type de document de"@fr .
-
-
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#exerceDansLieu
 :exerceDansLieu rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
@@ -444,8 +434,8 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#DocumentaryFormType
 :DocumentaryFormType rdf:type owl:Class ;
                      rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#DocumentaryFormType>" ;
                      rdfs:label "Type de document"@fr .
 
@@ -473,7 +463,7 @@ rdfs:Literal rdf:type owl:Class .
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-tags" ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 6 ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
             rdfs:comment "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
             rdfs:label "Mot-matière"@fr .
@@ -537,9 +527,8 @@ rdfs:Literal rdf:type owl:Class .
                 rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#TypeItem>" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que \"copie authentique\" (très peu utiisé dans ce corpus)."@fr ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que \"copie authentique\" (très peu utilisé dans ce corpus)."@fr ;
                 rdfs:label "Type de document"@fr .
 
 
