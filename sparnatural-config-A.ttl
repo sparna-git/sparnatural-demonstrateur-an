@@ -141,6 +141,16 @@
                      rdfs:label "a pour type de document"@fr .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeLieu
+:aPourTypeDeLieu rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                 rdfs:domain :Lieu ;
+                 rdfs:range :TypeDeLieu ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType>" ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_skospreflabel_alpha_with_count> ;
+                 rdfs:label "a pour type de lieu"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#a_une_reproduction
 :a_une_reproduction rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#NonSelectableProperty> ;
@@ -536,7 +546,7 @@ rdfs:Literal rdf:type owl:Class .
             rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#PlaceType>"@fr ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> ""@fr ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorisation des lieux"@fr ;
             rdfs:label "Type de lieu"@fr .
 
 
