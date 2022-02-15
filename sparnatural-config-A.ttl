@@ -64,6 +64,7 @@
                rdfs:domain :Personne ;
                rdfs:range :Activite ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une personne et l'activité qu'elle occupe."@fr ;
                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_alpha ;
                rdfs:label "a pour activité"@fr .
 
@@ -174,6 +175,7 @@
           <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent qui est concerné par cette ressource."@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
           rdfs:label "concerne"@fr .
 
@@ -184,6 +186,7 @@
                   rdfs:domain :Archives ;
                   rdfs:range :Activite ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à une activité qu'elle concerne."@fr ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
                   rdfs:label "concerne"@fr .
 
@@ -269,6 +272,7 @@
                             ] ;
                 rdfs:range :Archives ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie un agent à une ressource archivistique qui le concerne."@fr ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
                 rdfs:label "est concerné par"@fr .
 
@@ -327,6 +331,7 @@
                              ] ;
                  rdfs:range :Archives ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie un agent qui produit, accumule ou gère une ressource archivistique à cette ressource."@fr ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_count> ;
                  rdfs:label "a produit"@fr .
 
@@ -413,7 +418,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 1 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
-          rdfs:label "Archives"@fr .
+          rdfs:label "Archives"@fr ,
+                     "Records"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Cote
