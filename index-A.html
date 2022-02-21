@@ -136,7 +136,6 @@
           <div class="col-md">       
 
             <div style="font-style: italic; font-size:0.9em; padding-top:0.3em; padding-left:0.3em;">
-              <button type="button" class="btn btn-success" data-i18n="actions.execute" id="trigger-search"></button>&nbsp;&nbsp;
               <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
             </div>
           </div>
@@ -324,6 +323,13 @@
 
             // save query
             document.getElementById('query-json').value = JSON.stringify(queryJson);
+          },
+          // triggered when "play" button is clicked
+          onSubmit: function(form) {
+            // enable loader on button
+            form.sparnatural.enableLoading() ; 
+            // trigger the query from YasQE
+            yasqe.query();
           }
         });
 
@@ -413,9 +419,8 @@
 
       // link yasqe and yasr
       yasqe.on("queryResponse", function(_yasqe, response, duration) {
-        document.getElementById('trigger-search').disabled = false;
-        document.getElementById('trigger-search').classList.remove('disabled');
         yasr.setResponse(response, duration);
+        sparnatural.disableLoading() ;
       });
 
       document.getElementById('sparql-toggle').onclick = function() {
@@ -459,11 +464,6 @@
         }
       }
 
-      document.getElementById('trigger-search').onclick = function() {
-        document.getElementById('trigger-search').disabled = true;
-        document.getElementById('trigger-search').classList.add('disabled');
-        yasqe.query();
-      }
     </script>
   </script>
 
