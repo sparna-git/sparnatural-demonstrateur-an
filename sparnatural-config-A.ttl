@@ -63,9 +63,9 @@
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                rdfs:domain :Personne ;
                rdfs:range :Activite ;
-               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> :list_skospreflabel_with_range_count ,
+                                                                                       "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une personne et l'activité qu'elle occupe."@fr ;
-               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_alpha ;
                rdfs:label "a pour activité"@fr .
 
 
