@@ -435,7 +435,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-briefcase" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#ActivityType>"@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionné dans un document."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionné dans un document."@fr ,
+                                                                             "The occupation or function of a person. Can be mentioned in a document."@en ;
           rdfs:label "Activité"@fr ,
                      "Occupation"@en .
 
@@ -447,7 +448,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-archive" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 1 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#Archive>" ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any type of archival resource, whether it is an item (such as a minute or a registry) or a group of documents (series of minutes or registry of a notary, bundle of minutes, client file...)."@en ,
+                                                                             "Tout type de ressource archivistique, qu'il s'agisse d'un item (comme une minute ou un répertoire) ou d'un groupe de documents (série des minutes ou des répertoires d'un notaire, liasse de minutes, dossier de client...)."@fr ;
           rdfs:label "Archives"@fr ,
                      "Records"@en .
 
@@ -455,7 +457,8 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Cote
 :Cote rdf:type owl:Class ;
       rdfs:subClassOf rdfs:Literal ;
-      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La référence d'une ressource archivistique, attribuée à cette ressource par l'institution qui la conserve. Nécessaire lorsqu'on veut accéder à cette ressource dans la salle de lecture."@fr ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La référence d'une ressource archivistique, attribuée à cette ressource par l'institution qui la conserve. Nécessaire lorsqu'on veut accéder à cette ressource dans la salle de lecture."@fr ,
+                                                                         "The reference of an archival resource, assigned to that resource by the institution that holds it. It is necessary when accessing the resource in the reading room."@en ;
       rdfs:label "Cote"@fr ,
                  "Shelfmark"@en .
 
@@ -464,7 +467,8 @@ rdfs:Literal rdf:type owl:Class .
 :Date rdf:type owl:Class ;
       rdfs:subClassOf rdfs:Literal ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "far fa-calendar-alt" ;
-      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Une date associée à une entité historique telle que ressource archivistique, personne, organisme...)."@fr ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "A date associated with a historical entity such as an archival resource, person, organization..."@en ,
+                                                                         "Une date associée à une entité historique telle que ressource archivistique, personne, organisme..."@fr ;
       rdfs:label "Date"@en ,
                  "Date"@fr .
 
@@ -483,7 +487,8 @@ rdfs:Literal rdf:type owl:Class .
 :Intitule rdf:type owl:Class ;
           rdfs:subClassOf rdfs:Literal ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-paragraph" ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Un intitulé ou une analyse brève d'une ressource archivistique, en général établie par un archiviste."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "A title or brief analysis of an archival resource, usually by an archivist."@en ,
+                                                                             "Un intitulé ou une analyse brève d'une ressource archivistique, en général établie par un archiviste."@fr ;
           rdfs:label "Intitulé"@fr ,
                      "Title"@en .
 
@@ -495,7 +500,8 @@ rdfs:Literal rdf:type owl:Class .
       <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-map-marker-alt" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 4 ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>" ;
-      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute entité géo-historique, qu'il s'agisse d'un lieu habité, d'un édifice, d'une circonscription, d'un lieu naturel. Ici, inclut notamment les quartiers et paroisses de Paris, les voies parisiennes et les édifices mentionnés dans les archives notariales, qu'ils existent toujours ou non."@fr ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any geo-historical entity, be it an inhabited place, a building, a district, a natural place. Here, it includes the districts and parishes of Paris, the Parisian roads and the buildings mentioned in the notarial archives, whether they still exist or not."@en ,
+                                                                         "Toute entité géo-historique, qu'il s'agisse d'un lieu habité, d'un édifice, d'une circonscription, d'un lieu naturel. Ici, inclut notamment les quartiers et paroisses de Paris, les voies parisiennes et les édifices mentionnés dans les archives notariales, qu'ils existent toujours ou non."@fr ;
       rdfs:label "Lieu"@fr ,
                  "Place"@en .
 
@@ -507,6 +513,7 @@ rdfs:Literal rdf:type owl:Class .
             <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-tags" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any thing that is neither an agent nor a place, and that can be the subject of an archival resource. It can be a material object, an event, a concept, etc. It may have a proper name."@en ;
             rdfs:comment "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
             rdfs:label "Mot-matière"@fr ,
                        "Subject"@en .
@@ -516,6 +523,8 @@ rdfs:Literal rdf:type owl:Class .
 :Nom rdf:type owl:Class ;
      rdfs:subClassOf rdfs:Literal ;
      <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-signature" ;
+     <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Name of a person, place, etc."@en ,
+                                                                        "Nom d'une personne, d'un lieu, etc."@fr ;
      rdfs:label "Name"@en ,
                 "Nom"@fr .
 
@@ -527,7 +536,8 @@ rdfs:Literal rdf:type owl:Class .
               <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 3 ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody>" ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et surtout toutes les collectivités mentionnées dans les archives notariales."@fr ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "An organization, i.e., a group of persons with an identity or a social status. It includes notary offices, and especially all organizations mentioned in the notarial records."@en ,
+                                                                                 "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et surtout toutes les collectivités mentionnées dans les archives notariales."@fr ;
               rdfs:label "Organisme"@fr ,
                          "Organization"@en .
 
@@ -546,7 +556,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-user" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 2 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any person. It includes notaries, and especially any person mentioned in notarial records."@en ,
+                                                                             "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
           rdfs:label "Person"@en ,
                      "Personne"@fr .
 
@@ -556,7 +567,8 @@ rdfs:Literal rdf:type owl:Class .
                        rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                        <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-images" ;
                        <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#CopieNumerique>" ;
-                       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Une copie numérique fidèle et intégrale d'une ressource archivistique, produite à des fins de communication aux publics comme substitut de l’original."@fr ;
+                       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "A true and complete digital copy of an archival resource, produced for the purpose of communication to the public as a substitute for the original."@en ,
+                                                                                          "Une copie numérique fidèle et intégrale d'une ressource archivistique, produite à des fins de communication aux publics comme substitut de l’original."@fr ;
                        rdfs:label "Digital surrogate"@en ,
                                   "Reproduction numérique"@fr .
 
@@ -567,6 +579,8 @@ rdfs:Literal rdf:type owl:Class .
                    <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
                    <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "far fa-building" ;
                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBodyType>" ;
+                   <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Categorization of organizations"@en ,
+                                                                                      "Catégorisation des organisations"@fr ;
                    rdfs:label "Organization type"@en ,
                               "Type d'organisme"@fr .
 
@@ -577,7 +591,8 @@ rdfs:Literal rdf:type owl:Class .
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://data.archives-nationales.culture.gouv.fr/documentaryFormTypes>" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que \"copie authentique\" (très peu utilisé dans ce corpus)."@fr ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte, catégorie intellectuelle d'une ressource archivistique. Utilisé pour catégoriser les minutes notariales. Inclut aussi les états des documents, tel que copie authentique (très peu utilisé dans ce corpus)."@fr ,
+                                                                                   "Legal category of a record, intellectual category of an archival resource. It is used to categorize notarial minutes. It also includes states of documents, such as authentic copy (rarely used in this corpus)."@en ;
                 rdfs:label "Documentary form type"@en ,
                            "Type de document"@fr .
 
@@ -588,7 +603,8 @@ rdfs:Literal rdf:type owl:Class .
             <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-globe" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#PlaceType>"@fr ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorisation des lieux"@fr ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Categorization of places"@en ,
+                                                                               "Catégorisation des lieux"@fr ;
             rdfs:label "Place type"@en ,
                        "Type de lieu"@fr .
 
