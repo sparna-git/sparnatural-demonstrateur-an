@@ -119,7 +119,6 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourSujet
 :aPourSujet rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-            owl:inverseOf :estLeSujetDe ;
             rdfs:domain :Archives ;
             rdfs:range :MotMatiere ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
@@ -307,17 +306,6 @@
                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
                 rdfs:label "est concerné par"@fr ,
                            "has subject"@en .
-
-
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estLeSujetDe
-:estLeSujetDe rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
-              rdfs:domain :MotMatiere ;
-              rdfs:range :Archives ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#search_rdfslabel_contains> ;
-              rdfs:label "est le sujet de"@fr ,
-                         "is subject of"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estLieuExercice
