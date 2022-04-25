@@ -146,7 +146,7 @@
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower_with_count> ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skosinScheme_with_count> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept_with_count> ;
                      rdfs:label "a pour type de document"@fr ,
                                 "has documentary form type"@en .
 
