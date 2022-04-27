@@ -207,7 +207,7 @@
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#date
 :date rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
+      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Date> ;
       rdfs:domain :Archives ;
       rdfs:range :Date ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#beginDateProperty> :dateDebut ;
