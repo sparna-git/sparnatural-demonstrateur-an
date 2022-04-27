@@ -657,7 +657,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_skospreflabel_with_range_count_langfr
 :list_skospreflabel_with_range_count_langfr rdf:type owl:NamedIndividual ,
                                                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
-                                            <http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> "http://www.w3.org/2004/02/skos/core#prefLabel" ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
                                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_list_prefskoslabel_with_range_count_langfr .
 
 
