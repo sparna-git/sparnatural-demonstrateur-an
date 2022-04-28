@@ -19,10 +19,6 @@
 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> rdf:type owl:AnnotationProperty .
 
 
-###  http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty
-<http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> rdf:type owl:AnnotationProperty .
-
-
 ###  http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString
 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> rdf:type owl:AnnotationProperty .
 
