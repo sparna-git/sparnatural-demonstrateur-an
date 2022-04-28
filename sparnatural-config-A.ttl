@@ -18,10 +18,6 @@
 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> rdf:type owl:AnnotationProperty .
 
 
-###  http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty
-<http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> rdf:type owl:AnnotationProperty .
-
-
 ###  http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString
 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> rdf:type owl:AnnotationProperty .
 
@@ -145,8 +141,8 @@
                      rdfs:domain :Archives ;
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower_with_count> ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept_with_count> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept> ;
                      rdfs:label "a pour type de document"@fr ,
                                 "has documentary form type"@en .
 
