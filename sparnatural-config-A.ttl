@@ -371,7 +371,7 @@
                 rdfs:domain :Personne ;
                 rdfs:range :Lieu ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
                 rdfs:label "a exercé dans le lieu"@fr ,
                            "has location"@en .
 
