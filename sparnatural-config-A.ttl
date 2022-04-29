@@ -153,7 +153,7 @@
                  rdfs:domain :Lieu ;
                  rdfs:range :TypeDeLieu ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType>" ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_skospreflabel_alpha_with_count> ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_alpha_with_count_langfr ;
                  rdfs:label "a pour type de lieu"@fr ,
                             "has place type"@en .
 
@@ -636,6 +636,13 @@ rdfs:Literal rdf:type owl:Class .
                                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#query_list_label_with_range_count> .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_skospreflabel_alpha_with_count_langfr
+:list_skospreflabel_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_list_skospreflabel_alpha_with_count_langfr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_skospreflabel_with_range_alpha
 :list_skospreflabel_with_range_alpha rdf:type owl:NamedIndividual ,
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
@@ -694,6 +701,28 @@ WHERE {
 FILTER(lang(?theLabel) = \"\" || lang(?theLabel) = $lang || lang(?theLabel) = 'fr')
 }
 ORDER BY DESC(?count) UCASE(?label)
+LIMIT 500""" .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_list_skospreflabel_alpha_with_count_langfr
+:query_list_skospreflabel_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SPARQLQuery> ;
+                                                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """SELECT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+  SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+  WHERE {
+    ?domain a $domain .
+    ?domain $property ?uri .
+    FILTER(isIRI(?uri))
+    # Note how the range criteria is not used in this query
+  }
+  GROUP BY ?uri
+}
+?uri $labelPath ?theLabel .
+FILTER(lang(?theLabel) = \"\" || lang(?theLabel) = $lang || lang(?theLabel) = \"fr\")
+}
+ORDER BY UCASE(?label)
 LIMIT 500""" .
 
 
