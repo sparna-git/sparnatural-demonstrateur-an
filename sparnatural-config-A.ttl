@@ -356,7 +356,7 @@
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasProvenance>" ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Links an agent that produces, accumulates, or manages an archival resource to this resource."@en ,
                                                                                     "Relie un agent qui produit, accumule ou gère une ressource archivistique à cette ressource."@fr ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_count> ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_count_langfr ;
                  rdfs:label "a produit"@fr ,
                             "is provenance of"@en .
 
@@ -615,6 +615,13 @@ rdfs:Literal rdf:type owl:Class .
 #    Individuals
 #################################################################
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_rdfslabel_count_langfr
+:list_rdfslabel_count_langfr rdf:type owl:NamedIndividual ,
+                                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
+                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> rdfs:label ;
+                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_list_label_count_langfr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_rdfslabel_with_range_alpha
 :list_rdfslabel_with_range_alpha rdf:type owl:NamedIndividual ,
                                           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
@@ -662,6 +669,28 @@ rdfs:Literal rdf:type owl:Class .
                                                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
                                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
                                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_list_prefskoslabel_with_range_count_langfr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_list_label_count_langfr
+:query_list_label_count_langfr rdf:type owl:NamedIndividual ,
+                                        <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SPARQLQuery> ;
+                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """SELECT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+  SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+  WHERE {
+    ?domain a $domain .
+    ?domain $property ?uri .
+    FILTER(isIRI(?uri))
+    # Note how the range criteria is not used in this query
+  }
+  GROUP BY ?uri
+}
+?uri $labelPath ?theLabel .
+FILTER(lang(?theLabel) = \"\" || lang(?theLabel) = $lang || lang(?theLabel) = \"fr\")
+}
+ORDER BY DESC(?count) UCASE(?label)
+LIMIT 500""" .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_list_label_with_range_alpha_langfr
