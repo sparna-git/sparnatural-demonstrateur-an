@@ -18,6 +18,10 @@
 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> rdf:type owl:AnnotationProperty .
 
 
+###  http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty
+<http://data.sparna.fr/ontologies/sparnatural-config-core#labelProperty> rdf:type owl:AnnotationProperty .
+
+
 ###  http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString
 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> rdf:type owl:AnnotationProperty .
 
@@ -119,7 +123,7 @@
             rdfs:domain :Archives ;
             rdfs:range :MotMatiere ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
             rdfs:label "a pour sujet"@fr ,
                        "has subject"@en .
 
@@ -141,8 +145,8 @@
                      rdfs:domain :Archives ;
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower> ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower_with_count> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept_with_count> ;
                      rdfs:label "a pour type de document"@fr ,
                                 "has documentary form type"@en .
 
@@ -153,7 +157,7 @@
                  rdfs:domain :Lieu ;
                  rdfs:range :TypeDeLieu ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadPlaceType>" ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_skospreflabel_alpha_with_count> ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_alpha_with_count_langfr ;
                  rdfs:label "a pour type de lieu"@fr ,
                             "has place type"@en .
 
@@ -330,7 +334,7 @@
              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#personIsTargetOfMembershipRelation>/<https://www.ica.org/standards/RiC/ontology#membershipRelationHasSource>" ;
              <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Connects a person to an organization."@en ,
                                                                                 "Relie une personne à un organisme."@fr ;
-             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_count> ;
+             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha_langfr ;
              rdfs:label "appartient à"@fr ,
                         "is member of"@en .
 
@@ -367,7 +371,7 @@
                 rdfs:domain :Personne ;
                 rdfs:range :Lieu ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
                 rdfs:label "a exercé dans le lieu"@fr ,
                            "has location"@en .
 
@@ -636,6 +640,13 @@ rdfs:Literal rdf:type owl:Class .
                                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#query_list_label_with_range_count> .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_skospreflabel_alpha_with_count_langfr
+:list_skospreflabel_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_list_skospreflabel_alpha_with_count_langfr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#list_skospreflabel_with_range_alpha
 :list_skospreflabel_with_range_alpha rdf:type owl:NamedIndividual ,
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
@@ -697,4 +708,26 @@ ORDER BY DESC(?count) UCASE(?label)
 LIMIT 500""" .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_list_skospreflabel_alpha_with_count_langfr
+:query_list_skospreflabel_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SPARQLQuery> ;
+                                                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """SELECT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+  SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+  WHERE {
+    ?domain a $domain .
+    ?domain $property ?uri .
+    FILTER(isIRI(?uri))
+    # Note how the range criteria is not used in this query
+  }
+  GROUP BY ?uri
+}
+?uri $labelPath ?theLabel .
+FILTER(lang(?theLabel) = \"\" || lang(?theLabel) = $lang || lang(?label) = 'fr')
+}
+ORDER BY UCASE(?label)
+LIMIT 500""" .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
