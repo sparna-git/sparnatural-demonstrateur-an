@@ -317,7 +317,7 @@
                                           )
                             ] ;
                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>"@fr ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
                  rdfs:label "est le lieu d'exercice de"@fr ,
                             "is place of"@en .
 
@@ -388,7 +388,7 @@
                          rdfs:domain :Organization ;
                          rdfs:range :Lieu ;
                          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                         <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count ;
+                         <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
                          rdfs:label "exerce dans lieu"@fr ,
                                     "is located in"@en .
 
