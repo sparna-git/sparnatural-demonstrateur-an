@@ -141,8 +141,8 @@
                      rdfs:domain :Archives ;
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_children_skosnarrower> ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#tree_root_skostopconcept> ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> :tree_children_skosnarrower_with_count_langfr ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> :tree_root_skostopconcept_with_count_langfr ;
                      rdfs:label "a pour type de document"@fr ,
                                 "has documentary form type"@en .
 
@@ -802,11 +802,122 @@ ORDER BY UCASE(?label)
 LIMIT 50""" .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_tree_children_langfr
+:query_tree_children_langfr rdf:type owl:NamedIndividual ;
+                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """# Selects the children of a node
+SELECT DISTINCT ?uri ?label ?hasChildren
+WHERE {
+  $node $childrenPath ?uri .
+  ?uri $labelPath ?label .
+  FILTER(isIRI(?uri))
+  FILTER(lang(?label) = '' || lang(?label) = $lang || lang(?label) = 'fr')
+  OPTIONAL {
+  	?uri $childrenPath ?children .
+  }
+  BIND(IF(bound(?children),true,false) AS ?hasChildren)
+}
+ORDER BY UCASE(?label)""" .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#query_tree_children_with_count_langfr
+:query_tree_children_with_count_langfr rdf:type owl:NamedIndividual ;
+                                       <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """SELECT ?uri (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label) ?hasChildren (COUNT(?x) AS ?count)
+WHERE {
+  {
+    SELECT DISTINCT ?uri ?theLabel ?hasChildren
+    WHERE {
+      $node $childrenPath ?uri .
+      ?uri $labelPath ?theLabel .
+      FILTER(isIRI(?uri))
+      FILTER(lang(?theLabel) = '' || lang(?theLabel) = $lang || lang(?theLabel) = 'fr')
+      OPTIONAL {
+        ?uri $childrenPath ?children .
+      }
+      BIND(IF(bound(?children),true,false) AS ?hasChildren)
+    }
+  }
+
+  OPTIONAL {
+    ?x a $domain .
+    ?x $property ?uri .
+    # no range criteria
+    # ?uri a $range .
+  }
+}
+GROUP BY ?uri ?theLabel ?hasChildren
+ORDER BY UCASE(?label)""" .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#search_rdfslabel_contains_langfr
 :search_rdfslabel_contains_langfr rdf:type owl:NamedIndividual ,
                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> rdfs:label ;
                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_search_label_contains_langfr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_children_skosnarrower_langfr
+:tree_children_skosnarrower_langfr rdf:type owl:NamedIndividual ,
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeChildrenDatasource> ;
+                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_langfr ;
+                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#childrenPath> "<http://www.w3.org/2004/02/skos/core#narrower>|^<http://www.w3.org/2004/02/skos/core#broader>" ;
+                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_children_skosnarrower_with_count_langfr
+:tree_children_skosnarrower_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                       <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeChildrenDatasource> ;
+                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_with_count_langfr ;
+                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#childrenPath> "<http://www.w3.org/2004/02/skos/core#narrower>|^<http://www.w3.org/2004/02/skos/core#broader>" ;
+                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_root_skostopconcept_langfr
+:tree_root_skostopconcept_langfr rdf:type owl:NamedIndividual ,
+                                          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeRootDatasource> ;
+                                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT ?uri ?label ?hasChildren
+WHERE {
+  $range skos:hasTopConcept|^skos:topConceptOf ?uri .
+  ?uri skos:prefLabel ?label .
+  FILTER(isIRI(?uri))
+  FILTER(lang(?label) = '' || lang(?label) = $lang  || lang(?label) = 'fr')
+  OPTIONAL {
+    ?uri skos:narrower|^skos:broader ?children .
+  }
+  BIND(IF(bound(?children),true,false) AS ?hasChildren)
+}
+ORDER BY UCASE(?label)""" .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_root_skostopconcept_with_count_langfr
+:tree_root_skostopconcept_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeRootDatasource> ;
+                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?uri (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label) ?hasChildren (COUNT(?x) AS ?count)
+WHERE {
+  {
+    SELECT DISTINCT ?uri ?theLabel ?hasChildren
+    WHERE {
+      $range skos:hasTopConcept|^skos:topConceptOf ?uri .
+      ?uri skos:prefLabel ?theLabel .
+      FILTER(isIRI(?uri))
+      FILTER(lang(?theLabel) = '' || lang(?theLabel) = $lang || lang(?theLabel) = 'fr')
+      OPTIONAL {
+        ?uri skos:narrower|^skos:broader ?children .
+      }
+      BIND(IF(bound(?children),true,false) AS ?hasChildren)
+    }
+  }
+
+  OPTIONAL {
+    ?x a $domain .
+    ?x $property ?uri .
+    # no range criteria
+    # ?uri a $range .
+  }
+}
+GROUP BY ?uri ?theLabel ?hasChildren
+ORDER BY UCASE(?label)""" .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
