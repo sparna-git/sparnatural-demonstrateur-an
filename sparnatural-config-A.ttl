@@ -223,14 +223,13 @@
       <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#endDateProperty> :dateFin ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#exactDateProperty> <https://www.ica.org/standards/RiC/ontology#date> ;
-      rdfs:label "production period"@en ,
-                 "période de production"@fr .
+      rdfs:label "creation date"@en ,
+                 "ont pour date de création"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
 :dateDebut rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-           rdfs:domain :Archives ;
            rdfs:range :Date ;
            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
            rdfs:label "a pour date de début"@fr ,
@@ -268,7 +267,6 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateFin
 :dateFin rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-         rdfs:domain :Archives ;
          rdfs:range :Date ;
          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
          rdfs:label "a pour date de fin"@fr ,
