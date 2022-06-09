@@ -59,6 +59,8 @@
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                rdfs:domain :Personne ;
                rdfs:range :Activite ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Connects a person and the activity he occupies."@en ,
                                                                                   "Relie une personne et l'activité qu'elle occupe."@fr ;
@@ -81,8 +83,10 @@
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
                rdfs:domain :Archives ;
                rdfs:range :Intitule ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2000/01/rdf-schema#label>" ;
-               rdfs:label "contient dans l'intitulé"@fr ,
+               rdfs:label "contiennent dans l'intitulé"@fr ,
                           "has title"@en .
 
 
@@ -118,10 +122,12 @@
             rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
             rdfs:domain :Archives ;
             rdfs:range :MotMatiere ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
-            rdfs:label "a pour sujet"@fr ,
-                       "has subject"@en .
+            rdfs:label "have subject"@en ,
+                       "ont pour sujet"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDOrganisation
@@ -129,6 +135,8 @@
                         rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                         rdfs:domain :Organization ;
                         rdfs:range :TypeDOrganisation ;
+                        <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                        <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCorporateBodyType>" ;
                         <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_alpha_with_count_langfr ;
                         rdfs:label "a pour type d'organisme"@fr ,
@@ -143,8 +151,8 @@
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> :tree_children_skosnarrower_with_count_langfr ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> :tree_root_skostopconcept_with_count_langfr ;
-                     rdfs:label "a pour type de document"@fr ,
-                                "has documentary form type"@en .
+                     rdfs:label "have documentary form type"@en ,
+                                "ont pour type de document"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeLieu
@@ -163,9 +171,11 @@
                     rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#NonSelectableProperty> ;
                     rdfs:domain :Archives ;
                     rdfs:range :ReproductionNumerique ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasInstantiation>" ;
-                    rdfs:label "a pour copie numérique"@fr ,
-                               "has digital surrogate"@en .
+                    rdfs:label "have digital surrogate"@en ,
+                               "ont pour copie numérique"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerne
@@ -184,8 +194,8 @@
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent qui est concerné par cette ressource."@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha_langfr ;
-          rdfs:label "concerne"@fr ,
-                     "has subject"@en .
+          rdfs:label "concernent"@fr ,
+                     "have subject"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#concerneActivite
@@ -193,12 +203,14 @@
                   rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                   rdfs:domain :Archives ;
                   rdfs:range :Activite ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>" ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Links an archival resource to an activity it concerns."@en ,
                                                                                      "Relie une ressource archivistique à une activité qu'elle concerne."@fr ;
                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
-                  rdfs:label "concerne"@fr ,
-                             "has subject"@en .
+                  rdfs:label "concernent"@fr ,
+                             "have subject"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#date
@@ -207,18 +219,19 @@
       rdfs:domain :Archives ;
       rdfs:range :Date ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#beginDateProperty> :dateDebut ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#endDateProperty> :dateFin ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#exactDateProperty> <https://www.ica.org/standards/RiC/ontology#date> ;
-      rdfs:label "period"@en ,
-                 "période"@fr .
+      rdfs:label "creation date"@en ,
+                 "ont pour date de création"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
 :dateDebut rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-           rdfs:domain :Archives ;
            rdfs:range :Date ;
-           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
+           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
            rdfs:label "a pour date de début"@fr ,
                       "has beginning date"@en .
 
@@ -254,9 +267,8 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateFin
 :dateFin rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
-         rdfs:domain :Archives ;
          rdfs:range :Date ;
-         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>|<https://www.ica.org/standards/RiC/ontology#date>" ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
          rdfs:label "a pour date de fin"@fr ,
                     "has end date"@en .
 
@@ -303,7 +315,7 @@
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Links an agent to an archival resource that concerns it."@en ,
                                                                                    "Relie un agent à une ressource archivistique qui le concerne."@fr ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :search_rdfslabel_contains_langfr ;
-                rdfs:label "est concerné par"@fr ,
+                rdfs:label "est concerné(e) par"@fr ,
                            "is subject of"@en .
 
 
@@ -366,6 +378,8 @@
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                 rdfs:domain :Personne ;
                 rdfs:range :Lieu ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
                 rdfs:label "a exercé dans le lieu"@fr ,
@@ -377,9 +391,11 @@
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
                 rdfs:domain :Archives ;
                 rdfs:range :Nom ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>/<http://www.w3.org/2000/01/rdf-schema#label>" ;
-                rdfs:label "cites an agent name"@en ,
-                           "mentionne un agent qui a pour nom"@fr .
+                rdfs:label "cite an agent name"@en ,
+                           "mentionnent un agent qui a pour nom"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#organismeExerceDansLieu
@@ -387,6 +403,8 @@
                          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
                          rdfs:domain :Organization ;
                          rdfs:range :Lieu ;
+                         <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+                         <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
                          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
                          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
                          rdfs:label "exerce dans lieu"@fr ,
@@ -408,8 +426,8 @@
             <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Links an archival resource to an agent that produces, accumulates, or manages that resource."@en ,
                                                                                "Relie une ressource archivistique à un agent qui produit, accumule ou gère cette ressource."@fr ;
             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha_langfr ;
-            rdfs:label "a pour provenance"@fr ,
-                       "has provenance"@en .
+            rdfs:label "have provenance"@en ,
+                       "ont pour provenance"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#skosPrefLabel
@@ -858,17 +876,17 @@ ORDER BY UCASE(?label)""" .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_children_skosnarrower_langfr
 :tree_children_skosnarrower_langfr rdf:type owl:NamedIndividual ,
                                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeChildrenDatasource> ;
-                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_langfr ;
                                    <http://data.sparna.fr/ontologies/sparnatural-config-datasources#childrenPath> "<http://www.w3.org/2004/02/skos/core#narrower>|^<http://www.w3.org/2004/02/skos/core#broader>" ;
-                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_langfr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_children_skosnarrower_with_count_langfr
 :tree_children_skosnarrower_with_count_langfr rdf:type owl:NamedIndividual ,
                                                        <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlTreeChildrenDatasource> ;
-                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_with_count_langfr ;
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#childrenPath> "<http://www.w3.org/2004/02/skos/core#narrower>|^<http://www.w3.org/2004/02/skos/core#broader>" ;
-                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" .
+                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+                                              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_with_count_langfr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_root_skostopconcept_langfr

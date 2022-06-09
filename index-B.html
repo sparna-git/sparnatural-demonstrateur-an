@@ -84,16 +84,23 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link" href="index.html"><span data-i18n="menu.home"></span></a></li>
           <li><a class="nav-link" href="index-A.html"><span data-i18n="menu.demonstrateur-A"></span></a></li>
           <li><a class="nav-link" href="index-B.html"><span data-i18n="menu.demonstrateur-B"></span></a></li>
-          <li><a class="nav-link" href="sparnatural-demo-archives-nationales.html"><span data-i18n="menu.presentation"></span></a></li>
-          <li class="dropdown"><a href="#"><i style="font-size:25px;" class="fad fa-globe-africa"></i>&nbsp;<span>Lang.</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><i style="font-size:25px;" class="fad fa-book"></i>&nbsp;<span>Documentation</span> <i class="bi bi-chevron-down"></i></a>
             <ul style="width:80%;">
-              <li><a href="?lang=fr">fr</a></li>
-              <li><a href="?lang=en">en</a></li>
+              <li><a href="presentation-fr.html">Français</a></li>
+              <li><a href="presentation-en.html">English</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.home"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
+          <li class="dropdown"><a href="#"><i style="font-size:25px;" class="fad fa-globe-africa"></i>&nbsp;<span>Lang.</span> <i class="bi bi-chevron-down"></i></a>
+            <ul style="width:80%;">
+              <li><a href="?lang=fr">Français</a></li>
+              <li><a href="?lang=en">English</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="mentions-legales.html"><span data-i18n="menu.mentions-legales"></span></a></li>
+          <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
           <li><a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:200px;" /></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -105,8 +112,8 @@
     <section id="sparnatural-section">
       <div class="container">
         <div class="row">
+          <h1 data-i18n="page.title"></h1>
           <div class="col-md">
-            <p>Ce démonstrateur, construit avec l'outil <a href="http://sparnatural.eu" target="_blank">Sparnatural</a> (en cours d'évolution) vous permet d'interroger une partie des métadonnées décrivant les archives des notaires de Paris conservées aux Archives nationales. Ces métadonnées ont été sémantisées conformément à l'ontologie <a href="https://www.ica.org/standards/RiC/ontology">RiC-O (Records In Contexts)</a>. Le démonstrateur est lui-même <b>en cours de développement</b> ; de plus les métadonnées qu'il permet d'interroger sont susceptibles d'évoluer dans les prochaines semaines. Par ailleurs les IRIs des ressources RDF ne sont actuellement pas déréférençables.</p>
             <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface d'exploration dans ces métadonnées qui s'appuie sur les spécificités des archives notariales</b>.</p>
           </div>
         </div>
