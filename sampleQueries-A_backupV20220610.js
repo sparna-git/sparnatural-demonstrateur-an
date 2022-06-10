@@ -47,7 +47,7 @@ var sampleQueries = {
 	    "?this"
 	  ],
 	  "branches": [
-    {
+	    {
 	      "line": {
 	        "s": "?this",
 	        "p": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourTypeDeDocument",
@@ -98,24 +98,43 @@ var sampleQueries = {
 	      "notExists": false
 	    },
 	    {
-      "line": {
-        "s": "?this",
-        "p": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#date",
-        "o": "?Date_4",
-        "sType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Archives",
-        "oType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Date",
-        "values": [
-          {
-            "label": "de 1600 à 1700",
-            "fromDate": "1600-01-01T00:00:00",
-            "toDate": "1700-01-01T23:59:59"
-          }
-        ]
-      },
-      "children": [],
-      "optional": false,
-	  "notExists": false
-    }
-    ]
+	      "line": {
+	        "s": "?this",
+	        "p": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut",
+	        "o": "?Date_4",
+	        "sType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Archives",
+	        "oType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Date",
+	        "values": [
+	          {
+	            "label": "A partir de 1600",
+	            "fromDate": "1600-01-01T00:00:00",
+	            "toDate": null
+	          }
+	        ]
+	      },
+	      "children": [],
+	      "optional": false,
+	      "notExists": false
+	    },
+	    {
+	      "line": {
+	        "s": "?this",
+	        "p": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateFin",
+	        "o": "?Date_5",
+	        "sType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Archives",
+	        "oType": "https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Date",
+	        "values": [
+	          {
+	            "label": "Jusqu'à 1700",
+	            "fromDate": null,
+	            "toDate": "1700-12-31T23:59:59"
+	          }
+	        ]
+	      },
+	      "children": [],
+	      "optional": false,
+	      "notExists": false
+	    }
+	  ]
 	}
 };

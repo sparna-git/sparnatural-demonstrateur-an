@@ -1,86 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Sparnatural Archives nationales : Démonstrateur</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Font Awesome -->    
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sparnatural Archives nationales : Démonstrateur</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i"
+      rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/fa/css/all.min.css" />
-
     <!-- YASGUI CSS -->
-    <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet"
+      type="text/css" />
     <!-- datepicker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
-
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
     <!-- Sparnatural CSS -->
     <link href="sparnatural.css" rel="stylesheet" />
-
     <style>
-
       #sparnatural-section {
-        padding-top: 115px;
-        height: auto;
-        overflow: visible;
+          padding-top: 115px;
+          height: auto;
+          overflow: visible;
       }
-
+      
       #contact {
-        margin-top:40px;
-        padding: 0px;
-        padding-top: 20px;
-      }
-
-    </style>
-
-  <!-- /Sparnatural-specific -->
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex justify-content-between align-items-center">
-
-      <div id="logo">
-        
+          margin-top: 40px;
+          padding: 0px;
+          padding-top: 20px;
+      }</style>
+    <!-- /Sparnatural-specific -->
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div id="logo"> </div>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link" href="index.html">
+                <span data-i18n="menu.home"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="index-A.html">
+                <span data-i18n="menu.demonstrateur-A"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="index-B.html">
+                <span data-i18n="menu.demonstrateur-B"></span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#"><i style="font-size:25px;" class="fad fa-book"
+                  ></i>&nbsp;<span>Documentation</span>
+                <i class="bi bi-chevron-down"></i></a>
+              <ul style="width:80%;">
+                <li>
+                  <a href="presentation-fr.html">Français</a>
+                </li>
+                <li>
+                  <a href="presentation-en.html">English</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link" href="mentions-legales.html">
+                <span data-i18n="menu.mentions-legales"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"
+                  ></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a>
+            </li>
+            <li>
+              <a href="https://www.archives-nationales.culture.gouv.fr/">
+                <img src="assets/img/archives-nationales.png" style="width:200px;" />
+              </a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link" href="index.html"><span data-i18n="menu.home"></span></a></li>
-          <li><a class="nav-link" href="index-A.html"><span data-i18n="menu.demonstrateur-A"></span></a></li>
-          <li><a class="nav-link" href="index-B.html"><span data-i18n="menu.demonstrateur-B"></span></a></li>
-          <li class="dropdown"><a href="#"><i style="font-size:25px;" class="fad fa-book"></i>&nbsp;<span>Documentation</span> <i class="bi bi-chevron-down"></i></a>
-            <ul style="width:80%;">
-              <li><a href="presentation-fr.html">Français</a></li>
-              <li><a href="presentation-en.html">English</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link" href="mentions-legales.html"><span data-i18n="menu.mentions-legales"></span></a></li>
-          <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
-          <li><a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:200px;" /></a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-  </header><!-- End Header -->
-
+    </header>
+    <!-- End Header -->
     <!-- ======= Sparnatural Section ======= -->
     <section id="sparnatural-section">
       <div class="container">
@@ -88,104 +102,142 @@
           <h1>Mentions légales</h1>
           <div class="col-md">
             <h4>Conditions de réutilisation des données</h4>
-            <p>Les données RDF interrogeables par la présente application web ont été produites par les Archives nationales. Il s’agit d’informations publiques ; l’usager dispose d’un droit non exclusif et gratuit de libre réutilisation de ces données à des fins commerciales ou non, dans le monde entier et pour une durée illimitée. Il doit accompagner chaque rediffusion des informations de l’indication précise de l’origine des métadonnées : « Archives nationales (France), date de ces métadonnées (juin 2022), métadonnées du démonstrateur Sparnatural ». <br>Voir à ce sujet la page : <a href="https://www.archives-nationales.culture.gouv.fr/fr/web/guest/reutilisation-des-donnees-publiques">Réutilisation des données publiques sur le site des Archives nationales</a>.</p>
-            <p>Les textes constituant la documentation et les autres documents de mise en contexte publiés par l’équipe projet au sein du site web sont mis à disposition selon les termes de la licence Creative Commons « Attribution – Pas d’Utilisation Commerciale – Partage dans les Mêmes Conditions ; 4.0 International (CC-BY-NC-SA 4.0) » (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr</a>).</p>
+            <p>Les données RDF interrogeables par la présente application web ont été produites par
+              les Archives nationales. Il s’agit d’informations publiques ; l’usager dispose d’un
+              droit non exclusif et gratuit de libre réutilisation de ces données à des fins
+              commerciales ou non, dans le monde entier et pour une durée illimitée. Il doit
+              accompagner chaque rediffusion des informations de l’indication précise de l’origine
+              des métadonnées : « Archives nationales (France), date de ces métadonnées (juin 2022),
+              métadonnées du démonstrateur Sparnatural ». <br>Voir à ce sujet la page : <a
+                href="https://www.archives-nationales.culture.gouv.fr/fr/web/guest/reutilisation-des-donnees-publiques"
+                >Réutilisation des données publiques sur le site des Archives nationales</a>.</p>
+            <p>Les textes constituant la documentation et les autres documents de mise en contexte
+              publiés par l’équipe projet au sein du site web sont mis à disposition selon les
+              termes de la licence Creative Commons « Attribution – Pas d’Utilisation Commerciale –
+              Partage dans les Mêmes Conditions ; 4.0 International (CC-BY-NC-SA 4.0) » (<a
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"
+                >http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr</a>).</p>
           </div>
           <div>
             <h4>Téléchargement</h4>
             <p>À venir</p>
-           <!-- <h4>Avertissement</h4>-->
+            <!--<h4>Avertissement</h4>
+            <p>Les Archives nationales ne disposent pas à ce jour d'application web leur permettant
+              de publier et de rendre accessibles aux humains et aux machines (sparql end point)
+              leurs données au format RDF/XML. Par conséquent les IRIs des entités décrites dans ces
+              données - celles commençant par http://data.archives-nationales.culture.gouv.fr/,
+              segment de base fourni dans l'attribut xml:base de l'élément racine rdf:RDF de chaque
+              fichier) - ne sont pas déréférençables. La partie variable de ces IRIs utilise
+              cependant l'identifiant unique et pérenne de l'entité décrite dans la version de ces
+              métadonnées qui est interne aux Archives nationales.</p>-->
           </div>
           <div class="col-md">
             <h4>Crédits</h4>
-            <p>Le démonstrateur a été réalisé par la société Sparna et par le Lab des Archives nationales. Le démonstrateur utilise une version de l’éditeur open source de requêtes Sparnatural développée dans le cadre d’un projet associant les Archives nationales, la BnF et le département du Numérique pour la transformation des politiques culturelles et l’administration des données du ministère de la Culture.</p>
-              <p>Le triplestore RDF dans lequel sont stockées les données est une instance du logiciel libre GraphDB Free, que la TGIR Huma-Num héberge sur sa grille de services.</p>
+            <p>Le démonstrateur a été réalisé par la société Sparna et par le Lab des Archives
+              nationales. Le démonstrateur utilise une version de l’éditeur open source de requêtes
+              Sparnatural développée dans le cadre d’un projet associant les Archives nationales, la
+              BnF et le département du Numérique pour la transformation des politiques culturelles
+              et l’administration des données du ministère de la Culture.</p>
+            <p>Le triplestore RDF dans lequel sont stockées les données est une instance du logiciel
+              libre GraphDB Free, que la TGIR Huma-Num héberge sur sa grille de services.</p>
             <h5>Équipe projet</h5>
-              <ul>
-                <li>Société Sparna : Thomas Francart, Antoine Dupré, Célia Pigner</li>
-                <li>Lab des Archives nationales : Florence Clavaud, Pauline Charbonnier (en concertation avec le Département du Minutier central des notaires de Paris des Archives nationales : Françoise Aujogue, Danis Habib, Marie-Françoise Limon-Bonnet, Mélisa Locatelli, Aurélia Rostaing)</li>
-                <!--<li>Avec l’aide du Minutier central des notaires de Paris : Françoise Aujogue, Danis Habib, Marie-Françoise Limon-Bonnet, Mélisa Locatelli, Aurélia Rostaing.</li>-->
-              </ul>
-            <p>Nous remercions en outre les participants aux ateliers des 16 et 22 novembre 2021 pour leur contribution active.</p>
+            <ul>
+              <li>Société Sparna : Thomas Francart, Antoine Dupré, Célia Pigner</li>
+              <li>Lab des Archives nationales : Florence Clavaud, Pauline Charbonnier (en
+                concertation avec le Département du Minutier central des notaires de Paris des
+                Archives nationales : Françoise Aujogue, Danis Habib, Marie-Françoise Limon-Bonnet,
+                Mélisa Locatelli, Aurélia Rostaing)</li>
+              <!--<li>Avec l’aide du Minutier central des notaires de Paris : Françoise Aujogue, Danis Habib, Marie-Françoise Limon-Bonnet, Mélisa Locatelli, Aurélia Rostaing.</li>-->
+            </ul>
+            <p>Nous remercions en outre les participants aux ateliers des 16 et 22 novembre 2021
+              pour leur contribution active.</p>
+            <ul>
+              <li>Nathalie Abadie</li>
+              <li>Clément Arnaud</li>
+              <li>Laurence Croq</li>
+              <li>Jean-Michel Duchemin</li>
+              <li>Chloé Fize</li>
+              <li>Jasmine Gherram</li>
+              <li>Julien Le Magueresse</li>
+              <li>Marie-Véronique Leroi</li>
+              <li>Xavier Levoin</li>
+              <li>Jean-François Moufflet</li>
+              <li>Gaetano Piraino</li>
+              <li>Michel Schonn</li>
+              <li>Antoine Silvestre de Sacy</li>
+              <li>Vincent Verdese</li>
+            </ul>
           </div>
           <div class="col-md">
             <h4>Contact</h4>
-            <p>Vous souhaitez nous signaler une erreur, nous poser une question ou en savoir plus sur le projet ?<br>Contactez-nous en écrivant à <a href="le-lab.archives-nationales@culture.gouv.fr">le-lab.archives-nationales@culture.gouv.fr</a> !</p>
-        </div>
+            <p>Vous souhaitez nous signaler une erreur, nous poser une question ou en savoir plus
+              sur le projet ?<br>Contactez-nous en écrivant à <a
+                href="le-lab.archives-nationales@culture.gouv.fr"
+                >le-lab.archives-nationales@culture.gouv.fr</a> !</p>
           </div>
         </div>
-    <!--  </div>-->
-    </section><!-- End Sparnatural Section -->
-
+      </div>
+      <!--  </div>-->
+    </section>
+    <!-- End Sparnatural Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact">
       <div class="container" data-aos="fade-up">
         <div class="row">
-
           <div class="col-lg-2 col-md-2">
             <div class="contact-about">
-              <a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:100%;" /></a>
+              <a href="https://www.archives-nationales.culture.gouv.fr/">
+                <img src="assets/img/archives-nationales.png" style="width:100%;" />
+              </a>
             </div>
           </div>
-
           <div class="col-lg-2 col-md-2">
             <div class="contact-about">
-              <a href="http://sparna.fr"><img src="assets/img/sparna.png" style="width:100%;" /></a>
+              <a href="http://sparna.fr">
+                <img src="assets/img/sparna.png" style="width:100%;" />
+              </a>
             </div>
           </div>
-
-
-
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
-
-  <!--<!-\-<main>-\-></main><!-\- End #main -\->-->
-
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
- 
+    </section>
+    <!-- End Contact Section -->
+    <!--<!-\-<main>-\-></main><!-\- End #main -\->-->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-chevron-up"></i>
+    </a>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-  <!-- /Sparnatural-specific -->
-
-  <!-- i18n -->
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.messagestore.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.fallbacks.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.language.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.parser.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.emitter.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/demo.js"></script>
-  <script src="assets/js/i18n.js"></script>
-
+    <!-- /Sparnatural-specific -->
+    <!-- i18n -->
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.messagestore.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.fallbacks.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.language.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.parser.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.emitter.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script>
-      $.urlParam = function(name){
-        var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-        if(results == null) { return null; }
-        return results[1] || 0;
-      }
-      var lang = ($.urlParam('lang') != null)?$.urlParam('lang'):'fr';
-
-      // set the locale
-      $.i18n( { locale: lang } );  
-       
-      $('body').i18n();
-
-    </script>
-
-</body>
-
+            $.urlParam = function (name) {
+                var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+                if (results == null) {
+                    return null;
+                }
+                return results[1] || 0;
+            }
+            var lang = ($.urlParam('lang') != null) ? $.urlParam('lang'): 'fr';
+            
+            // set the locale
+            $.i18n({
+                locale: lang
+            });
+            
+            $('body').i18n();</script>
+  </body>
 </html>
