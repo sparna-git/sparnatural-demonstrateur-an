@@ -148,7 +148,7 @@
                      rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TreeProperty> ;
                      rdfs:domain :Archives ;
                      rdfs:range :TypeDeDocument ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadCategory>" ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> :tree_children_skosnarrower_with_count_langfr ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> :tree_root_skostopconcept_with_count_langfr ;
                      rdfs:label "have documentary form type"@en ,
@@ -315,7 +315,7 @@
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Links an agent to an archival resource that concerns it."@en ,
                                                                                    "Relie un agent à une ressource archivistique qui le concerne."@fr ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :search_rdfslabel_contains_langfr ;
-                rdfs:label "est concerné(e) par"@fr ,
+                rdfs:label "est le sujet de"@fr ,
                            "is subject of"@en .
 
 
@@ -455,8 +455,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-briefcase" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#OccupationType>" ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionné dans un document."@fr ,
-                                                                             "The occupation or function of a person. Can be mentioned in a document."@en ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La profession ou la fonction d'une personne physique. Peut être mentionnée dans un document."@fr ,
+                                                                             "The occupation or function of a person. Can be mentioned in a record."@en ;
           rdfs:label "Activité"@fr ,
                      "Occupation"@en .
 
@@ -507,7 +507,7 @@ rdfs:Literal rdf:type owl:Class .
 :Intitule rdf:type owl:Class ;
           rdfs:subClassOf rdfs:Literal ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-paragraph" ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "A title or brief analysis of an archival resource, usually by an archivist."@en ,
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "A title or brief analysis of an archival resource, usually prepared by an archivist."@en ,
                                                                              "Un intitulé ou une analyse brève d'une ressource archivistique, en général établie par un archiviste."@fr ;
           rdfs:label "Intitulé"@fr ,
                      "Title"@en .
@@ -533,7 +533,8 @@ rdfs:Literal rdf:type owl:Class .
             <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-tags" ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 5 ;
             <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere>" ;
-            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any thing that is neither an agent nor a place, and that can be the subject of an archival resource. It can be a material object, an event, a concept, etc. It may have a proper name."@en ;
+            <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any thing that is neither an agent nor a place, and that can be the subject of an archival resource. It can be a material object, an event, a concept, etc. It may have a proper name."@en ,
+                                                                               "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
             rdfs:comment "Toute chose qui n'est ni un agent ni un lieu, et qui peut être le sujet d'une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre."@fr ;
             rdfs:label "Mot-matière"@fr ,
                        "Subject"@en .
@@ -938,4 +939,4 @@ GROUP BY ?uri ?theLabel ?hasChildren
 ORDER BY UCASE(?label)""" .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
