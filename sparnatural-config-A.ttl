@@ -192,7 +192,7 @@
           <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadSubject>"@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent qui est concerné par cette ressource."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Relie une ressource archivistique à un agent ou à un lieu qui est concerné par cette ressource."@fr ;
           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha_langfr ;
           rdfs:label "concernent"@fr ,
                      "have subject"@en .
@@ -259,7 +259,7 @@
                                               )
                                 ] ;
                     rdfs:range :Date ;
-                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
+                    <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>|<https://www.ica.org/standards/RiC/ontology#birthDate>" ;
                     rdfs:label "a pour date de début d'existence"@fr ,
                                "has beginning date of existence"@en .
 
@@ -296,7 +296,7 @@
                                             )
                               ] ;
                   rdfs:range :Date ;
-                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>" ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#endDate>|<https://www.ica.org/standards/RiC/ontology#deathDate>" ;
                   rdfs:label "a pour date de fin d'existence"@fr ,
                              "has end date of existence"@en .
 
@@ -345,15 +345,6 @@
              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha_langfr ;
              rdfs:label "appartient à"@fr ,
                         "is member of"@en .
-
-
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estMentionneDans
-:estMentionneDans rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                  rdfs:domain :Personne ;
-                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#isOrWasSubjectOf>/<https://www.ica.org/standards/RiC/ontology#isOrWasDescribedBy>+" ;
-                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_alpha ;
-                  rdfs:label "est mentionné dans"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estProvenanceDe
@@ -477,6 +468,7 @@ rdfs:Literal rdf:type owl:Class .
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Cote
 :Cote rdf:type owl:Class ;
       rdfs:subClassOf rdfs:Literal ;
+      <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-barcode" ;
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La référence d'une ressource archivistique, attribuée à cette ressource par l'institution qui la conserve. Nécessaire lorsqu'on veut accéder à cette ressource dans la salle de lecture."@fr ,
                                                                          "The reference of an archival resource, assigned to that resource by the institution that holds it. It is necessary when accessing the resource in the reading room."@en ;
       rdfs:label "Cote"@fr ,
@@ -557,8 +549,8 @@ rdfs:Literal rdf:type owl:Class .
               <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fad fa-building" ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 3 ;
               <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#CorporateBody>" ;
-              <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "An organization, i.e., a group of persons with an identity or a social status. It includes notary offices, and especially all organizations mentioned in the notarial records."@en ,
-                                                                                 "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et surtout toutes les collectivités mentionnées dans les archives notariales."@fr ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "An organization, i.e., a group of persons with an identity or a social status. It includes notarial offices, and all organizations mentioned in the notarial records."@en ,
+                                                                                 "Un organisme, c'est-à-dire un groupe de personnes physiques ayant une identité ou un statut social. Inclut les études notariales, et toutes les collectivités mentionnées dans les archives notariales."@fr ;
               rdfs:label "Organisme"@fr ,
                          "Organization"@en .
 
@@ -577,8 +569,8 @@ rdfs:Literal rdf:type owl:Class .
           <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-user" ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#order> 2 ;
           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Person>"@fr ;
-          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any person. It includes notaries, and especially any person mentioned in notarial records."@en ,
-                                                                             "Toute personne physique. Inclut les notaires, et surtout toute personne mentionnée dans les archives notariales."@fr ;
+          <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Any person. It includes notaries, and any person mentioned in notarial records."@en ,
+                                                                             "Toute personne physique. Inclut les notaires, et toute personne mentionnée dans les archives notariales."@fr ;
           rdfs:label "Person"@en ,
                      "Personne"@fr .
 
