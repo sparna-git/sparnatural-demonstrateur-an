@@ -716,6 +716,7 @@
 :skosPrefLabel rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+               rdfs:range :Label ;
                rdfs:label "skosPrefLabel"@fr .
 
 
@@ -833,6 +834,11 @@ rdfs:Literal rdf:type owl:Class .
 :Identifiant rdf:type owl:Class ;
              rdfs:subClassOf rdfs:Literal ;
              rdfs:label "Identifiant"@fr .
+
+
+:Label rdf:type owl:Class ;
+             rdfs:subClassOf rdfs:Literal ;
+             rdfs:label "Label"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Intitule
