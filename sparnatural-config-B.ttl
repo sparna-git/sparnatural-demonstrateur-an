@@ -57,7 +57,6 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourActivite
 :aPourActivite rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-               owl:inverseOf :estActiviteDe ;
                rdfs:domain [ rdf:type owl:Class ;
                              owl:unionOf ( :Notaire
                                            :Personne
@@ -72,6 +71,24 @@
                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
                rdfs:label "a pour activité"@fr ,
                           "has occupation"@en .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourAdresse
+:aPourAdresse rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+              owl:inverseOf :estAdresseDe ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( :Etude
+                                          :Notaire
+                                        )
+                          ] ;
+              rdfs:range :Adresse ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
+              rdfs:label "a pour adresse"@fr ,
+                         "has address"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourCote
@@ -123,7 +140,6 @@
              rdfs:domain [ rdf:type owl:Class ;
                            owl:unionOf ( :ActeNotarie
                                          :GroupeDeDocuments
-                                         :MentionActe
                                          :Repertoire
                                        )
                          ] ;
@@ -152,7 +168,8 @@
 :aPourNom rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
           rdfs:domain [ rdf:type owl:Class ;
-                        owl:unionOf ( :Edifice
+                        owl:unionOf ( :Adresse
+                                      :Edifice
                                       :Etude
                                       :Lieu
                                       :Notaire
@@ -207,7 +224,6 @@
             rdfs:domain [ rdf:type owl:Class ;
                           owl:unionOf ( :ActeNotarie
                                         :GroupeDeDocuments
-                                        :MentionActe
                                       )
                         ] ;
             rdfs:range :MotMatiere ;
@@ -324,7 +340,6 @@
                   rdfs:domain [ rdf:type owl:Class ;
                                 owl:unionOf ( :ActeNotarie
                                               :GroupeDeDocuments
-                                              :MentionActe
                                             )
                               ] ;
                   rdfs:range :Activite ;
@@ -467,6 +482,21 @@
                           "is occupation of"@en .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estAdresseDe
+:estAdresseDe rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+              rdfs:domain :Adresse ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( :Etude
+                                         :Notaire
+                                       )
+                         ] ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+              <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
+              rdfs:label "est l'adresse de"@fr ,
+                         "is address of"@en .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estConcernePar
 :estConcernePar rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#AutocompleteProperty> ;
@@ -545,21 +575,6 @@
                                     "is included or mentioned in"@en .
 
 
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estLieuExercice
-:estLieuExercice rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                 rdfs:domain :Lieu ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( :Etude
-                                            :Notaire
-                                          )
-                            ] ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>"@fr ;
-                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
-                 rdfs:label "est le lieu d'exercice de"@fr ,
-                            "is place of"@en .
-
-
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estMembreDe
 :estMembreDe rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
@@ -600,21 +615,57 @@
                             "is provenance of"@en .
 
 
-###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#exerceDansLieu
-:exerceDansLieu rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
-                rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( :Etude
-                                            :Notaire
-                                          )
-                            ] ;
-                rdfs:range :Lieu ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"^^xsd:boolean ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"^^xsd:boolean ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
-                rdfs:label "a exercé dans le lieu"@fr ,
-                           "had location"@en .
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estQuartierOuVoieOuExerce
+:estQuartierOuVoieOuExerce rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                           owl:inverseOf :exerceDansQuartierOuVoie ;
+                           rdfs:domain [ rdf:type owl:Class ;
+                                         owl:unionOf ( :QuartierOuParoisse
+                                                       :Voie
+                                                     )
+                                       ] ;
+                           rdfs:range [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Etude
+                                                      :Notaire
+                                                    )
+                                      ] ;
+                           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>/^<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+                           <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
+                           rdfs:label "est le quartier ou la voie où exerce"@fr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#estSitueDansLieu
+:estSitueDansLieu rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                  rdfs:domain :Adresse ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( :QuartierOuParoisse
+                                             :Voie
+                                           )
+                             ] ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+                  <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
+                  rdfs:label "est situé dans"@fr ,
+                             "has location"@en .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#exerceDansQuartierOuVoie
+:exerceDansQuartierOuVoie rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#ListProperty> ;
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Etude
+                                                      :Notaire
+                                                    )
+                                      ] ;
+                          rdfs:range [ rdf:type owl:Class ;
+                                       owl:unionOf ( :QuartierOuParoisse
+                                                     :Voie
+                                                   )
+                                     ] ;
+                          <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>/<https://www.ica.org/standards/RiC/ontology#hasOrHadLocation>" ;
+                          <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_rdfslabel_with_range_count_langfr ;
+                          rdfs:label "exerce dans le quartier ou la voie"@fr ,
+                                     "performs an activity in the district or street"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#inclut
@@ -752,6 +803,18 @@ rdfs:Literal rdf:type owl:Class .
                      "Occupation"@en .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Adresse
+:Adresse rdf:type owl:Class ;
+         rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :aPourNom ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-at" ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Place>" ;
+         <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Address in Paris."@en ,
+                                                                            "Adresse à Paris."@fr ;
+         rdfs:label "Address"@en ,
+                    "Adresse"@fr .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Cote
 :Cote rdf:type owl:Class ;
       rdfs:subClassOf rdfs:Literal ;
@@ -850,7 +913,7 @@ rdfs:Literal rdf:type owl:Class .
 :Langue rdf:type owl:Class ;
         rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
         <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
-        <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fa-solid fa-language" ;
+        <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-language" ;
         <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#Language>" ;
         rdfs:label "Language"@en ,
                    "Langue"@fr .
