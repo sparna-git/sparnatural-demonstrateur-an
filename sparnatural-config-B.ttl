@@ -147,9 +147,9 @@
              <http://data.sparna.fr/ontologies/sparnatural-config-core#enableNegation> "true"@en ;
              <http://data.sparna.fr/ontologies/sparnatural-config-core#enableOptional> "true"@en ;
              <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasOrHadLanguage>|<https://www.ica.org/standards/RiC/ontology#hasOrHadAllMembersWithLanguage>|<https://www.ica.org/standards/RiC/ontology#hasOrHadSomeMembersWithLanguage>" ;
-             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ,
-                                                                                          "written using the language"@en ;
-             rdfs:label "établi(s) dans la langue"@fr .
+             <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :list_skospreflabel_with_range_count_langfr ;
+             rdfs:label "written using the language"@en ,
+                        "établi(s) dans la langue"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourMembre
