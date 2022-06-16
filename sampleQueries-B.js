@@ -138,10 +138,8 @@ var sampleQueries = {
       "children": []
     }
   ]
-  
-},
-	"example.3" :
-	{
+ },
+	"example.3" :	{
   "distinct": true,
   "variables": [
     "?this",
