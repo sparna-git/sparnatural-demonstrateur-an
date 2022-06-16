@@ -440,7 +440,7 @@
       document.getElementById('share').onclick = function() {
         var compressCodec = JsonUrl('lzma');
         compressCodec.compress(document.getElementById('query-json').value).then(result => {
-          var url = window.location.pathname;
+          var url = window.location.href.split(/[?#]/)[0];
           url += '?query='+result ;
           $('#share-link').text(url);
           $('#share-link').attr('href', url);
