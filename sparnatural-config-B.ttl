@@ -396,6 +396,15 @@
                       "has beginning date"@en .
 
 
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebut
+:dateDebut rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
+           rdfs:range :Date ;
+           <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#beginningDate>" ;
+           rdfs:label "a pour date de début"@fr ,
+                      "has beginning date"@en .
+
+
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#dateDebutExercice
 :dateDebutExercice rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#TimeProperty-Year> ;
@@ -479,7 +488,7 @@
                                         )
                           ] ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "^<https://www.ica.org/standards/RiC/ontology#hasOrHadOccupationOfType>" ;
-               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> :search_rdfslabel_contains_langfr ;
+               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#datasource> <http://data.sparna.fr/ontologies/sparnatural-config-datasources#list_rdfslabel_alpha> ;
                rdfs:label "est l'activité de"@fr ,
                           "is occupation of"@en .
 
@@ -1364,6 +1373,7 @@ ORDER BY UCASE(?label)""" .
                                            <http://data.sparna.fr/ontologies/sparnatural-config-datasources#SparqlDatasource> ;
                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelProperty> rdfs:label ;
                                   <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_search_label_contains_langfr .
+
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_children_skosnarrower_langfr
