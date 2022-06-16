@@ -22,8 +22,10 @@ $.i18n().load( {
         'example.placeholder': 'Load example query...',
         'example.A.1.title': 'Records about Jean-Baptiste Poquelin',
         'example.A.2.title': 'Inventories after death of goldsmiths in the 17th century',
-        'example.B.1.title': 'Groupes de documents produits par des notaires ayant exercé dans le quartier StGermain l\'Auxerrois entre 1550 et 1700',
-        'example.B.2.title': 'Items concernant le Louvre et ayant une copie numérique',
+        'example.B.1.title': 'Record groups created by notaries who practiced in the Saint-Germain l\'Auxerrois district between 1500 and 1700',
+        'example.B.2.title': 'Notarial acts related to the Louvre, with or without a digital copy, with their shelfmark and the name of the notary',
+        'example.B.3.title': 'Documentary form types of the notarial acts dated 1848, with their shelfmarks',
+        'example.B.4.title': 'Parisian streets in which notaries practiced from the 15th to the 20th century',
       },
       'fr': {
         'page.title': 'Démonstrateur Sparnatural des Archives nationales',
@@ -48,7 +50,9 @@ $.i18n().load( {
         'example.placeholder': 'Charger une requête d\'exemple...',
         'example.A.1.title': 'Les archives qui concernent Jean-Baptiste Poquelin',
         'example.A.2.title': 'Inventaires après décès d\'orfèvres au 17e siècle',
-        'example.B.1.title': 'Groupes de documents produits par des notaires ayant exercé dans le quartier StGermain l\'Auxerrois entre 1550 et 1700',
-        'example.B.2.title': 'Items concernant le Louvre et ayant une copie numérique',
+        'example.B.1.title': 'Groupes de documents produits par des notaires ayant exercé dans le quartier Saint-Germain l\'Auxerrois entre 1550 et 1700',
+        'example.B.2.title': 'Actes notariés relatifs au Louvre, ayant ou non une copie numérique, avec leur cote et le nom du notaire',
+        'example.B.3.title': 'Types de documents des actes notariés datant de 1848, avec les cotes de ces actes',
+        'example.B.4.title': 'Voies parisiennes dans lesquelles les notaires ont exercé du XVe au XXe siècle',
       }
   } ); 
