@@ -262,9 +262,9 @@
               2019 et disponible sur GitHub depuis avril 2020. RiC-O Converter produit des fichiers
               RDF conformes à RiC-O 0.1. <b>Les fichiers obtenus ont donc ensuite été rendus conformes
               à RiC-O 0.2 et un peu enrichis ou modifiés par des scripts spécifiques écrits par le
-              Lab</b>. Parmi les enrichissements et modifications opérés, mentionnons la propagation de
+              Lab</b>. Parmi les enrichissements et modifications opérés, mentionnons : la propagation de
               la relation de provenance depuis la description des fonds sur la description de
-              l’ensemble des ressources archivistiques, la catégorisation des répertoires, listes d’actes et mentions d’actes et le remplacement des relations d’association entre études et
+              l’ensemble des ressources archivistiques, la catégorisation (avec la propriété <a href="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType">rico:hasDocumentaryFormType</a> et le référentiel des types de documents) des instances de <a href="https://www.ica.org/standards/RiC/ontology#RecordResource">rico:RecordResource</a> identifiables comme étant des répertoires, listes d’actes et mentions d’actes ; le remplacement des relations d’association entre études et
               notaires par des relations plus précises d’appartenance. <br /><b>Les vocabulaires et
               notices utilisées pour indexer les fichiers EAD et EAC-CPF ont été convertis grâce des
               scripts dédiés</b>, écrits et utilisés par le Lab. <br />Enfin, après import dans la base
@@ -290,7 +290,7 @@
               que ces fichiers EAD sont parmi les plus indexés et les plus précis des Archives
               nationales, il est désormais prouvé que <b>la sémantisation de l’ensemble des métadonnées
               XML de l’institution produirait un jeu de données extrêmement massif</b>.</p>
-            <p><b>Ce jeu de données est la première opération de sémantisation (conversion en triplets RDF) conformément à RiC-O à grande échelle, réalisée par
+            <p><b>Ce jeu de données est la première opération de sémantisation (conversion en triplets RDF conformément à RiC-O) à grande échelle, réalisée par
                 les Archives nationales (et en France sauf erreur), de métadonnées archivistiques "classiques".</b> Précisons qu’un autre jeu de données moins massif a par
               ailleurs été publié en décembre 2021 par le Lab des Archives nationales (dans un <a
                 href="https://github.com/ArchivesNationalesFR/ALEGORIA-datasets">dépôt public sur
@@ -440,7 +440,7 @@
               <li>ReproductionNumerique (les instances de la classe <a href="https://www.ica.org/standards/RiC/ontology#Instantiation">rico:Instantiation</a> ayant le
                 format JPEG, générées à partir des éléments daogrp des fichiers EAD)</li>
               <li>et d’autres ‘entités’ associées, qui correspondent à des valeurs littérales de
-                propriétés RiC-O : date, intitulé, cote, nom.</li>
+                propriétés RiC-O : date, intitulé, nom.</li>
             </ul>
             <img alt="Les inventaires après décès d’orfèvres au XVIIe siècle" src="assets/img/requetePreenregistree_configA.jpg" style="width:1000px;"/>
             <p><i><a href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-A.html?query=XQAAAALrBgAAAAAAAABtAZjwsLazPu40xYBYT-mEs1jrsFHSKyawaB4tm64mnk1LEjvimzmI68ZUh17ZR6o7k0qE12sGuhSImNMnKXQRrcGUoIIznaU1pDaLdjcvwJRzPF2XJ9-OVkt81t9-jysTtiSLNOj3rXx6HctmwyrCw-UgfXibI-_6jKJn7zidX6quedXR_Cme2qvin3u2geGSj9Nhe3Er1YIOVnr0Tf33WW94S7QRhSlRpdvolyREiMMs0SwQJjU6lXiJEIbRmGIMlxY36nWmZM27fZcmiPcd9lbEf3AgxDj-iO_qRSd-MnxXpklF54k_ePrlOjlS76OShtaSh4U8c1jopP0tw0a4LjSlagYnfrq8bvKJxDjl0-US5xlPCY6ndpdzy2aUA0csOqo0Vwt9jqsDVzmd0-SG8CWqGAjeG0nBKnsJPkav2jFTH_VSNhO-F2iaT24_gVDQx7tvSOnfa6m1bHhY-QYrjo2O8Z8VL6WlCAmvCQSNAnccYdc8an-PvTf22EoTvM1ho7MexhDqRTatTb3_tXDxKsRUMpaIxO22IMCP9evNzD5WuxJd7QWokHE9BEGor94oGkGPvZusTmq38ReHcMU94e_S8OeaPTn2JExBBR52o4jk2Ijz8m-AY3Fs3zGaY6aHUUGgwm3QE5c-Kk_zlvgXUpda3MnNW_f_gLGECA">Une requête préenregistrée de l’interface de recherche A : les inventaires après décès d’orfèvres au XVII<sup>e</sup> siècle</a></i></p>
@@ -455,11 +455,11 @@
               plus haut :</p>
             <ul>
               <li>GroupeDeDocuments (qui correspond à la classe <a  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>), Repertoire,
-                ListeActes, ActeNotarie, MentionActe ;</li>
+                ListeActes, ActeNotarie, MentionActe, Cote ;</li>
               <li>Etude, NumeroEtude, Notaire ;</li>
               <li>QuartierOuParoisse, Voie, Edifice, Adresse ;</li>
             </ul>
-            <p><b>Ces entités sont utilisables dès le début de l’écriture d’une requête</b>.</p>
+            <p><b>La plupart de ces entités sont utilisables dès le début de l’écriture d’une requête</b>.</p>
               <p>De nouvelles relations sont également présentes, par exemple entre étude et
               notaires (Notaire <i>appartient à</i> Étude), entre notaires (Notaire <i>a pour
                 prédécesseur</i> Notaire), entre ressources archivistiques (comme Répertoire
