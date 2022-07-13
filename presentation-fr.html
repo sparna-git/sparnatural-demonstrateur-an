@@ -115,8 +115,43 @@
               principal du projet était de <b>proposer aux utilisateurs une interface de recherche
               pertinente et compréhensible pour explorer un graphe de métadonnées archivistiques de
               taille significative, qui en exploite la nature</b>.</p>
+            <ul>
+              <li>
+                <a href="#objectives">Objectifs</a>
+              </li>
+              <li>
+                <a href="#project_history">Historique rapide</a>
+              </li>
+              <li>
+                <a href="#content">Le contenu actuel du démonstrateur</a>
+                <ul>
+                  <li><a href="#metadata">Les métadonnées retenues</a></li>
+                  <li><a href="#process">Le processus de production du graphe de données</a></li>
+                  <li><a href="#stats">Éléments statistiques concernant le graphe RDF obtenu</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#interfaces">Les interfaces d'exploration du graphe</a>
+                <ul>
+                  <li><a href="#design">Choix et méthodes de conception</a></li>
+                  <li><a href="#results">Résultats</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#bilan">Bilan</a>
+                <ul>
+                  <li><a href="#research_device">Le démonstrateur comme dispositif d'exploration et de recherche</a></li>
+                  <li><a href="#graph_obtained">Le graphe RDF obtenu, un exemple d'utilisation à grande échelle de RiC-O</a></li>
+                  <li><a href="#perspective">Une nouvelle perspective sur les métadonnées utilisées</a></li>
+                  <li><a href="#other_results">Autres résultats concrets du projet</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#conclusion">En guise de conclusion : perspectives</a>
+              </li>
+            </ul>
             
-            <h2>Objectifs</h2>
+            <h2 id="objectives">Objectifs</h2>
             <p>Le travail de développement de la version actuelle de Sparnatural a été réalisé par l’équipe projet - c’est-à-dire des représentants des trois institutions partenaires et la société Sparna - dans le but d’apporter des réponses aux questions générales suivantes :</p>
             <ul>
               <li>Comment valoriser un graphe de connaissances en tant que graphe de connaissances ?
@@ -136,7 +171,7 @@
             <ul><li>d’apporter la preuve que la sémantisation à grande échelle de métadonnées archivistiques “classiques” est possible, et que cela ouvre de nouvelles possibilités de recherche aux utilisateurs</li><li>de voir ce qu’une telle opération permet d’apprendre sur ces métadonnées </li><li>de construire une méthodologie et d’acquérir des compétences sur la mise en œuvre de Sparnatural, susceptibles de servir dans le cadre d’autres projets.</li></ul>
             <p>Ces travaux s’inscrivent dans le cadre d’une stratégie globale d’évolution des métadonnées et du système d’information des Archives nationales vers des métadonnées de meilleure qualité, plus accessibles, et des graphes d’entités liées.
             </p>
-            <h2>Historique rapide</h2>
+            <h2 id="project_history">Historique rapide</h2>
             <ul>
               <li>Mise en place par Sparna d’une base RDF (logiciel GraphDB Free) sur la grille de
                 services de la TGIR Huma-Num du CNRS, et d’un dépôt sur GitHub pour stocker le code
@@ -147,7 +182,7 @@
               <li>Ateliers entre Sparna et le Lab des Archives pour la prise en main de la méthode
                 de configuration de Sparnatural.</li>
               <li>Sélection du jeu de métadonnées, conversion en données RDF/RiC-O (voir plus bas <a
-                  href="#processus">Le processus de production du graphe de données</a>) et import
+                  href="#process">Le processus de production du graphe de données</a>) et import
                 du jeu de métadonnées dans la base RDF ; premiers traitements complémentaires sur
                 les données (Lab, automne 2021).</li>
               <li>Premières configurations de Sparnatural par le Lab à l’automne 2021 (avec l’aide
@@ -166,7 +201,7 @@
               <li>Deuxième conversion des métadonnées en RDF/RiC-O, et consolidation des
                 configurations des interfaces de recherche (mai-juin 2022).</li>
             </ul>
-            <h2>Le contenu actuel du démonstrateur</h2>
+            <h2 id="content">Le contenu actuel du démonstrateur</h2>
             <p>Les métadonnées des Archives nationales ce sont aujourd’hui principalement :</p>
             <ul>
               <li>plus de 30 000 instruments de recherche (en XML/EAD),</li>
@@ -182,7 +217,7 @@
               d’application sémantique comme <a href="https://data.bnf.fr/">data.bnf.fr</a> et
               compte tenu des moyens humains et financiers disponibles, il a fallu sélectionner un
               sous-ensemble de ces métadonnées pour alimenter le démonstrateur Sparnatural.</p>
-            <h3>Les métadonnées retenues</h3>
+            <h3 id="metadata">Les métadonnées retenues</h3>
             <p>Ce sont <b>une partie des métadonnées décrivant les archives des notaires de Paris
               conservées aux Archives nationales</b> qui ont été retenues en accord avec le service qui
               en est responsable (le Département du Minutier central des notaires de Paris à la
@@ -247,7 +282,7 @@
               était, non pas de procéder immédiatement à des enrichissements dans les fichiers EAD
               source, mais de les rendre possibles par la suite, tout en se dotant de définitions
               rigoureuses réutilisables pour construire le graphe RDF.</p>
-            <h3 id="processus">Le processus de production du graphe de données</h3>
+            <h3 id="process">Le processus de production du graphe de données</h3>
             <p>Les métadonnées ont été converties en graphes de données liées, conformément au
               nouveau modèle conceptuel <a
                 href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf">Records in
@@ -279,7 +314,7 @@
             <p>
               <img src="assets/img/creationClasseRepertoire.jpg" style="width:1000px;" alt="Exemple de création de classe dans le graphe"/></p>
             <p><i>Exemple de requête SPARQL de création de classe dans le graphe.</i></p>
-            <h3>Éléments statistiques concernant le graphe RDF obtenu</h3>
+            <h3 id="stats">Éléments statistiques concernant le graphe RDF obtenu</h3>
             <p>Le graphe obtenu compte actuellement environ <b>50 millions de triplets RDF</b>, dont
               environ 29 millions de triplets inférés. On peut donc d’ores et déjà estimer que le
               graphe RDF résultant de la sémantisation, selon les mêmes modalités, de l’ensemble des
@@ -337,8 +372,8 @@
             <p><b>Nous avons pour l’instant mis en place un dépôt privé sur GitHub pour y déposer et
                 y mettre à jour le jeu de données RDF</b>. N’hésitez pas à nous contacter si vous
               souhaitez disposer d’un accès à ce dépôt ou d’une copie de ce jeu de données. </p>
-            <h2>Les interfaces d’exploration du graphe</h2>
-            <h3>Choix et méthodes de conception</h3>
+            <h2 id="interfaces">Les interfaces d’exploration du graphe</h2>
+            <h3 id="design">Choix et méthodes de conception</h3>
             <p>Plusieurs options de configuration de Sparnatural sont possibles : configuration via
               un Google spreadsheet ou via une ontologie OWL (voir la <a
                 href="https://docs.sparnatural.eu/index.html">documentation</a>). Le Lab a choisi de
@@ -395,7 +430,7 @@
                 recherche du démonstrateur des Archives nationales.</li>
             </ul>
            
-            <h3>Résultats</h3>
+            <h3 id="results">Résultats</h3>
             <h4>Avertissements</h4>
             <p><b>Le démonstrateur est uniquement constitué de deux interfaces de recherche et de la
               présente documentation</b>. Les Archives nationales ne disposent pas, comme la BnF (avec
@@ -464,8 +499,8 @@
               notaires (Notaire <i>appartient à</i> Étude), entre notaires (Notaire <i>a pour
                 prédécesseur</i> Notaire), entre ressources archivistiques (comme Répertoire
                 <i>inclut ou mentionne</i> Mention d’acte ou Acte notarié).</p>
-            <h2>Bilan</h2>
-            <h3>Le démonstrateur comme dispositif d’exploration et de recherche</h3>
+            <h2 id="bilan">Bilan</h2>
+            <h3 id="research_device">Le démonstrateur comme dispositif d’exploration et de recherche</h3>
             <p><b>Le bilan est très positif en ce qui concerne les possibilités d’exploration du graphe
               et les nouvelles possibilités de recherche offertes par Sparnatural</b>. <br/>Parmi les
               principaux points relevés par les utilisateurs pendant les ateliers de novembre 2021,
@@ -503,7 +538,7 @@
               pas une couverture homogène des fonds d’archives des 40 premières études notariales :
               le travail d’analyse des actes notariés conservés au sein de ces fonds se poursuit au
               DMC, comme dans les autres fonds</b>. </p>
-            <h3>Le graphe RDF obtenu, un exemple d’utilisation à grande échelle de RiC-O</h3>
+            <h3 id="graph_obtained">Le graphe RDF obtenu, un exemple d’utilisation à grande échelle de RiC-O</h3>
             <p>Le résultat de la conversion à grande échelle des données sources en XML/EAD et
               XML/EAC-CPF en RDF conforme à RiC-O a montré clairement :</p>
             <ul>
@@ -526,7 +561,7 @@
             <p>De tels enseignements peuvent, nous semble-t-il, être utiles à toute institution ou
               équipe qui envisagerait de suivre la même voie. Nous serions bien évidemment
               intéressées par tout retour d’expérience comparable.</p>
-            <h3>Une nouvelle perspective sur les métadonnées utilisées</h3>
+            <h3 id="perspective">Une nouvelle perspective sur les métadonnées utilisées</h3>
             <p>À ce stade précoce du travail sur les métadonnées que le démonstrateur permet
               d’explorer, nous l’avons déjà dit plus haut, <b>nous disposons grâce aux technologies
               sémantiques de nouveaux éléments quantitatifs sur le contenu des archives décrites</b>.
@@ -569,7 +604,7 @@
                 représentatif d’autres cas de figure, liés au temps long dans lequel s’inscrit
                 l’histoire des métadonnées des Archives nationales et au phénomène de stratification
                 des instruments de recherche.</p>
-            <h3>Autres résultats concrets du projet</h3>
+            <h3 id="other_results">Autres résultats concrets du projet</h3>
             <p>La préparation des données RDF pour le démonstrateur Sparnatural a permis de réaliser
               un travail préalable à la mise à jour de RiC-O Converter, au cours duquel les
               différentes actions à mener à bien ont été identifiées et codées une première fois. Ce
@@ -580,7 +615,7 @@
               utilisées dans le graphe, réalisée lors de la configuration du démonstrateur
               Sparnatural, va être intégrée dans les sources de RiC-O afin de disposer d’une
               traduction complète à terme.</p>
-            <h2>En guise de conclusion : perspectives</h2>
+            <h2 id="conclusion">En guise de conclusion : perspectives</h2>
             <p><b>Dans une possible suite du projet, il est notamment envisagé de fusionner en une
               seule les deux configurations A et B, en hiérarchisant classes et propriétés, pour
               laisser le choix à l’utilisateur, au sein d’une seule interface de recherche, d’une
