@@ -1,167 +1,780 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Sparnatural Archives Nationales : Démonstrateur</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Font Awesome -->    
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sparnatural Archives Nationales : Démonstrateur</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i"
+      rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/fa/css/all.min.css" />
-
     <!-- YASGUI CSS -->
-    <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet"
+      type="text/css" />
     <!-- datepicker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
-
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
     <!-- Sparnatural CSS -->
     <link href="sparnatural.css" rel="stylesheet" />
-
     <style>
-
       #sparnatural-section {
-        padding-top: 115px;
-        height: auto;
-        overflow: visible;
+          padding-top: 115px;
+          height: auto;
+          overflow: visible;
       }
-
+      
       #contact {
-        margin-top:40px;
-        padding: 0px;
-        padding-top: 20px;
-      }
-
-    </style>
-
-  <!-- /Sparnatural-specific -->
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex justify-content-between align-items-center">
-
-      <div id="logo">
-        
+          margin-top: 40px;
+          padding: 0px;
+          padding-top: 20px;
+      }</style>
+    <!-- /Sparnatural-specific -->
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div id="logo"> </div>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link" href="index.html">
+                <span data-i18n="menu.home"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="index-A.html">
+                <span data-i18n="menu.demonstrateur-A"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="index-B.html">
+                <span data-i18n="menu.demonstrateur-B"></span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#"><i style="font-size:25px;" class="fad fa-book"
+                  ></i>&nbsp;<span>Documentation</span>
+                <i class="bi bi-chevron-down"></i></a>
+              <ul style="width:80%;">
+                <li>
+                  <a href="presentation-fr.html">Français</a>
+                </li>
+                <li>
+                  <a href="presentation-en.html">English</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link" href="mentions-legales.html">
+                <span data-i18n="menu.mentions-legales"></span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"
+                  ></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a>
+            </li>
+            <li>
+              <a href="https://www.archives-nationales.culture.gouv.fr/">
+                <img src="assets/img/archives-nationales.png" style="width:200px;" />
+              </a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link" href="index.html"><span data-i18n="menu.home"></span></a></li>
-          <li><a class="nav-link" href="index-A.html"><span data-i18n="menu.demonstrateur-A"></span></a></li>
-          <li><a class="nav-link" href="index-B.html"><span data-i18n="menu.demonstrateur-B"></span></a></li>
-          <li class="dropdown"><a href="#"><i style="font-size:25px;" class="fad fa-book"></i>&nbsp;<span>Documentation</span> <i class="bi bi-chevron-down"></i></a>
-            <ul style="width:80%;">
-              <li><a href="presentation-fr.html">Français</a></li>
-              <li><a href="presentation-en.html">English</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link" href="mentions-legales.html"><span data-i18n="menu.mentions-legales"></span></a></li>
-          <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
-          <li><a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:200px;" /></a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-  </header><!-- End Header -->
-
+    </header>
+    <!-- End Header -->
     <!-- ======= Sparnatural Section ======= -->
     <section id="sparnatural-section">
       <div class="container">
         <div class="row">
-          <h1>Le démonstrateur des Archives Nationales</h1>
+          <h1>Sparnatural demonstrator, Archives nationales : documentation</h1>
           <div class="col-md">
-            <p>The translation of the <a href="presentation-fr">documentation</a> will be coming soon ...</p>
+            <p><i>by Florence Clavaud and Pauline Charbonnier, with the collaboration of Thomas
+                Francart (Sparna)</i>.</p>
+            <p>Date of this version: July, 12<sup>th</sup> 2022.</p>
+            <p>This documentation will be improved in the coming weeks. It is licensed under
+              Creative Commons « Attribution 4.0 international (CC-BY 4.0) » (<a
+                href="https://creativecommons.org/licenses/by/4.0/deed.fr"
+                >https://creativecommons.org/licenses/by/4.0/deed.fr</a>).</p>
+            <p>This demonstrator is the result of an exploratory work on the transition from
+              archival metadata to data graphs, following the projects of qualitative prototype <a
+                href="https://piaaf.demo/logilab.fr">PIAAF</a> and development of the <a
+                href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter
+                software</a>. The main challenge of the project was to <b>provide users with a
+                relevant and accessible research interface to explore a significant archival
+                metadata graph that exploits its nature.</b>
+            </p>
+            <p>This demonstrator was created as part of the development work, between August 2021
+              and June 2022, of a new version of the open source visual SPARQL query editor <a
+                href="https://sparnatural.eu">Sparnatural</a>, for which the Ministry of Culture,
+              the National Library of France, and the National Archives have partnered to contract
+              with Sparna, Sparnatural's lead developer.</p>
+            <ul>
+              <li>
+                <a href="#ojectives">Objectives</a>
+              </li>
+              <li>
+                <a href="#project_history">Quick project history</a>
+              </li>
+              <li>
+                <a href="#content">The current content of the demonstrator</a>
+                <ul>
+                  <li>
+                    <a href="#metadata">Metadata selection</a>
+                  </li>
+                  <li>
+                    <a href="#process">The process of producing the data graph</a>
+                  </li>
+                  <li>
+                    <a href="#stats">Statistical elements concerning the resulting RDF graph</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#interfaces">The graph exploration interfaces</a>
+                <ul>
+                  <li>
+                    <a href="#design">Choice and design methods</a>
+                  </li>
+                  <li>
+                    <a href="#results">Results</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#bilan">Bilan</a>
+                <ul>
+                  <li>
+                    <a href="#research_device">The demonstrator as an exploration and research
+                      device</a>
+                  </li>
+                  <li>
+                    <a href="#graph_obtained">The RDF graph obtained, an example of large-scale use
+                      of RiC-O</a>
+                  </li>
+                  <li>
+                    <a href="#perspective">A new perspective on the metadata used</a>
+                  </li>
+                  <li>
+                    <a href="#other_results">Other tangible results of the project</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#conclusion">In conclusion: prospects</a>
+              </li>
+            </ul>
+            <h2 id="objectives">Objectives</h2>
+            <p>The work to develop the current version of Sparnatural was carried out by the project
+              team — i.e. representatives of the three partner institutions and Sparna — with the
+              aim of providing answers to the following general questions:</p>
+            <ul>
+              <li>How to value a knowledge graph as a knowledge graph? <br />(not behind a faceted
+                search engine or clickable navigation links)</li>
+              <li>How to promote exploratory user interactions (test/error) to discover the
+                data?</li>
+              <li>How to reconcile generic conceptual models with specific user views?</li>
+            </ul>
+            <p>From the point of view of the National Archives, the demonstrator was to serve in
+              particular:</p>
+            <ul>
+              <li>to <b>test the evolutions of Sparnatural</b> and thereby contribute to the
+                development work;</li>
+              <li>to <b>set up a very first web application to query and consult a significant part
+                  of the institution’s archival metadata</b>, converted to RDF/RiC-O.</li>
+            </ul>
+            <p>In doing so, the objectives were also:</p>
+            <ul>
+              <li>to demonstrate that large-scale semantisation of “classical” archival metadata is
+                possible, and that this opens up new search opportunities for users</li>
+              <li>to show what such an operation allows to learn about these metadata</li>
+              <li>to build a methodology and acquire skills on the implementation of Sparnatural,
+                which can be used in other projects.</li>
+            </ul>
+            <p>This work is part of an overall strategy for the evolution of metadata and of the
+              National Archives’ information system towards better quality metadata, more accessible
+              metadata and related entity graphs.</p>
+            <h2 id="project_history">Quick project history</h2>
+            <ul>
+              <li>Sparna set up an RDF (GraphDB Free software) database on the CNRS Huma-Num TGIR
+                service grid, and a GitHub repository to store the demonstrator code (summer 2021);
+                the database has been provisionally filled with RDF/RiC-O data already available at
+                the National Archives.</li>
+              <li>Start of development of Sparnatural version 2 (August 2021), in agile mode.</li>
+              <li>Workshops between Sparna and the Archives Lab to take charge of the Sparnatural
+                configuration method.</li>
+              <li>Selection of the metadata set, conversion to RDF/RiC-O data (see below <a
+                  href="#processus">The production process of the datagraph</a>) and import of the
+                metadata set into the RDF database; first additional data processing (Lab, Autumn
+                2021).</li>
+              <li>First Sparnatural configurations by the Lab in autumn 2021 (with the help of
+                Sparna).</li>
+              <li>Following the developments of Sparnatural v2, a first version of the demonstrators
+                was set up, which was tested in user workshops. Two workshops were held in November
+                2021, bringing together about 20 people of various backgrounds (archivists,
+                researchers, genealogists, DH engineers, etc.), during which the participants, after
+                a presentation of the project and the Sparnatural tool, were able to test the
+                interface. The project team collected the feedback and needs of users raised by
+                these tests and then presented the Sparnatural developments envisaged.</li>
+              <li>Sparna’s progressive integration of Sparnatural developments into the
+                demonstrator’s GitHub repository; test and implementation of these new features by
+                the Lab in the demonstrator’s search interface.</li>
+              <li>Second metadata conversion to RDF/RiC-O, and consolidation of search interface
+                configurations (May-June 2022).</li>
+            </ul>
+            <h2 id="content">The current content of the demonstrator</h2>
+            <p>The metadata of the National Archives are today mainly:</p>
+            <ul>
+              <li>more than 30,000 finding aids (in XML/EAD),</li>
+              <li>more than 15,400 authority records (in XML/EAC-CPF) on archival producers,</li>
+              <li>vocabularies used to index these files,</li>
+            </ul>
+            <p>to describe about 375 linear km of paper archives of all types, not including
+              natively digital archives. The <a
+                href="https://www.siv.archives-nationales.culture.gouv.fr">salle des inventaires
+                virtuelle</a>(online catalog) allows users to search all of these metadata.</p>
+            <p>Given this important volume, in the absence of semantic application as <a
+                href="https://data.bnf.fr/">data.bnf.fr</a> and given the human and financial
+              resources available, a subset of these metadata had to be selected to feed the
+              Sparnatural demonstrator.</p>
+            <h3 id="metadata">Metadata selection</h3>
+            <p><b>A part of the metadata describing the archives of Paris notaries kept in the
+                National Archives</b> have been retained in agreement with the department
+              responsible for them (the Department of Minutier Central des Notaires de Paris at the
+              Direction des Fonds — DMC), for several reasons:</p>
+            <ul>
+              <li>they form <b>a coherent whole</b> (in all, these are the archives of 122 notarial
+                offices, continuously since the end of the 15<sup>th</sup> to the beginning of the
+                  20<sup>th</sup> century, i.e. 194,500 boxes, more than 212 000 odds, more than 26
+                km linear and an estimated total of 20 million acts — here we take over some of the
+                elements given by <a
+                  href="https://www.siv.archives-nationales.culture.gouv.fr/siv/cms/content/helpGuide.action?uuid=2c6d64b0-8395-49a0-a913-4ad39d4c1b94&amp;version=8&amp;preview=false&amp;typeSearch=AideRechercheType&amp;searchString=Suzanne%20Campaux"
+                  >the research aid sheet</a> on inventory work at the DMC;</li>
+              <li><b>their description is rich</b> (about 1.6 million acts have already been
+                analyzed) and is constantly enriched, <b>while presenting overall the classic
+                  characteristics of digital directories</b> drawn up by the French public archival
+                services;</li>
+              <li>they describe <b>documents that are widely consulted by various types of
+                  audiences</b>; the archival collections placed under the responsibility of the DMC
+                accounted for 26 % of the communications of the National Archives of all sites in
+                2019, according to <a
+                  href="https://francearchives.fr/fr/file/9d09efcdaad5d47250fb010d7d8c8d3dcab796b5/Rapport_enquete_notaire_Fullenbaum%20Lenfant_2020.pdf"
+                  >the survey report</a> entitled <i>Presentation of resources in notarial archives
+                  and their valorisation on the websites of the Departmental and National
+                  Archives</i>, carried out in April 2020 by Sandra Fullenbaum Lenfant, under the
+                direction of Marie-Françoise Limon-Bonnet;</li>
+              <li><b>archives of the same nature are kept in the departmental archives</b>. In
+                particular, the same investigation report can be seen in this regard.</li>
+            </ul>
+            <p>We therefore chose to work on <b>the authority records of archival producers (in
+                XML/EAC-CPF) and finding aids (in XML/EAD 2002) relating to the archives of the
+                first 40 Paris notarial offices</b> (out of the 122 kept in the National Archives,
+              i.e. about one third of the offices). The relevant XML/EAC-CPF and EAD 2002 files were
+              selected from a complete export of validated XML files, carried out on 11 March 2022
+              by the Information Systems Department of the National Archives. The selection was made
+              on the basis of the links established between the first forty EAC-CPF records of
+              notarial offices and notaries’ records, on the one hand, and the finding aids on the
+              other. This operation produced a corpus including:</p>
+            <ul>
+              <li>
+                <b>the 40 records describing notarial offices I to XL</b> (and the LIII office
+                record, in which one of the notaries of office XV also worked between 1961 and
+                1973);</li>
+              <li><b>the 1079 records describing the notaries who worked in these forty
+                offices</b>;</li>
+              <li><b>the 1577 archival finding aids describing the archives of these offices</b> (32
+                % of the 4,902 existing finding aids validated in March 2022 for the DMC), including
+                933 digitized directories; 899 of these finding aids describe acts or mentions of an
+                act (based on the results of a SPARQL query executed on the obtained RDF graph).
+              </li>
+            </ul>
+            <p>To this set we have added <b>the records (on persons and organizations subject to
+                documents) and vocabularies (types of documents, subjects, activities, places of
+                Paris...) used in these records and inventories to index them</b>. These records and
+              vocabularies are published and available in a public <a
+                href="https://github.com/ArchivesNationalesFR/Referentiels">repository of the
+                National Archives on GitHub</a>. Please note that the versions of the producer
+              records in this repository are dated March 2022.</p>
+            <p>As part of the project, <b>these metadata sets were somewhat enriched</b>. Thus, for
+              the notaries of offices I and II, chronological relations between notaries were added
+              to the EAC-CPF records, paving the way for possible future work. Some new entries
+              (such as ‘notarial registry’, ‘list of acts’ and ‘mention of an act’) and definitions
+              (e.g. definitions assigned to patents, notarial deeds or notarial minutes) have also
+              been added to the document types vocabulary, with the agreement of the DMC. The
+              purpose of these additions was not to immediately enrich the source EAD files, but to
+              make these additions possible afterwards, while endowing themselves with rigorous,
+              reusable definitions to construct the RDF graph.</p>
+            <h3 id="process">The production process of the data graph</h3>
+            <p>Metadata have been converted into linked data graphs, compliant to the new Conceptual
+              Model <a href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf"
+                >Records in Contexts</a> and its technical transposition, the <a
+                href="https://www.ica.org/standards/RiC/ontology">RiC-O ontology</a> (v0.2,
+              published in February 2021).</p>
+            <p>The conversion was carried out twice. The first iteration was carried out in November
+              2021, the second in May 2022, after learning various lessons from the first one and
+              from the demonstrator configuration first work.</p>
+            <p><b>To convert XML/EAD and XML/EAC-CPF files, we used the open source software <a
+                  href="https://github.com/ArchivesNationalesFR/rico-converter">RiC -O
+                Converter</a></b>,developed for the National Archives in 2019 and available on
+              GitHub since April 2020. RiC-O Converter produces RDF files compliant with RiC-O 0.1.
+                <b>The resulting files were then made compliant with RiC-O 0.2 and slightly enriched
+                or modified by specific scripts written by the Lab.</b> The enrichments and changes
+              made include the spread of the origination relation from the description of the fonds
+              level to the description of all record resources, the categorisation (with the <a
+                href="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"
+                >rico:hasDocumentaryFormType</a> property and the document type vocabulary) of
+              instances of <a href="https://www.ica.org/standards/RiC/ontology#RecordResource"
+                >rico:RecordResource</a> that can be identified as directories, lists of acts and
+              mentions of acts, and the replacement of association relations between notarial
+              offices and notaries by more precise membership relations.<br /><b>The vocabularies
+                and records used to index EAD and EAC-CPF files have been converted using dedicated
+                scripts</b>, written and used by the Lab.<br /> Finally, after importing into the
+              RDF database chosen for the demonstrator (currently, an instance of the free software
+                <a href="https://www.ontotext.com/products/graphdb/graphdb-free/?ref=menu">GraphDB
+                Free</a>, configured in a very simple way), <b>the data graph has been further
+                enriched</b>, in order to create classes specific to notarial archives and to
+              “populate” these classes by inference. The screenshot below shows an example: these
+              are the SPARQL queries that were used to add the <i>demoanonto:Repertoire</i> class to
+              the RDF database and to create the instances of this class. In other words, an
+              ontology extending RiC-O 0.2 was produced and implemented. Although this work was not
+              necessary, it greatly facilitated the design of the demonstrator’s configurations and
+              also made it possible to optimise its operation by reducing the execution time of
+              certain queries.</p>
+            <p>
+              <img src="assets/img/creationClasseRepertoire.jpg" style="width:1000px;"
+                alt="Example of a class creation in the graph" />
+            </p>
+            <p>
+              <i>Example of a SPARQL query to create a class in the graph.</i>
+            </p>
+            <h3 id="stats">Statistical elements concerning the resulting RDF graph</h3>
+            <p>The graph obtained currently has about <b>50 million RDF triplets</b>, including
+              about 29 million inferred triplets. We can therefore already estimate that the RDF
+              graph resulting from the semantisation of all metadata from the notary archives of the
+              National Archives would amount to about 150 million triplets. In addition, it should
+              be noted that the approximately 4900 finding aids of the DMC make up 16 % of the total
+              number of finding aids. Even if simplistic extrapolations are to be avoided, all the
+              more so since these EAD files are among the most indexed and precise in the National
+              Archives, it is now proven that <b>semantising all of the institution’s XML metadata
+                would produce an extremely massive dataset</b>.</p>
+            <p><b>This dataset is the first large-scale semantisation by the National Archives (and
+                in France) of archival metadata in RDF compliant with RiC-O 0.2.</b> It should be
+              noted that another less massive dataset was also released in December 2021 (in a
+              public <a href="https://github.com/ArchivesNationalesFR/ALEGORIA-datasets">repository
+                on GitHub</a> and also accessible via the <a
+                href="http://data.alegoria-project.fr/sparql/">SPARQL endpoint</a> of the
+              project).</p>
+            <p>In this dataset, are used, among the components defined in RiC-O 0.2:</p>
+            <ul>
+              <li>34 classes (entity categories) out of 106 (104 with inferred triplets);</li>
+              <li>20 <i>datatype properties</i> (relations whose target is a string) out of 62 (23
+                counting inferred triplets);</li>
+              <li>75 <i>object properties</i> (targeted relationships) out of 423 (160 with inferred
+                triplets).</li>
+            </ul>
+            <p>SPARQL queries executed directly in the SPARQL endpoint of the RDF database, in order
+              to go beyond the limit of 1000 results set for the Sparnatural interface, give <b>the
+                following numbers for the main categories of objects described in the graph</b>:</p>
+            <ul>
+              <li> 72 661 groups of documents (fonds, series, bundles, clients files, etc.);</li>
+              <li><b>400 570 notarial acts</b> (described to date) within the bundles;</li>
+              <li><b>104 383 mentions of acts</b> recorded in the directories</li>
+              <li>3135 directories ;</li>
+              <li><b>13 127 lists of acts within the directories</b>, including 11,670 digitized
+                lists;</li>
+              <li>629 246 persons (including 3,213 persons with IRIs);</li>
+              <li>530 organizations including 528 with an identifier;</li>
+              <li>15 559 places including 15463 with an IRI.</li>
+            </ul>
+            <p>We will soon include in this documentation a diagram providing an overview of the
+              graph data model.</p>
+            <p>As explained below, if the quantities found for notarial acts, mentions of acts and
+              lists of acts are to be regarded as a good approximation (given the sufficiently
+              reliable reasoning required to generate the data), the numbers found for persons and
+              directories are unreliable and can be regarded as orders of magnitude. However, these
+              statistics, on their own, show in our opinion the interest of the technologies used
+              (since it is currently impossible for an end-user to obtain them via the Salle des
+              inventaires virtuelle, and it is not easy to calculate them for a professional
+              competent in the field of XML technologies). <b>They show above all, if it is still
+                necessary to prove it, the very richness of these archival deposits.</b></p>
+            <p>We will continue to work on these data, as explained below.</p>
+            <p>
+              <b>We have currently set up a private repository on GitHub to deposit and update the
+                RDF dataset.</b> Do not hesitate to contact us if you wish to have access to this
+              repository or a copy of the dataset.</p>
+            <h2 id="interfaces">The graph exploration interfaces</h2>
+            <h3 id="design">Choice and design methods</h3>
+            <p>Several Sparnatural configuration options are possible: configuration via a Google
+              spreadsheet or an OWL ontology (see the <a
+                href="https://docs.sparnatural.eu/index.html">documentation</a>). The Lab chose to
+              configure the demonstrator via an ontology, with the help of Sparna, and used <a
+                href="https://protege.stanford.edu/">Protégé</a>, a free Software, to edit the
+              ontology.</p>
+            <img src="assets/img/classe_protege.png" style="width:1000px;"
+              alt="Example of Sparnatural class edition in Protégé" />
+            <p>
+              <i>Sparnatural class edition in Protégé.</i>
+            </p>
+            <p>The configuration ontology of a Sparnatural search interface imports and uses
+              components defined in two generic ontologies included in the source code of the
+                software.<br /><b>The aim is to specify an ontological model for research and its
+                correspondence with the classes and properties of the domain ontology.</b><br />
+              This approach makes it possible to retain certain categories of objects or
+              relationships rather than others that are considered secondary to search, to specify
+              new ones to group several existing components in order to simplify the exploration of
+              the graph or to represent text type nodes, to give them understandable labels in the
+              language you want, to define a display order for the main entry points, to specify how
+              the target nodes of a relationship are displayed, etc. If you know HTML, the data
+              contained in the graph, the model used and its implementation, and the OWL language,
+                <b>you can build and evolve your interface independently</b>.</p>
+            <p>The aim for the Lab was therefore to achieve <b>a reasonable compromise between the
+                complexity of the domain model and the need to produce an understandable and
+                efficient interface for users.</b> It took a long time to achieve the current
+              result, through successive iterations. Feedback from users during the two workshops
+              held at the end of 2021 was valuable in this respect and really guided both the
+              developments of the software and the choices we made.</p>
+            <p>The design work of the search interfaces also tested the functionalities developed in
+              the context of Sparnatural’s evolution project, including:</p>
+            <ul>
+              <li>the support of the OPTIONAL clause (which facilitates the discovery, granularity
+                and accuracy of the data being variable in a graph of cultural metadata, in
+                particular in a graph of archival metadata) — we used this possibility for many
+                relationships, e.g. ‘has digital surrogate’, ‘has title’, ‘have subject’;</li>
+              <li>FILTER NOT EXISTS support (to express the negation of a property) — we also
+                retained this possibility in the same cases as for OPTIONAL;</li>
+              <li>the ability to select values from a tree list (thesaurus type) — we used this
+                feature to allow selection in the thesaurus of document types;</li>
+              <li>adding contextual help (<i>tooltips</i>) — this allowed us to attach to each of
+                the categories of entities usable in the interface a short definition useful in the
+                context of the project;</li>
+              <li>adding pre-recorded queries, in order to guide the user in his first queries;</li>
+              <li>the choice of result columns to display — this allows the user to define the
+                content of the result list as he sees fit, so that he can immediately have textual
+                data (rather than the only URIS of entities that a classic SPARQL query returns by
+                default), sort out and then make an export in CSV format;</li>
+              <li>the translation of the interface into as many languages as necessary — so far we
+                have been able to deploy the search interfaces of the National Archives demonstrator
+                in French and English.</li>
+            </ul>
+            <h3 id="results">Results</h3>
+            <h4>Warnings</h4>
+            <p><b>The demonstrator consists only of two search interfaces and this
+              documentation</b>.The National Archives, unlike the BnF (with <a
+                href="https://data.bnf.fr">data.bnf.fr</a>), does not have a website for viewing
+              data graphs. A feature has therefore been added to the Sparnatural demonstrator, to
+              associate with each result entity a page allowing to view its description in a simple
+              way (via the <a href="https://lodview.it/">Lodview</a> application). This feature is
+              not entirely optimal. Moreover, RDF resources IRIs are not currently dereferencable;
+              in particular, no webpage is associated with these IRISs, nor can we guarantee the
+              sustainability of the root segment
+              (http://data.archives-nationales.culture.gouv.fr/).</p>
+            <!--THOMAS ? ajouter notamment qques mots sur les limites techniques actuelles ?(incapacité de la base RDF à servir plus de 2 requêtes simultanées). Ce problème pourrait être réglé en opérant une migration vers la version Standard de GraphDB.-->
+            <p>The results still show some small technical flaws that we will try to correct. On the
+              other hand, we take any comments or suggestions for improvement. We are aware that
+              after the user workshops held at the end of 2021 these interfaces need to be tested by
+              more users. Like the RDF queried data, <b>the interfaces are likely to evolve
+                significantly</b>.</p>
+            <h4>A Configuration</h4>
+            <p>The first configuration (<a href="index-A.html">A interface</a>) is <b>simple and
+                generalistic</b> ; it can almost be applied to any RiC-O compliant archival dataset,
+              insofar as contextual entities such as producers, document subject agents, locations
+              are indexed. It is a priori rather destined for <b>the discovery of metadata.
+              </b>.</p>
+            <p>The main categories of objects (classes) defined in the configuration ontology and
+              usable in this first interface are:</p>
+            <ul>
+              <li>Records (a project-specific class, which gathers all archival resources, thus all
+                instances of the RiC-O <a
+                  href="https://www.ica.org/standards/RiC/ontology#RecordResource">RecordResource
+                  class</a>, with the exception of search instruments and authority records);</li>
+              <li>Person (which corresponds to class <a
+                  href="https://www.ica.org/standards/RiC/ontology#Person">rico:Person</a>);</li>
+              <li>Organization (which corresponds to class <a
+                  href="https://www.ica.org/standards/RiC/ontology#CorporateBody"
+                  >rico:CorporateBody</a>);</li>
+              <li>Place (which corresponds to class <a
+                  href="https://www.ica.org/standards/RiC/ontology#Place">rico:Place</a>);</li>
+              <li>Documentary form type (class of SKOS concepts defined in the vocabulary of the
+                document types of the National Archives, also instances of class <a
+                  href="https://www.ica.org/standards/RiC/ontology#DocumentaryFormType"
+                  >rico:DocumentaryFormType</a>);</li>
+              <li>Subject (class of SKOS concepts defined in the vocabulary of the national archives
+                subjects, also instances of class <a
+                  href="https://www.ica.org/standards/RiC/ontology#Thing">rico:Thing</a>);</li>
+              <li>Occupation (class of SKOS concepts defined in the vocabulary of occupations and
+                functions of persons in the National Archives, also instances of class <a
+                  href="https://www.ica.org/standards/RiC/ontology#OccupationType"
+                  >rico:OccupationType</a>);</li>
+              <li>Digital surrogate (the instances of class <a
+                  href="https://www.ica.org/standards/RiC/ontology#Instantiation"
+                  >rico:Instantiation</a> having JPEG format, generated from the daogrp elements of
+                EAD files);</li>
+              <li>and other associated ‘entities’, which correspond to literal values of RiC-O
+                properties: date, title, name.</li>
+            </ul>
+            <img alt="Inventories after death of goldsmiths in the 17th century"
+              src="assets/img/requetePreenregistree_configA-EN.jpg" style="width:1000px;" />
+            <p>
+              <i>
+                <a
+                  href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-A.html?query=XQAAAALrBgAAAAAAAABtAZjwsLazPu40xYBYT-mEs1jrsFHSKyawaB4tm64mnk1LEjvimzmI68ZUh17ZR6o7k0qE12sGuhSDyGlRLIZww-2ppWyFgApyTt-goxNKd8-j-9fbwr2PqlXj-8yrsAnlQihBF0ij5HzTsuVwW4TBzt-2r7XuVN9o2YC2eoSVl7d_B5Ybd7acf62qfUQZEioq3x4-B1vxRuN7MxkgsizcAJU71nC4V_uFL6Z1QY7pAYKmz22Ab8nDi524MdbyZrXgoYkNCL-QO-K37bDD-X6ByP-YVYk1gQWVnUKgEJlp0d0GuQoL7I2VZTQCILyCKwzo7RlHz3IAe8-cKkexWHO1lOot1xXAUOufwUAd1GOJQa183xZYonwJpO2ErurWjk7hhXLYatPCwots4qz7UIRUjSUL52RX0agAhxRlNA4ZkYAUwjfkr0xXU33h1Oc3rQ6gRvf_mrpR4oRHnUmzzkYKemYy2n6VXUVucIcOgCfdeIVJGn46ugEvrW6MpCiNR61TpJ1A9gu7MpB5qtWctG0csZ8JM-Hw8fFGfYks4X43CR3v_Pac9DZSNwno78rDyMluGFWGu4UE0xfqXgwRA9_6j9J3FEB9RVlzz7_EHeORybdCcRK9_d_6G8EVvitrgjoydFXJkgh64Ta8qAlQXAuKEXqmhErHQ8f_grTP-A"
+                  >Pre-recorded query in the interface A : inventories after death of goldsmiths in
+                  the 17<sup>th</sup> century</a>
+              </i>
+            </p>
+            <h4>B Configuration</h4>
+            <p>The second configuration (<a href="index-B.html">B interface</a>) <b>exploits the
+                specificities of the notary archives</b>. It is a priori <b>rather adapted to the
+                needs of a person familiar with this universe, archivist or accustomed user</b>. It
+              is the configuration that has been the subject of the greatest number of changes in
+              the history of the project. <br />In addition to the object categories listed above,
+              this configuration defines and uses new object categories, and establishes for these
+              object categories matches with classes of ontology extending RiC-O mentioned
+              above:</p>
+            <ul>
+              <li>RecordSet (which corresponds to class <a
+                  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>),
+                Notarial registry, List of acts, Notarial act, Mention of an act, Shelfmark;</li>
+              <li>Notarial office, Notarial office number, Notary;</li>
+              <li>Parisian district or parish, Street in Paris,Parisian Building, Address.</li>
+            </ul>
+            <p><b>Most of these entities can be used from the beginning of writing a
+              request</b>.</p>
+            <p>New relationships are also present, for example between notarial office and notaries
+              (Notary <i>is member of</i> Notarial office), between notaries (Notary <i>has
+                successor or was preceded by</i> Notary), between archival resources (such as
+              Notarial registry <i>includes or mentions</i> Mention of an act or List of acts).</p>
+            <h2 id="bilan">Bilan</h2>
+            <h3 id="research_device">The demonstrator as an exploration and research device</h3>
+            <p><b>The results are very positive in terms of the possibilities for exploring the
+                graph and the new research opportunities offered by Sparnatural</b>. <br /> Among
+              the main points identified by users during the November 2021 workshops, once the
+              surprise effect has passed, one can mention <b>the intuitive, flexible and interactive
+                character of this type of interface</b>, which also requires a greater intellectual
+              commitment for the user than to fill out a classic search form. The user builds his
+              questionnaire by choosing among the options available to him and discovers the content
+              of the graph at the same time as he constructs his search; he’s really taking his
+              hand. It is also easy to go back by canceling a step and then the previous one.
+              Finally, he can share the executed query or export the results of his search.</p>
+            <p>We cannot, of course, replace the non-archivist user or the one who does not know the
+              RiC-O data model at all. We just want to present here an example of the searches that
+              a classic search form in EAD files currently does not allow to do, and which
+              Sparnatural makes possible. This example is the same as the third pre-recorded query
+              in the B search interface.</p>
+            <img style="width:1000px;" src="assets/img/requetePrenregistree_configB-EN.jpg"
+              alt="Pre-recorded query in the B interface : Documentary form types of the notarial
+              actes dated 1848, with their shelfmarks" />
+            <p>
+              <i>
+                <a
+                  href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-B.html?query=XQAAAALDBAAAAAAAAABtAROGb_4MAd_6Giyx3QrcHPSeh6sZOI5aHw3O1zgssP3BLbYF5fFCYMIS_dmyPvgkmO2hgHnXczkbYsDaXmHzeBe1FuhtEaV_OBn0SWsjzXc7vz26ryXCgu0pA1xvKNIrts-dRBorCUoyJwwLaNuugLI254tqNDfLxc-w1fGNCOYt0bOb1NG8k-UhGmn7cQsk4MM_cSjQBUP7EsRAz0z-nzf3KRCZ77ALuFTgU_rFcq8Td8aI2y-0Ix7OqE2O8yqIRoLcKWIQsKwlRFx1HKsiaYK4-4369chrIoNAOtuBt09OH7dtB-IgtVQF2ZXbBcqKMedkeptk6heQ8DM4Z7ggCHgtwBagb9UF16t6IKrMr659jYyrnGzOBlpV7nyeCFFERSi53epm2VTW9OOhKLbu-KOJhAMs44L-CUULybYztUK4TOWsycc1w68jCswJzMeb9y9wYwUB43Yq-vO4UJSok_s_Big"
+                  >Pre-recorded query in the B interface : documentary form types of the notarial
+                  actes dated 1848, with their shelfmarks</a>
+              </i>
+            </p>
+            <p>In this example, we see first of all that the <b>entry point is a context entity</b>,
+              which is currently rare in our archival search interfaces, in which the focus is
+              mostly placed at the outset on archival documents. The query editor then allows you to
+              choose the categories of relationships between Document type entities to browse the
+              graph from near to far. The user is still on the same HTML page, and in the context of
+              the construction of a questionnaire (without having to work by rebound between search
+              results that should have been searched and in which you would then click on
+              hyperlinks, to find out what to expect). Such a question, even if it is not formulated
+              in natural language, seems to us close to the formulation that a researcher in history
+              might make of it, who would like, for example, to form a corpus and to get a first
+              idea of it. One of the notable features here is that <b>the user can, for many
+                relationships, either select the target precisely, or request all the targets of a
+                given relationship</b> (here, all notarial acts, or all dates), at least
+                initially.<b> The ability to determine which information is included in the results
+                table, and to have textual values (entity labeled), not just URIs, in this table is
+                also particularly valuable</b>. Finally, the user can easily edit his questionnaire
+              in stages, or <b>share the query and save the link in his own files, in order to
+                replay the query later</b>.</p>
+            <p><b>The functional limits of the demonstrator are essentially those of
+                Sparnatural.</b> The first, already mentioned above, is that it is a tool for
+              constructing an exploration and search interface in an RDF data graph, not to display
+              the data listed in the result tables for viewing. Moreover, the National Archives does
+              not yet have a way to de-reference URIs. The HTML page display feature using Lodview,
+              obviously does not replace a real design and design work of a consultation interface,
+              that could also help visualize parts of the obtained graph, in line with what the <a
+                href="https://piaaf.demo.logilab.fr/">PIAAF</a> prototype proposed for a much
+              smaller amount of data. This was not the object of the work done under this
+              project.</p>
+            <p>Such a search interface is not, moreover, exclusive of a ‘full text’ search allowing,
+              on the basis of the word or expression entered, a list of suggestions giving for each
+              of them the type of entity concerned; or tab-type navigation options (one tab per
+              entity category) as the PIAAF prototype also offers.</p>
+            <p><b>Of course, the fact that the dataset used does not provide a homogeneous coverage
+                of the archives of the first 40 notarial offices increases these limitations: the
+                work of analyzing notarial acts held within these fonds continues at the DMC, as in
+                the other fonds</b>.</p>
+            <h3 id="graph_obtained">The RDF graph obtained, an example of large-scale use of
+              RiC-O</h3>
+            <p>The result of this large-scale conversion of XML/EAD and XML/EAC-CPF source data to
+              RDF compliant with RiC-O clearly showed:</p>
+            <ul>
+              <li>whereas this conversion is entirely possible without necessarily making any
+                changes to this data;</li>
+              <li>whereas <b>the graph obtained from classical archival metadata of this type will
+                  offer all the more different entry points and will be all the more rich in nodes
+                  (in entities of various types) as the source metadata use reference data
+                  (authority records, vocabularies) to describe the context entities of the
+                  archives</b>;</li>
+              <li>whereas, <b>even from well-indexed metadata, such an operation will only use a
+                  subset of the RiC-O classes and properties</b>, which is normal since RiC-O is the
+                technical transposition of an overall conceptual framework;</li>
+              <li>that, <b>while employing only a small part of RiC-O, carrying out such a project
+                  may encourage, in particular in the case of a homogeneous archival ensemble such
+                  as ours, to extend this ontology</b>, which is a very generic international model
+                which cannot take into account the variety of corpuses or all local specificities
+                and needs.</li>
+            </ul>
+            <p>Such lessons may, in our view, be useful to any institution or team that would
+              consider following the same path. We would of course be interested in any comparable
+              feedback.</p>
+            <h3 id="perspective">A new perspective on the metadata used</h3>
+            <p>At this early stage of the work on metadata that the demonstrator allows to explore,
+              we have already mentioned above, <b>thanks to semantic technologies, we have new
+                quantitative elements on the content of the described archives</b>. We will be able
+              to refine this mapping in the coming months. <br /> Moreover, as in any project for
+                <b>the production and publication of graphs of linked entities from pre-existing
+                data, where a more or less significant leap is made in precision, the work on the
+                data and their exploration as a graph have highlighted problems in the source
+                metadata, although not unknown but so far very little visible and difficult to
+                quantify</b>. Here we will take two examples.</p>
+            <h4>629 246 people in the graph ?</h4>
+            <p>The essentially free indexing, via the element EAD &lt;persname&gt;, of persons
+              (except for 3213 of them with authority records) in the finding aids processed results
+              in a very large number of entities of the type rico:Person in the graph, about which
+              little is often known (e.g., the activity of 34 925 of these persons only) and which
+              have not been the subject of aggregation or identification work. In fact,<b> entities
+                with the same name can be aggregated as a single entity Person in this related
+                entity graph only if there is absolute certainty or quasi-certainty that it is the
+                same natural person — when, for example, that person is found at about the same
+                date, with the same reference to profession or function (or relations with other
+                persons), in the acts of the same notary or mentioning the same property</b>. This
+              is a very interesting field of investigation. Regardless of the results, <b>there
+                should be a very large cohort of highly blurred individuals whose numbers are not
+                expected to differ significantly from the initial number</b>.</p>
+            <h4>3135 directories ?</h4>
+            <p>This number is much higher than the observed reality. It follows from the fact that
+              in the finding aids treated, there are usually two descriptions (two EAD
+              &lt;c&gt;elements between which no relationship is currently established), created in
+              two different finding aids: one describes the fonds of a given notary, thus its
+              directories — and sometimes, references to acts in the directories — and minutes; the
+              other, produced as part of the full digitisation of directories, describes the
+              notary’s directories as material objects and the lists of acts contained therein. This
+              redundancy is not visible enough in the source metadata in the virtual inventory room;
+              it is much more so in the RDF graph.</p>
+            <p>
+              <b>Further analysis allows us to consider a test, to be carried out on a
+                representative sample of these inventories, of linking or even merging the
+                information they contain, in order to produce, ideally, a single description of each
+                of the directories</b>. This example is very representative of other situations,
+              related to the long history of the National Archives metadata and the phenomenon of
+              stratification of finding aids.</p>
+            <h3 id="other_results">Other tangible results of the project</h3>
+            <p>The preparation of the RDF data for the Sparnatural demonstrator made it possible to
+              carry out a work prior to the update of RiC-O Converter, during which the various
+              actions to be undertaken were first identified and coded. This work will save some
+              time for the rest. Indeed, we plan to develop a second version of RiC-O Converter to
+              make it compatible with version 0.2 of RiC-O.</p>
+            <p>The translation into French of the English labels of the RiC-O classes and properties
+              used in the graph, carried out during the configuration of the Sparnatural
+              demonstrator, will be integrated into the RiC-O sources in order to have a complete
+              translation over time.</p>
+            <h2 id="conclusion">In conclusion: prospects</h2>
+            <p><b>In a possible continuation of the project, it is envisaged that the two
+                configurations A and B should be merged into one, by prioritising classes and
+                properties, to give to the user the choice, within a single search interface, of a
+                quick or more precise exploration</b> (e.g. select Person > Notary in a single
+              interface). This will involve changing the configuration possibilities offered by
+              Sparnatural.</p>
+            <p>The National Archives Lab will produce and publish a generic Sparnatural search
+              ontology for RiC-O compliant RDF data starting with configuration A.</p>
+            <p>Finally, <b>the National Archives Lab is now able on its own to design a Sparnatural search
+                interface for other data sets</b>. The reuse of Sparnatural is therefore
+              foreseen in other research projects, for example to explore data from the <a
+                href="https://oresm.hypotheses.org/">ORESM project</a> (Works and References of
+              Students, Supôts and Masters of the University of Paris in the Middle Ages). See <a
+                href="https://oresm.hypotheses.org/files/2022/03/ORESM_JE_26112021_JFMoufflet_FClavaud-3.pdf"
+                >the presentation</a> in November 2021 of the proof of concept already carried out.
+            </p>
           </div>
         </div>
       </div>
-    </section><!-- End Sparnatural Section -->
-
+    </section>
+    <!-- End Sparnatural Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact">
       <div class="container" data-aos="fade-up">
         <div class="row">
-
           <div class="col-lg-2 col-md-2">
             <div class="contact-about">
-              <a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:100%;" /></a>
+              <a href="https://www.archives-nationales.culture.gouv.fr/">
+                <img src="assets/img/archives-nationales.png" style="width:100%;" />
+              </a>
             </div>
           </div>
-
           <div class="col-lg-2 col-md-2">
             <div class="contact-about">
-              <a href="http://sparna.fr"><img src="assets/img/sparna.png" style="width:100%;" /></a>
+              <a href="http://sparna.fr">
+                <img src="assets/img/sparna.png" style="width:100%;" />
+              </a>
             </div>
           </div>
-
-
-
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
- 
+    </section>
+    <!-- End Contact Section -->
+    <!-- End #main -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-chevron-up"></i>
+    </a>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-  <!-- /Sparnatural-specific -->
-
-  <!-- i18n -->
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.messagestore.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.fallbacks.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.language.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.parser.js"></script>
-  <script src="assets/vendor/jquery.i18n/jquery.i18n.emitter.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/demo.js"></script>
-  <script src="assets/js/i18n.js"></script>
-
+    <!-- /Sparnatural-specific -->
+    <!-- i18n -->
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.messagestore.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.fallbacks.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.language.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.parser.js"></script>
+    <script src="assets/vendor/jquery.i18n/jquery.i18n.emitter.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script>
-      $.urlParam = function(name){
-        var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-        if(results == null) { return null; }
-        return results[1] || 0;
-      }
-      var lang = ($.urlParam('lang') != null)?$.urlParam('lang'):'fr';
-
-      // set the locale
-      $.i18n( { locale: lang } );  
-       
-      $('body').i18n();
-
-    </script>
-
-</body>
-
+            $.urlParam = function (name) {
+                var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+                if (results == null) {
+                    return null;
+                }
+                return results[1] || 0;
+            }
+            var lang = ($.urlParam('lang') != null) ? $.urlParam('lang'): 'fr';
+            
+            // set the locale
+            $.i18n({
+                locale: lang
+            });
+            
+            $('body').i18n();</script>
+  </body>
 </html>
