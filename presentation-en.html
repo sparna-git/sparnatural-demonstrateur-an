@@ -198,7 +198,7 @@
             </ul>
             <p>In doing so, the objectives were also:</p>
             <ul>
-              <li>to demonstrate that large-scale semantization of “classical” archival metadata is
+              <li>to demonstrate that large-scale semantization of “classic” archival metadata is
                 possible, and that this opens up new search opportunities for users;</li>
               <li>to show what such an operation allows to learn about these metadata;</li>
               <li>to build a methodology and acquire skills on the implementation of Sparnatural,
@@ -312,40 +312,36 @@
               purpose of these additions was not to immediately enrich the source EAD files, but to
               make these additions possible afterwards, while adopting rigorous definitions that we could immediately use to construct the RDF graph.</p>
             <h3 id="process">The data graph production process</h3>
-            <p>Metadata have been converted into linked data graphs, compliant to the new Conceptual
-              Model <a href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf"
-                >Records in Contexts</a> and its technical transposition, the <a
-                href="https://www.ica.org/standards/RiC/ontology">RiC-O ontology</a> (v0.2,
+            <p>The selected metadata have been converted into linked data graphs, compliant to the new <a href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf"
+                >Records in Contexts Conceptual Model (RiC-CM)</a> and its technical transposition, the <a
+                href="https://www.ica.org/standards/RiC/ontology">Records in Contexts-Ontology</a> (RiC-O, version 0.2,
               published in February 2021).</p>
-            <p>The conversion was carried out twice. The first iteration was carried out in November
+            <p>The conversion was carried out twice. The first iteration was performed in November
               2021, the second in May 2022, after learning various lessons from the first one and
-              from the demonstrator configuration first work.</p>
-            <p><b>To convert XML/EAD and XML/EAC-CPF files, we used the open source software <a
-                  href="https://github.com/ArchivesNationalesFR/rico-converter">RiC -O
+              from the initial configuration work on the demonstrator.</p>
+            <p><b>To convert the XML/EAD and XML/EAC-CPF files, we used the open source software <a
+                  href="https://github.com/ArchivesNationalesFR/rico-converter">RiC-O
                 Converter</a></b>,developed for the National Archives in 2019 and available on
               GitHub since April 2020. RiC-O Converter produces RDF files compliant with RiC-O 0.1.
                 <b>The resulting files were then made compliant with RiC-O 0.2 and slightly enriched
-                or modified by specific scripts written by the Lab.</b> The enrichments and changes
-              made include the spread of the origination relation from the description of the fonds
-              level to the description of all record resources, the categorisation (with the <a
+                or modified by specific scripts written by the Lab.</b> Among the enrichments and changes
+              made let us mention: the propagation of the provenance relation from the description of each fonds  to the description of all the archival resources included in this fonds, the categorization (with the <a
                 href="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"
                 >rico:hasDocumentaryFormType</a> property and the document type vocabulary) of
               instances of <a href="https://www.ica.org/standards/RiC/ontology#RecordResource"
-                >rico:RecordResource</a> that can be identified as directories, lists of acts and
+                >rico:RecordResource</a> that can be identified as registers, lists of acts and
               mentions of acts, and the replacement of association relations between notarial
               offices and notaries by more precise membership relations.<br /><b>The vocabularies
                 and records used to index EAD and EAC-CPF files have been converted using dedicated
-                scripts</b>, written and used by the Lab.<br /> Finally, after importing into the
-              RDF database chosen for the demonstrator (currently, an instance of the free software
-                <a href="https://www.ontotext.com/products/graphdb/graphdb-free/?ref=menu">GraphDB
-                Free</a>, configured in a very simple way), <b>the data graph has been further
+                scripts</b>, written and used by the Lab.<br /> Finally, once imported into the
+              RDF database chosen for the demonstrator (currently, an instance of the free <a href="https://www.ontotext.com/products/graphdb/graphdb-free/">GraphDB Free</a> software, configured in a very simple way), <b>the data graph has been further
                 enriched</b>, in order to create classes specific to notarial archives and to
               “populate” these classes by inference. The screenshot below shows an example: these
               are the SPARQL queries that were used to add the <i>demoanonto:Repertoire</i> class to
               the RDF database and to create the instances of this class. In other words, an
-              ontology extending RiC-O 0.2 was produced and implemented. Although this work was not
-              necessary, it greatly facilitated the design of the demonstrator’s configurations and
-              also made it possible to optimise its operation by reducing the execution time of
+              ontology extending RiC-O 0.2 was produced and implemented. Even if this work was not
+              essential, it has greatly facilitated the design of the demonstrator’s configurations and
+              also made it possible to optimize its operation by reducing the execution time of
               certain queries.</p>
             <p>
               <img src="assets/img/creationClasseRepertoire.jpg" style="width:1000px;"
@@ -355,67 +351,65 @@
               <i>Example of a SPARQL query to create a class in the graph.</i>
             </p>
             <h3 id="stats">Statistical elements concerning the resulting RDF graph</h3>
-            <p>The graph obtained currently has about <b>50 million RDF triplets</b>, including
-              about 29 million inferred triplets. We can therefore already estimate that the RDF
-              graph resulting from the semantisation of all metadata from the notary archives of the
-              National Archives would amount to about 150 million triplets. In addition, it should
-              be noted that the approximately 4900 finding aids of the DMC make up 16 % of the total
-              number of finding aids. Even if simplistic extrapolations are to be avoided, all the
-              more so since these EAD files are among the most indexed and precise in the National
-              Archives, it is now proven that <b>semantising all of the institution’s XML metadata
+            <p>The graph obtained currently has about <b>50 million RDF triples</b>, including
+              about 29 million inferred triples. We can therefore already estimate that the RDF
+              graph resulting from the semantization of all metadata from the notarial archives of the
+              National Archives would amount to about 150 million triples. In addition, let us recall that the approximately 4900 finding aids of the DMC make up 16 % of the total
+              number of 30,000 finding aids. Even if simplistic extrapolations are to be avoided, especially since these EAD files are among the most indexed and precise in the National
+              Archives, it is now proven that <b>semantizing all of the institution’s XML metadata
                 would produce an extremely massive dataset</b>.</p>
-            <p><b>This dataset is the first large-scale semantisation by the National Archives (and
-                in France) of archival metadata in RDF compliant with RiC-O 0.2.</b> It should be
+            <p><b>This dataset is the first large-scale semantization operation (in RDF compliant with RiC-O 0.2) carried out by the National Archives (and
+              in France as far as we know) of “classic” archival metadata.</b> It should be
               noted that another less massive dataset was also released in December 2021 (in a
               public <a href="https://github.com/ArchivesNationalesFR/ALEGORIA-datasets">repository
-                on GitHub</a> and also accessible via the <a
+                on GitHub</a>) and that it is also accessible via the <a
                 href="http://data.alegoria-project.fr/sparql/">SPARQL endpoint</a> of the
-              project).</p>
+             ALEGORIA project).</p>
             <p>In this dataset, are used, among the components defined in RiC-O 0.2:</p>
             <ul>
-              <li>34 classes (entity categories) out of 106 (104 with inferred triplets);</li>
+              <li>34 classes (entity categories) out of 106 (104 with inferred triples);</li>
               <li>20 <i>datatype properties</i> (relations whose target is a string) out of 62 (23
-                counting inferred triplets);</li>
-              <li>75 <i>object properties</i> (targeted relationships) out of 423 (160 with inferred
-                triplets).</li>
+                counting inferred triples);</li>
+              <li>75 <i>object properties</i> (relations whose target is an entity) out of 423 (160 with inferred
+                triples).</li>
             </ul>
             <p>SPARQL queries executed directly in the SPARQL endpoint of the RDF database, in order
               to go beyond the limit of 1000 results set for the Sparnatural interface, give <b>the
-                following numbers for the main categories of objects described in the graph</b>:</p>
+                following counts for the main categories of objects described in the graph</b>:</p>
             <ul>
-              <li> 72 661 groups of documents (fonds, series, bundles, clients files, etc.);</li>
-              <li><b>400 570 notarial acts</b> (described to date) within the bundles;</li>
-              <li><b>104 383 mentions of acts</b> recorded in the directories</li>
-              <li>3135 directories ;</li>
-              <li><b>13 127 lists of acts within the directories</b>, including 11,670 digitized
+              <li> 72,661 groups of records (fonds, series, bundles, clients files, etc.);</li>
+              <li><b>400,570 notarial acts</b> (described to date) within the bundles;</li>
+              <li><b>104,383 mentions of acts</b> recorded in the registers;</li>
+              <li>3135 registers;</li>
+              <li><b>13,127 lists of acts within the registers</b>, including 11,670 digitized
                 lists;</li>
-              <li>629 246 persons (including 3,213 persons with IRIs);</li>
-              <li>530 organizations including 528 with an identifier;</li>
-              <li>15 559 places including 15463 with an IRI.</li>
+              <li>629,246 persons (including 3,213 persons with an IRI);</li>
+              <li>530 organizations (including 528 with an IRI);</li>
+              <li>15,559 places (including 15,463 with an IRI).</li>
             </ul>
             <p>We will soon include in this documentation a diagram providing an overview of the
               graph data model.</p>
             <p>As explained below, if the quantities found for notarial acts, mentions of acts and
-              lists of acts are to be regarded as a good approximation (given the sufficiently
-              reliable reasoning required to generate the data), the numbers found for persons and
-              directories are unreliable and can be regarded as orders of magnitude. However, these
+              lists of acts are to be regarded as a good approximation (given the fairly
+              reliable reasoning that we used to generate the data), the numbers found for persons and
+              registers are not reliable and can only be considered orders of magnitude. However, these
               statistics, on their own, show in our opinion the interest of the technologies used
               (since it is currently impossible for an end-user to obtain them via the Salle des
               inventaires virtuelle, and it is not easy to calculate them for a professional
               competent in the field of XML technologies). <b>They show above all, if it is still
-                necessary to prove it, the very richness of these archival deposits.</b></p>
+                necessary to prove it, the very richness of these archival holdings.</b></p>
             <p>We will continue to work on these data, as explained below.</p>
             <p>
               <b>We have currently set up a private repository on GitHub to deposit and update the
                 RDF dataset.</b> Do not hesitate to contact us if you wish to have access to this
               repository or a copy of the dataset.</p>
             <h2 id="interfaces">The graph exploration interfaces</h2>
-            <h3 id="design">Choice and design methods</h3>
+            <h3 id="design">Choices and design methods</h3>
             <p>Several Sparnatural configuration options are possible: configuration via a Google
               spreadsheet or an OWL ontology (see the <a
                 href="https://docs.sparnatural.eu/index.html">documentation</a>). The Lab chose to
               configure the demonstrator via an ontology, with the help of Sparna, and used <a
-                href="https://protege.stanford.edu/">Protégé</a>, a free Software, to edit the
+                href="https://protege.stanford.edu/">Protégé</a>, a free software, to edit the
               ontology.</p>
             <img src="assets/img/classe_protege.png" style="width:1000px;"
               alt="Example of Sparnatural class edition in Protégé" />
@@ -431,61 +425,59 @@
               new ones to group several existing components in order to simplify the exploration of
               the graph or to represent text type nodes, to give them understandable labels in the
               language you want, to define a display order for the main entry points, to specify how
-              the target nodes of a relationship are displayed, etc. If you know HTML, the data
-              contained in the graph, the model used and its implementation, and the OWL language,
-                <b>you can build and evolve your interface independently</b>.</p>
+              the target nodes of a relationship are displayed, to use existing SKOS vocabularies, etc. If you know HTML, the data
+              contained in the graph, the business model used and its implementation, SPARQL and the OWL language,
+                <b>you can build and develop your interface independently</b>.</p>
             <p>The aim for the Lab was therefore to achieve <b>a reasonable compromise between the
                 complexity of the domain model and the need to produce an understandable and
                 efficient interface for users.</b> It took a long time to achieve the current
               result, through successive iterations. Feedback from users during the two workshops
-              held at the end of 2021 was valuable in this respect and really guided both the
+              held at the end of 2021 were invaluable in this respect and really guided both the
               developments of the software and the choices we made.</p>
-            <p>The design work of the search interfaces also tested the functionalities developed in
-              the context of Sparnatural’s evolution project, including:</p>
+            <p>The design work of the search interfaces also made it possible to test the features developed as part of the Sparnatural evolution project, including:</p>
             <ul>
-              <li>the support of the OPTIONAL clause (which facilitates the discovery, granularity
-                and accuracy of the data being variable in a graph of cultural metadata, in
-                particular in a graph of archival metadata) — we used this possibility for many
+              <li>the support of the OPTIONAL clause (which facilitates the discovery, as the granularity
+                and the accuracy of the data are variable and not determined in advance in a graph of cultural metadata, in
+                particular in a archival metadata graph) — we used this possibility for many
                 relationships, e.g. ‘has digital surrogate’, ‘has title’, ‘have subject’;</li>
               <li>FILTER NOT EXISTS support (to express the negation of a property) — we also
                 retained this possibility in the same cases as for OPTIONAL;</li>
-              <li>the ability to select values from a tree list (thesaurus type) — we used this
-                feature to allow selection in the thesaurus of document types;</li>
-              <li>adding contextual help (<i>tooltips</i>) — this allowed us to attach to each of
+              <li>the ability to select values from a tree list (of type thesaurus) — we used this
+                feature to allow selection in the document type thesaurus;</li>
+              <li>the ability to add contextual help (<i>tooltips</i>) — this allowed us to attach to each of
                 the categories of entities usable in the interface a short definition useful in the
                 context of the project;</li>
-              <li>adding pre-recorded queries, in order to guide the user in his first queries;</li>
-              <li>the choice of result columns to display — this allows the user to define the
-                content of the result list as he sees fit, so that he can immediately have textual
-                data (rather than the only URIS of entities that a classic SPARQL query returns by
-                default), sort out and then make an export in CSV format;</li>
-              <li>the translation of the interface into as many languages as necessary — so far we
+              <li>the ability to pre-record queries, in order to guide the user in his first queries;</li>
+              <li>the ability to choose the result columns to display — this allows the user to define the
+                contents of the result list as he wishes, so that he can immediately have textual
+                data (rather than only the URIS of entities that a classic SPARQL query returns by
+                default), operate sorts and then make an export in CSV format;</li>
+              <li>the ability to translate the interface into as many languages as necessary — so far we
                 have been able to deploy the search interfaces of the National Archives demonstrator
                 in French and English.</li>
             </ul>
             <h3 id="results">Results</h3>
             <h4>Warnings</h4>
-            <p><b>The demonstrator consists only of two search interfaces and this
-              documentation</b>.The National Archives, unlike the BnF (with <a
+            <p><b>The demonstrator only consists of two search interfaces and this
+              documentation</b>. The National Archives, unlike the BnF (with <a
                 href="https://data.bnf.fr">data.bnf.fr</a>), does not have a website for viewing
               data graphs. A feature has therefore been added to the Sparnatural demonstrator, to
               associate with each result entity a page allowing to view its description in a simple
               way (via the <a href="https://lodview.it/">Lodview</a> application). This feature is
               not entirely optimal. Moreover, RDF resources IRIs are not currently dereferencable;
-              in particular, no webpage is associated with these IRISs, nor can we guarantee the
+              in particular, no webpage is associated with these IRIs, nor can we guarantee the
               sustainability of the root segment
               (http://data.archives-nationales.culture.gouv.fr/).</p>
             <!--THOMAS ? ajouter notamment qques mots sur les limites techniques actuelles ?(incapacité de la base RDF à servir plus de 2 requêtes simultanées). Ce problème pourrait être réglé en opérant une migration vers la version Standard de GraphDB.-->
-            <p>The results still show some small technical flaws that we will try to correct. On the
-              other hand, we take any comments or suggestions for improvement. We are aware that
-              after the user workshops held at the end of 2021 these interfaces need to be tested by
-              more users. Like the RDF queried data, <b>the interfaces are likely to evolve
+            <p>The results obtained still show some small technical flaws that we will try to correct. Furthermore, <b>we take any comments or suggestions for improvement</b>. We are aware that
+              after the user workshops held at the end of 2021, these interfaces need to be tested by
+              more users. Just like the RDF queried data, <b>the interfaces are likely to evolve
                 significantly</b>.</p>
             <h4>A Configuration</h4>
             <p>The first configuration (<a href="index-A.html">A interface</a>) is <b>simple and
-                generalistic</b> ; it can almost be applied to any RiC-O compliant archival dataset,
-              insofar as contextual entities such as producers, document subject agents, locations
-              are indexed. It is a priori rather destined for <b>the discovery of metadata.
+                generalistic</b>; it can almost be applied to any RiC-O compliant archival dataset,
+              insofar as contextual entities such as archival creators, document subject agents, locations
+              are indexed. It is a priori rather intended for <b>the discovery of metadata.
               </b>.</p>
             <p>The main categories of objects (classes) defined in the configuration ontology and
               usable in this first interface are:</p>
@@ -493,7 +485,7 @@
               <li>Records (a project-specific class, which gathers all archival resources, thus all
                 instances of the RiC-O <a
                   href="https://www.ica.org/standards/RiC/ontology#RecordResource">RecordResource
-                  class</a>, with the exception of search instruments and authority records);</li>
+                  class</a>, with the exception of finding aids and authority records);</li>
               <li>Person (which corresponds to class <a
                   href="https://www.ica.org/standards/RiC/ontology#Person">rico:Person</a>);</li>
               <li>Organization (which corresponds to class <a
@@ -531,37 +523,36 @@
             </p>
             <h4>B Configuration</h4>
             <p>The second configuration (<a href="index-B.html">B interface</a>) <b>exploits the
-                specificities of the notary archives</b>. It is a priori <b>rather adapted to the
-                needs of a person familiar with this universe, archivist or accustomed user</b>. It
-              is the configuration that has been the subject of the greatest number of changes in
-              the history of the project. <br />In addition to the object categories listed above,
-              this configuration defines and uses new object categories, and establishes for these
-              object categories matches with classes of ontology extending RiC-O mentioned
+                specificities of notarial archives</b>. It is a priori <b>rather adapted to the
+                needs of a person familiar with this universe, archivist or accustomed user</b>. This
+              is the configuration that has had the greatest number of changes in
+              the history of the project. <br />In addition to the categories of objects listed above,
+              this configuration defines and uses new categories of objects, and establishes for these
+              new categories correspondences with classes of the ontology extending RiC-O mentioned
               above:</p>
             <ul>
-              <li>RecordSet (which corresponds to class <a
+              <li>Record set (which corresponds to class <a
                   href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>),
-                Notarial registry, List of acts, Notarial act, Mention of an act, Shelfmark;</li>
+                Notarial register, List of acts, Notarial act, Mention of an act, Reference Code;</li>
               <li>Notarial office, Notarial office number, Notary;</li>
-              <li>Parisian district or parish, Street in Paris,Parisian Building, Address.</li>
+              <li>Parisian district or parish, Street in Paris, Parisian building, Address.</li>
             </ul>
             <p><b>Most of these entities can be used from the beginning of writing a
-              request</b>.</p>
+              query</b>.</p>
             <p>New relationships are also present, for example between notarial office and notaries
               (Notary <i>is member of</i> Notarial office), between notaries (Notary <i>has
-                successor or was preceded by</i> Notary), between archival resources (such as
-              Notarial registry <i>includes or mentions</i> Mention of an act or List of acts).</p>
+                successor</i> or <i>has family relation with</i> Notary), between archival resources (such as
+              Notarial register <i>includes or mentions</i> Mention of an act or List of acts).</p>
             <h2 id="bilan">Bilan</h2>
             <h3 id="research_device">The demonstrator as an exploration and research device</h3>
             <p><b>The results are very positive in terms of the possibilities for exploring the
                 graph and the new research opportunities offered by Sparnatural</b>. <br /> Among
               the main points identified by users during the November 2021 workshops, once the
               surprise effect has passed, one can mention <b>the intuitive, flexible and interactive
-                character of this type of interface</b>, which also requires a greater intellectual
-              commitment for the user than to fill out a classic search form. The user builds his
+                nature of this type of interface</b>, which also requires a greater intellectual
+              commitment for the user than to fill out a classic search form. The user builds <i>his</i>
               questionnaire by choosing among the options available to him and discovers the content
-              of the graph at the same time as he constructs his search; he’s really taking his
-              hand. It is also easy to go back by canceling a step and then the previous one.
+              of the graph at the same time as he constructs his search; he’s really taking over. It is also easy for him to go back by undoing a step, then the previous one.
               Finally, he can share the executed query or export the results of his search.</p>
             <p>We cannot, of course, replace the non-archivist user or the one who does not know the
               RiC-O data model at all. We just want to present here an example of the searches that
@@ -570,68 +561,67 @@
               in the B search interface.</p>
             <img style="width:1000px;" src="assets/img/requetePrenregistree_configB-EN.jpg"
               alt="Pre-recorded query in the B interface : Documentary form types of the notarial
-              actes dated 1848, with their shelfmarks" />
+              actes dated 1848, with their reference codes" />
             <p>
               <i>
                 <a
                   href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-B.html?query=XQAAAALDBAAAAAAAAABtAROGb_4MAd_6Giyx3QrcHPSeh6sZOI5aHw3O1zgssP3BLbYF5fFCYMIS_dmyPvgkmO2hgHnXczkbYsDaXmHzeBe1FuhtEaV_OBn0SWsjzXc7vz26ryXCgu0pA1xvKNIrts-dRBorCUoyJwwLaNuugLI254tqNDfLxc-w1fGNCOYt0bOb1NG8k-UhGmn7cQsk4MM_cSjQBUP7EsRAz0z-nzf3KRCZ77ALuFTgU_rFcq8Td8aI2y-0Ix7OqE2O8yqIRoLcKWIQsKwlRFx1HKsiaYK4-4369chrIoNAOtuBt09OH7dtB-IgtVQF2ZXbBcqKMedkeptk6heQ8DM4Z7ggCHgtwBagb9UF16t6IKrMr659jYyrnGzOBlpV7nyeCFFERSi53epm2VTW9OOhKLbu-KOJhAMs44L-CUULybYztUK4TOWsycc1w68jCswJzMeb9y9wYwUB43Yq-vO4UJSok_s_Big"
                   >Pre-recorded query in the B interface : documentary form types of the notarial
-                  actes dated 1848, with their shelfmarks</a>
+                  actes dated 1848, with their reference codes</a>
               </i>
             </p>
-            <p>In this example, we see first of all that the <b>entry point is a context entity</b>,
+            <p>In this example, we first see that the <b>entry point is a context entity</b>,
               which is currently rare in our archival search interfaces, in which the focus is
               mostly placed at the outset on archival documents. The query editor then allows you to
-              choose the categories of relationships between Document type entities to browse the
-              graph from near to far. The user is still on the same HTML page, and in the context of
-              the construction of a questionnaire (without having to work by rebound between search
-              results that should have been searched and in which you would then click on
-              hyperlinks, to find out what to expect). Such a question, even if it is not formulated
+              choose a category of entity related to document types (here, the choice fell on notarial acts), before going through the graph step by step. The user is still on the same HTML page, and  remains in the context of
+              the construction of a questionnaire (without having to work on search
+              results in which you would then click on
+              hyperlinks, to find out what to expect). He could thus, for example, also be interested in the archival creator of the acts (notary or notarial office). Such a question, even if it is not formulated
               in natural language, seems to us close to the formulation that a researcher in history
               might make of it, who would like, for example, to form a corpus and to get a first
-              idea of it. One of the notable features here is that <b>the user can, for many
+              idea of it. One of the notable features here is also that <b>the user can, for many
                 relationships, either select the target precisely, or request all the targets of a
                 given relationship</b> (here, all notarial acts, or all dates), at least
                 initially.<b> The ability to determine which information is included in the results
-                table, and to have textual values (entity labeled), not just URIs, in this table is
-                also particularly valuable</b>. Finally, the user can easily edit his questionnaire
+                table, and to have textual values (entity labels), not just URIs, in this table, is
+                also particularly valuable</b>. Finally, the user can easily modify his questionnaire
               in stages, or <b>share the query and save the link in his own files, in order to
                 replay the query later</b>.</p>
             <p><b>The functional limits of the demonstrator are essentially those of
                 Sparnatural.</b> The first, already mentioned above, is that it is a tool for
-              constructing an exploration and search interface in an RDF data graph, not to display
-              the data listed in the result tables for viewing. Moreover, the National Archives does
-              not yet have a way to de-reference URIs. The HTML page display feature using Lodview,
-              obviously does not replace a real design and design work of a consultation interface,
+              bulding an exploration and search interface in a knowledge graph, not for displaying
+              the data listed in the result tables and consulting them. Moreover, the National Archives does
+              not yet have a way to de-reference URIs. The HTML page display feature achieved using Lodview,
+              obviously does not replace a real design work of a consultation interface,
               that could also help visualize parts of the obtained graph, in line with what the <a
                 href="https://piaaf.demo.logilab.fr/">PIAAF</a> prototype proposed for a much
-              smaller amount of data. This was not the object of the work done under this
+              smaller amount of data. This was not the purpose of the work done under this
               project.</p>
             <p>Such a search interface is not, moreover, exclusive of a ‘full text’ search allowing,
-              on the basis of the word or expression entered, a list of suggestions giving for each
+              from the word or expression entered, to have a list of suggestions giving for each
               of them the type of entity concerned; or tab-type navigation options (one tab per
               entity category) as the PIAAF prototype also offers.</p>
-            <p><b>Of course, the fact that the dataset used does not provide a homogeneous coverage
-                of the archives of the first 40 notarial offices increases these limitations: the
-                work of analyzing notarial acts held within these fonds continues at the DMC, as in
+            <p><b>Of course, in addition to these limitations, the dataset used does not provide a homogeneous coverage
+                of the archives of the first 40 notarial offices: the
+                work of analyzing the notarial acts held within these fonds is continuing at the DMC, as in
                 the other fonds</b>.</p>
             <h3 id="graph_obtained">The RDF graph obtained, an example of large-scale use of
               RiC-O</h3>
             <p>The result of this large-scale conversion of XML/EAD and XML/EAC-CPF source data to
               RDF compliant with RiC-O clearly showed:</p>
             <ul>
-              <li>whereas this conversion is entirely possible without necessarily making any
+              <li>that this conversion is entirely possible without necessarily making any
                 changes to this data;</li>
-              <li>whereas <b>the graph obtained from classical archival metadata of this type will
+              <li>that <b>the graph obtained from classic archival metadata of this type will
                   offer all the more different entry points and will be all the more rich in nodes
                   (in entities of various types) as the source metadata use reference data
-                  (authority records, vocabularies) to describe the context entities of the
+                  (authority records, vocabularies) to describe the contextual entities of the
                   archives</b>;</li>
-              <li>whereas, <b>even from well-indexed metadata, such an operation will only use a
+              <li>that, <b>even from well-indexed metadata, such an operation will only use a
                   subset of the RiC-O classes and properties</b>, which is normal since RiC-O is the
                 technical transposition of an overall conceptual framework;</li>
               <li>that, <b>while employing only a small part of RiC-O, carrying out such a project
-                  may encourage, in particular in the case of a homogeneous archival ensemble such
+                  may encourage, in particular in the case of a homogeneous archival corpus such
                   as ours, to extend this ontology</b>, which is a very generic international model
                 which cannot take into account the variety of corpuses or all local specificities
                 and needs.</li>
@@ -641,7 +631,7 @@
               feedback.</p>
             <h3 id="perspective">A new perspective on the metadata used</h3>
             <p>At this early stage of the work on metadata that the demonstrator allows to explore,
-              we have already mentioned above, <b>thanks to semantic technologies, we have new
+              as we have already mentioned above, <b>thanks to semantic technologies, we have new
                 quantitative elements on the content of the described archives</b>. We will be able
               to refine this mapping in the coming months. <br /> Moreover, as in any project for
                 <b>the production and publication of graphs of linked entities from pre-existing
@@ -649,35 +639,34 @@
                 data and their exploration as a graph have highlighted problems in the source
                 metadata, although not unknown but so far very little visible and difficult to
                 quantify</b>. Here we will take two examples.</p>
-            <h4>629 246 people in the graph ?</h4>
+            <h4>629 246 people in the graph?</h4>
             <p>The essentially free indexing, via the element EAD &lt;persname&gt;, of persons
               (except for 3213 of them with authority records) in the finding aids processed results
               in a very large number of entities of the type rico:Person in the graph, about which
-              little is often known (e.g., the activity of 34 925 of these persons only) and which
+              little is often known (e.g., we know the occupation of 34 925 of these persons only) and which
               have not been the subject of aggregation or identification work. In fact,<b> entities
-                with the same name can be aggregated as a single entity Person in this related
-                entity graph only if there is absolute certainty or quasi-certainty that it is the
+                with the same name can be aggregated as a single entity Person in this graph only if there is absolute certainty or quasi-certainty that it is the
                 same natural person — when, for example, that person is found at about the same
-                date, with the same reference to profession or function (or relations with other
+                date, with the reference to the same occupation or function (or the same relations with other
                 persons), in the acts of the same notary or mentioning the same property</b>. This
               is a very interesting field of investigation. Regardless of the results, <b>there
                 should be a very large cohort of highly blurred individuals whose numbers are not
                 expected to differ significantly from the initial number</b>.</p>
-            <h4>3135 directories ?</h4>
-            <p>This number is much higher than the observed reality. It follows from the fact that
+            <h4>3135 registers?</h4>
+            <p>This number is much higher than the observed reality. It results from the fact that
               in the finding aids treated, there are usually two descriptions (two EAD
               &lt;c&gt;elements between which no relationship is currently established), created in
-              two different finding aids: one describes the fonds of a given notary, thus its
-              directories — and sometimes, references to acts in the directories — and minutes; the
-              other, produced as part of the full digitisation of directories, describes the
-              notary’s directories as material objects and the lists of acts contained therein. This
-              redundancy is not visible enough in the source metadata in the virtual inventory room;
+              two different finding aids, about the same register: one describes the fonds of a given notary, thus its
+              registers — and sometimes, references to acts in the registers — and minutes; the
+              other, produced as part of the full digitisation of registers, describes the
+              notary’s registers as material objects and the lists of acts contained therein. This
+              redundancy is not visible enough in the source metadata in the Salle des inventaires virtuelle;
               it is much more so in the RDF graph.</p>
             <p>
-              <b>Further analysis allows us to consider a test, to be carried out on a
-                representative sample of these inventories, of linking or even merging the
+              <b>Further analysis has led us to decide to carry out, in the coming months, a test on a
+                representative sample of these finding aids, of linking or even merging the
                 information they contain, in order to produce, ideally, a single description of each
-                of the directories</b>. This example is very representative of other situations,
+                of the registers</b>. This example is very representative of other situations,
               related to the long history of the National Archives metadata and the phenomenon of
               stratification of finding aids.</p>
             <h3 id="other_results">Other tangible results of the project</h3>
@@ -692,13 +681,13 @@
               translation over time.</p>
             <h2 id="conclusion">In conclusion: prospects</h2>
             <p><b>In a possible continuation of the project, it is envisaged that the two
-                configurations A and B should be merged into one, by prioritising classes and
+                configurations A and B should be merged into one, by hierarchizing classes and
                 properties, to give to the user the choice, within a single search interface, of a
                 quick or more precise exploration</b> (e.g. select Person > Notary in a single
               interface). This will involve changing the configuration possibilities offered by
               Sparnatural.</p>
-            <p>The National Archives Lab will produce and publish a generic Sparnatural search
-              ontology for RiC-O compliant RDF data starting with configuration A.</p>
+            <p>The Lab of National Archives pans to produce and publish a generic Sparnatural search
+              ontology for RiC-O compliant RDF data, starting with configuration A.</p>
             <p>Finally, <b>the National Archives Lab is now able on its own to design a Sparnatural search
                 interface for other data sets</b>. The reuse of Sparnatural is therefore
               foreseen in other research projects, for example to explore data from the <a

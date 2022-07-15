@@ -240,8 +240,7 @@
                   notariales et leur valorisation sur les sites Internet des Archives
                   départementales et nationales</i>, réalisé en avril 2020 par Sandra Fullenbaum
                 Lenfant, sous la direction de Marie-Françoise Limon-Bonnet ;</li>
-              <li><b>des fonds d’archives de même nature sont conservés dans les services d’archives
-                départementales</b>. On peut notamment voir à ce sujet le même rapport d’enquête.</li>
+              <li><b>des fonds d’archives de même nature sont conservés dans chacun des services départementaux d’archives</b>. Le même rapport d'enquête en donne indirectement un aperçu général.</li>
             </ul>
             <p>Nous avons donc choisi de travailler sur les <b>notices d’autorité des producteurs (en
               XML/EAC-CPF) et inventaires (en XML/EAD 2002) relatifs aux archives des 40 premières
@@ -250,8 +249,8 @@
               sélectionnés au sein d’un export complet des fichiers XML validés, réalisé le 11 mars
               2022 par le Département des systèmes d’information des Archives nationales. La
               sélection a été opérée en suivant les liens établis entre les quarante premières
-              notices EAC-CPF des études notariales et les notices des notaires d’une part, les
-              instruments de recherche d’autre part. Cette opération a produit un corpus incluant : </p>
+              notices EAC-CPF des études notariales et,  d’une part, les notices des notaires, d’autre part les
+              instruments de recherche. Cette opération a produit un corpus incluant : </p>
             <ul>
               <li><b>les 40 notices décrivant les études I à XL</b> (et la notice de l’étude LIII, au sein
                 de laquelle un des notaires de l’étude XV a également travaillé entre 1961 et 1973)
@@ -280,13 +279,13 @@
               référentiel dit des types de documents, avec l’accord du DMC. Le but de ces ajouts
               était, non pas de procéder immédiatement à des enrichissements dans les fichiers EAD
               source, mais de les rendre possibles par la suite, tout en se dotant de définitions
-              rigoureuses réutilisables pour construire le graphe RDF.</p>
+              rigoureuses immédiatement utilisables pour construire le graphe RDF.</p>
             <h3 id="process">Le processus de production du graphe de données</h3>
-            <p>Les métadonnées ont été converties en graphes de données liées, conformément au
+            <p>Les métadonnées sélectionnées ont été converties en graphes de données liées, conformément au
               nouveau modèle conceptuel <a
                 href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf">Records in
-                Contexts</a> et à sa transposition technique, l’ontologie <a
-                href="https://www.ica.org/standards/RiC/ontology">RiC-O</a> (v0.2, publiée en
+                Contexts</a> (RiC-CM) et à sa transposition technique, l’ontologie <a
+                href="https://www.ica.org/standards/RiC/ontology">Records in Contexts-Ontology</a> (RiC-O, version 0.2 publiée en
               février 2021).</p>
             <p>La conversion a été opérée à deux reprises. La première itération a été réalisée en
               novembre 2021, la deuxième en mai 2022, après avoir tiré diverses leçons de la
@@ -297,15 +296,15 @@
               RDF conformes à RiC-O 0.1. <b>Les fichiers obtenus ont donc ensuite été rendus conformes
               à RiC-O 0.2 et un peu enrichis ou modifiés par des scripts spécifiques écrits par le
               Lab</b>. Parmi les enrichissements et modifications opérés, mentionnons : la propagation de
-              la relation de provenance depuis la description des fonds sur la description de
-              l’ensemble des ressources archivistiques, la catégorisation (avec la propriété <a href="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType">rico:hasDocumentaryFormType</a> et le référentiel des types de documents) des instances de <a href="https://www.ica.org/standards/RiC/ontology#RecordResource">rico:RecordResource</a> identifiables comme étant des répertoires, listes d’actes et mentions d’actes ; le remplacement des relations d’association entre études et
+              la relation de provenance depuis la description de chacun des fonds sur la description de
+              l’ensemble des ressources archivistiques incluses dans ce fonds, la catégorisation (avec la propriété <a href="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType">rico:hasDocumentaryFormType</a> et le référentiel des types de documents) des instances de <a href="https://www.ica.org/standards/RiC/ontology#RecordResource">rico:RecordResource</a> identifiables comme étant des répertoires, listes d’actes et mentions d’actes ; le remplacement des relations d’association entre études et
               notaires par des relations plus précises d’appartenance. <br /><b>Les vocabulaires et
               notices utilisées pour indexer les fichiers EAD et EAC-CPF ont été convertis grâce des
-              scripts dédiés</b>, écrits et utilisés par le Lab. <br />Enfin, après import dans la base
+              scripts dédiés</b>, écrits et utilisés par le Lab. <br />Enfin, une fois importé dans la base
               RDF choisie pour le démonstrateur (actuellement, une instance du logiciel libre
-              GraphDB Free, configurée de façon très simple), <b>le graphe de données a été à nouveau
+              <a href="https://www.ontotext.com/products/graphdb/graphdb-free/">GraphDB Free</a>, configurée de façon très simple), <b>le graphe de données a été à nouveau
               enrichi</b>, afin de créer des classes spécifiques aux archives notariales et de “peupler”
-              ces classes par inférence. La copie d’écran ci-desous en montre un exemple : il sagit des requêtes SPARQL qui ont servi à ajouter dans la base RDF la classe demoanonto:Repertoire et à créer les instances de cette classe. Autrement dit, une ontologie étendant RiC-O 0.2 a été
+              ces classes par inférence. La copie d’écran ci-desous en montre un exemple : il s'agit des requêtes SPARQL qui ont servi à ajouter dans la base RDF la classe demoanonto:Repertoire et à créer les instances de cette classe. Autrement dit, une ontologie étendant RiC-O 0.2 a été
               produite et mise en œuvre. Même si ce travail n’était pas indispensable, il a beaucoup
               facilité la conception des configurations du démonstrateur et a aussi permis
               d’optimiser son fonctionnement en réduisant le temps d’exécution de certaines
@@ -352,18 +351,18 @@
               <li>3135 répertoires ;</li>
               <li><b>13 127 listes d’actes au sein des répertoires</b>, dont 11 670 numérisées ;</li>
               <li>629 246 personnes (dont 3 213 personnes dotées d’un IRI) ;</li>
-              <li>530 organismes dont 528 dotés d’un identifiant ;</li>
-              <li>15 559 lieux dont 15463 dotés d’un IRI.</li>
+              <li>530 organismes (dont 528 dotés d’un identifiant) ;</li>
+              <li>15 559 lieux (dont 15463 dotés d’un IRI).</li>
             </ul>
             <p>Nous inclurons très prochainement dans la présente documentation un diagramme donnant un aperçu global du modèle de données du graphe.</p>
             <p>Comme nous l’expliquons ci-après, si les quantités trouvées pour les actes notariés,
               les mentions d’actes et les listes d’actes sont à considérer comme une bonne
-              approximation (étant donné les raisonnements assez fiables tenus pour générer les
+              approximation (étant donné les raisonnements assez fiables que nous avons tenus pour générer les
               données), les effectifs trouvés pour les personnes et pour les répertoires ne sont pas
               fiables et peuvent uniquement être considérés comme des ordres de grandeur. Cependant <b>ces
                 statistiques, telles quelles et à elles seules, montrent à notre sens l’intérêt des
                 technologies employées</b> (car il est impossible à l’heure actuelle de les obtenir
-              via la SIV pour un utilisateur final, et assez peu aisé de les calculer pour un
+              via la Salle des inventaires virtuelle pour un utilisateur final, et assez peu aisé de les calculer pour un
               professionnel compétent dans le domaine des technologies XML). <b>Elles montrent
                 surtout, si tant est qu’il faille encore la prouver, la très grande richesse de ces
                 gisements archivistiques.</b></p>
@@ -391,12 +390,12 @@
               l’exploration du graphe ou pour représenter des nœuds de type texte -, de leur donner
               des libellés compréhensibles dans la langue qu’on souhaite, de définir un ordre
               d’affichage pour les points d’entrée principaux, de spécifier comment les nœuds cibles
-              d’une relation s’affichent, d’exploiter des vocabulaires, etc. Si l’on connaît HTML, le langage SPARQL, les données contenues dans le graphe, le modèle métier employé et sa mise en œuvre, et
+              d’une relation s’affichent, d’exploiter des vocabulaires SKOS, etc. Si l’on connaît HTML, les données contenues dans le graphe, le modèle métier employé et sa mise en œuvre, SPARQL et
               le langage OWL, <b>on peut donc construire et faire évoluer son interface de façon
               autonome</b>.</p>
             <p>Le but pour le Lab a donc été d’atteindre par ce biais un <b>compromis raisonnable entre
               la complexité du modèle métier et la nécessité de produire une interface
-              compréhensible pour les utilisateurs</b>. Il a fallu beaucoup de temps pour parvenir au
+              compréhensible et performante pour les utilisateurs</b>. Il a fallu beaucoup de temps pour parvenir au
               résultat actuel, par itérations successives. Les retours des utilisateurs pendant les
               deux ateliers organisés fin 2021 ont été à cet égard précieux et ont véritablement
               orienté à la fois les développements du logiciel et les choix que nous avons
@@ -407,24 +406,24 @@
             <ul>
               <li>le support de la clause OPTIONAL (ce qui facilite la découverte, la granularité et
                 la précision des données étant variable dans un graphe de métadonnées culturelles,
-                en particulier dans un graphe de métadonnées archivistiques) - nous avons utiisé cette possibilité pour de nombreuses relations, par ex. "a une copie numerique", “a pour intitulé”, “concerne” ;
+                en particulier dans un graphe de métadonnées archivistiques) - nous avons utilisé cette possibilité pour de nombreuses relations, par ex. "a une copie numerique", “a pour intitulé”, “concerne” ;
               </li>
               <li>le support de FILTER NOT EXISTS (pour exprimer la négation d’une propriété) - nous avons également retenu cette possibilité dans les mêmes cas que pour OPTIONAL ;
               </li>
               <li>la possibilité de sélectionner des valeurs dans une liste arborescente (de type
                 thésaurus) - nous avons utilisé cette fonctionnalité pour permettre la sélection
                 dans le thésaurus des types de documents ;</li>
-              <li>l’ajout d’aides contextuelles (<i>tooltips</i>) - nous avons ainsi pu attacher à chacune
+              <li>la possibilité d’ajouter des aides contextuelles (<i>tooltips</i>) - nous avons ainsi pu attacher à chacune
                 des catégories d’entités utilisables dans l’interface une courte définition utile
                 dans le contexte du projet ;</li>
-              <li>l’ajout de requêtes pré-enregistrées, afin de guider l’utilisateur dans ses
+              <li>la possibilité de pré-enregistrer des requêtes, afin de guider l’utilisateur dans ses
                 premières requêtes ;</li>
-              <li>le choix des colonnes de résultats à afficher - cela permet à l’utilisateur de
+              <li>la possiblité de choisir les colonnes à afficher dans les résultats - cela permet à l’utilisateur de
                 définir à sa guise le contenu de la liste de résultats, pour pouvoir immédiatement
                 disposer de données textuelles (plutôt que les seules URIS des entités qu’une
                 requête SPARQL classique retourne par défaut), opérer des tris et ensuite en faire
                 un export au format CSV ;</li>
-              <li>la traduction de l’interface en autant de langues que nécessaire - nous avons
+              <li>la possibilité de traduire l’interface en autant de langues que nécessaire - nous avons
                 ainsi pu pour l’instant décliner en français et en anglais les interfaces de
                 recherche du démonstrateur des Archives nationales.</li>
             </ul>
@@ -445,7 +444,7 @@
             <p>Les résultats obtenus présentent encore quelques petits défauts techniques que nous
               nous efforcerons de corriger. Par ailleurs, <b>nous sommes bien entendu preneurs de toute
               remarque ou suggestion d’amélioration</b>. Nous avons conscience qu’après les ateliers
-              utilisateurs organisés fin 2021 ces interfaces doivent être mises à l’épreuve d’un
+              utilisateurs organisés fin 2021, ces interfaces doivent être mises à l’épreuve d’un
               plus grand nombre d’usagers. Tout comme les données RDF interrogées, <b>les interfaces
               sont susceptibles d’évoluer de façon significative</b>.</p>
             <h4>Configuration A</h4>
@@ -471,7 +470,7 @@
               <li>Activité (classe des concepts SKOS définis dans le vocabulaire des professions et
                 fonctions des personnes des Archives nationales, également instances de la classe
                 <a  href="https://www.ica.org/standards/RiC/ontology#OccupationType">rico:OccupationType</a>)</li>
-              <li>ReproductionNumerique (les instances de la classe <a href="https://www.ica.org/standards/RiC/ontology#Instantiation">rico:Instantiation</a> ayant le
+              <li>Reproduction numérique (les instances de la classe <a href="https://www.ica.org/standards/RiC/ontology#Instantiation">rico:Instantiation</a> ayant le
                 format JPEG, générées à partir des éléments daogrp des fichiers EAD)</li>
               <li>et d’autres ‘entités’ associées, qui correspondent à des valeurs littérales de
                 propriétés RiC-O : date, intitulé, nom.</li>
@@ -488,15 +487,15 @@
               d’objets des correspondances avec des classes de l’ontologie étendant RiC-O mentionnée
               plus haut :</p>
             <ul>
-              <li>GroupeDeDocuments (qui correspond à la classe <a  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>), Repertoire,
-                ListeActes, ActeNotarie, MentionActe, Cote ;</li>
-              <li>Etude, NumeroEtude, Notaire ;</li>
-              <li>QuartierOuParoisse, Voie, Edifice, Adresse ;</li>
+              <li>Ensemble de documents (qui correspond à la classe <a  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>), Répertoire,
+                Liste d'actes, Acte notarié, Mention d'acte, Cote ;</li>
+              <li>Étude notariale, Numéro d'étude notariale, Notaire ;</li>
+              <li>Quartier, paroisse ou arrondissement de Paris, Voie de Paris, Édifice parisien, Adresse.</li>
             </ul>
             <p><b>La plupart de ces entités sont utilisables dès le début de l’écriture d’une requête</b>.</p>
               <p>De nouvelles relations sont également présentes, par exemple entre étude et
               notaires (Notaire <i>appartient à</i> Étude), entre notaires (Notaire <i>a pour
-                prédécesseur</i> Notaire), entre ressources archivistiques (comme Répertoire
+                successeur</i> ou <i>a une relation familiale avec</i> Notaire), entre ressources archivistiques (comme Répertoire
                 <i>inclut ou mentionne</i> Mention d’acte ou Acte notarié).</p>
             <h2 id="bilan">Bilan</h2>
             <h3 id="research_device">Le démonstrateur comme dispositif d’exploration et de recherche</h3>
@@ -516,7 +515,7 @@
               présenter ici un exemple des recherches qu’un formulaire de recherche classique dans des fichiers EAD ne permet actuellement pas de faire, et que Sparnatural rend possibles. Cet exemple est celui de la troisième requête préenregistrée dans l’interface de recherche B.</p>
             <img style="width:1000px;" src="assets/img/requetePrenregistree_configB.jpg" alt="Une requête préenregistrée de l'interface de recherche B : les types de documents des actes notariés datant de l'année 1848, avec l'indication de leurs cotes"/>
             <p><i><a href="https://sparna-git.github.io/sparnatural-demonstrateur-an/index-B.html?query=XQAAAALDBAAAAAAAAABtAROGb_4MAd_6Giyx3QrcHPSeh6sZOI5aHw3O1zgssP3BLbYF5fFCYMIS_dmyPvgkmO2hgHnXczkbYsDaXmHzeBe1FuhtEaV_OBn0SWsjzXc7vz26ryXCgu0pA1xvKNIrts-dRBorCUoyJwwLaNuugLI254tqNDfLxc-w1fGNCOYt0bOb1NG8k-UhGmn7cQsk4MM_cSjQBUP7EsRAz0z-nzf3KRCZ77ALuFTgU_rFcq8Td8aI2y-0Ix7OqE2O8yqIRoLcKWIQsKwlRFx1HKsiaYK4-4369chrIoNAOtuBt09OH7dtB-IgtVQF2ZXbBcqKMedkeptk6heQ8DM4Z7ggCHgtwBagb9UF16t6IKrMr659jYyrnGzOBlpV7nyeCFFERSi53epm2VTW9OOhKLbu-KOJhAMs44L-CUULybYztUK4TOWsycc1w68jCswJzMeb9y9wYwUB43Yq-vO4UJSok_s_Big">Une requête préenregistrée de l’interface de recherche B : les types de documents des actes notariés datant de l’année 1848, avec l’indication de leurs  cotes</a></i></p>
-            <p>Dans cet exemple, on voit tout d’abord que <b>le point d’entrée est une entité de contexte, ce qui est rare actuellement dans nos interfaces de recherche archivistiques</b> dans lesquelles le focus est la pupart du temps placé d’entrée de jeu sur les documents d’archives. L’éditeur de requêtes permet ensuite de choisir les catégories de relations existant entre les entités de type TypeDeDocument pour parcourir de proche en proche le graphe, sur la même page HTML, et en restant dans le contexte de la construction d’un questionnaire (sans avoir à travailler par rebond entre des résultats de recherche qu’on aurait donc dû consulter et dans lesquels on aurait alors cliqué sur des lien hypertexte, pour savoir à quoi on peut s’attendre). Une telle question, même si elle n’est pas formulée en langage naturel, nous semble proche de la formulation que pourrait en faire un chercheur en histoire qui souhaiterait, par exemple, constituer un corpus et s’en faire une première idée. Une des particularités notables ici est aussi que <b>l’utilisateur peut, pour de nombreuses relations, soit sélectionner précisément la cible, soit demander toutes les cibles d’une relation donnée</b> (ici, tous les actes notariés, ou toutes les dates), au moins dans un premier temps. <b>La possibilité de déterminer quelles informations figurent dans le tableau de résultats, et de disposer dans ce tableau de valeurs textuelles (libellés des entités), pas seulement d’URIs, est également particulièrement précieuse</b>. Enfin, l’utilisateur peut facilement modifier son questionnaire par étapes, ou encore <b>partager la requête et enregistrer le lien dans ses propres fichiers</b>, afin de rejouer la requête ultérieurement.</p>
+            <p>Dans cet exemple, on voit tout d’abord que <b>le point d’entrée est une entité de contexte (Type de document), ce qui est rare actuellement dans nos interfaces de recherche archivistiques</b> dans lesquelles le focus est la pupart du temps placé d’entrée de jeu sur les documents d’archives. L’éditeur de requêtes permet ensuite de choisir une catégorie d'entité (ici, le choix s'est porté sur les actes notariés) liée au type de document avant de parcourir de proche en proche le graphe, sur la même page HTML, et en restant dans le contexte de la construction d’un questionnaire (sans avoir à travailler par rebond entre des résultats de recherche qu’on aurait donc dû consulter et dans lesquels on aurait alors cliqué sur des lien hypertexte, pour savoir à quoi on peut s’attendre). On pourrait s'intéresser ainsi au producteur (notaire ou étude) des actes notariés. Une telle question, même si elle n’est pas formulée en langage naturel, nous semble proche de la formulation que pourrait en faire un chercheur en histoire qui souhaiterait, par exemple, constituer un corpus et s’en faire une première idée. Une des particularités notables ici est aussi que <b>l’utilisateur peut, pour de nombreuses relations, soit sélectionner précisément la cible, soit demander toutes les cibles d’une relation donnée</b> (ici, tous les actes notariés, ou toutes les dates), au moins dans un premier temps. <b>La possibilité de déterminer quelles informations figurent dans le tableau de résultats, et de disposer dans ce tableau de valeurs textuelles (libellés des entités), pas seulement d’URIs, est également particulièrement précieuse</b>. Enfin, l’utilisateur peut facilement modifier son questionnaire par étapes, ou encore <b>partager la requête et enregistrer le lien dans ses propres fichiers</b>, afin de rejouer la requête ultérieurement.</p>
             <p><b>Les limites fonctionnelles du démonstrateur sont essentiellement celles de
               Sparnatural</b>. La première, déjà mentionnée plus haut, est qu’il s’agit d’un outil
               permettant de construire une interface d’exploration et de recherche dans un graphe de
