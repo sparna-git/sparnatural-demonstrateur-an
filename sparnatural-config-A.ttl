@@ -75,7 +75,7 @@
            rdfs:range :Cote ;
            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasInstantiation>/<https://www.ica.org/standards/RiC/ontology#identifier>" ;
            rdfs:label "A pour cote"@fr ,
-                      "has shelfmark"@en .
+                      "has reference code"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourIntitule
@@ -472,7 +472,7 @@ rdfs:Literal rdf:type owl:Class .
       <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "La référence d'une ressource archivistique, attribuée à cette ressource par l'institution qui la conserve. Nécessaire lorsqu'on veut accéder à cette ressource dans la salle de lecture."@fr ,
                                                                          "The reference of an archival resource, assigned to that resource by the institution that holds it. It is necessary when accessing the resource in the reading room."@en ;
       rdfs:label "Cote"@fr ,
-                 "Shelfmark"@en .
+                 "Reference code"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Date

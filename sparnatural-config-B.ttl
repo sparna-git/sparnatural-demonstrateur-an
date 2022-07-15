@@ -105,7 +105,7 @@
            rdfs:range :Cote ;
            <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasInstantiation>/<https://www.ica.org/standards/RiC/ontology#identifier>" ;
            rdfs:label "a ou ont pour cote"@fr ,
-                      "has shelfmark"@en .
+                      "has reference code"@en .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#aPourIdentifiant
