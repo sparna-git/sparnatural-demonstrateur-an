@@ -101,17 +101,16 @@
         <div class="row">
           <h1>Le démonstrateur Sparnatural des Archives nationales : documentation</h1>
           <div class="col-md">
-            <p><i>par Florence Clavaud et Pauline Charbonnier (Lab des Archives nationales), avec la collaboration de Thomas
-                Francart (société Sparna)</i>.</p>
-            <p>Date de la présente version : 17 juin 2022.</p>
+            <p><i>par Florence Clavaud et Pauline Charbonnier (Lab des Archives nationales)</i>.</p>
+            <p>Date de la présente version : 15 juillet 2022.</p>
             <p>La présente documentation sera
               améliorée dans les prochaines semaines. Elle est placée sous licence Creative Commons « Attribution 4.0 international (CC-BY
               4.0) » (<a href="https://creativecommons.org/licenses/by/4.0/deed.fr"
                 >https://creativecommons.org/licenses/by/4.0/deed.fr</a>).</p>
-            <p>Ce démonstrateur a été réalisé dans le cadre du travail de développement, entre août 2021 et juin 2022, d’une nouvelle version de l’éditeur visuel open source de requêtes SPARQL <a href="https://sparnatural.eu">Sparnatural</a>, pour lequel le ministère de la Culture, la Bibliothèque nationale de France et les Archives nationales se sont associés afin de passer un marché avec la société Sparna, développeur principal de Sparnatural.</p>
+            <p>Ce démonstrateur a été réalisé dans le cadre du travail de développement, entre août 2021 et juin 2022, d’une nouvelle version de l’éditeur visuel open source de requêtes SPARQL <a href="https://sparnatural.eu">Sparnatural</a>, pour lequel le ministère de la Culture français, la Bibliothèque nationale de France et les Archives nationales se sont associés afin de passer un marché avec la société Sparna, développeur principal de Sparnatural.</p>
             <p>Ce démonstrateur, qui utilise Sparnatural dans sa version actuelle, est le résultat d’un travail exploratoire sur la transition des
               métadonnées archivistiques vers des graphes de données, qui fait suite aux projets de
-              prototype qualitatif <a href="https://piaaf.demo/logilab.fr">PIAAF</a> (publié en février 2018) et de développement du logiciel <a href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter</a> (version 1.0 publiée en avril 2020). L’enjeu
+              preuve de concept qualitative <a href="https://piaaf.demo/logilab.fr">PIAAF</a> (publié en février 2018) et de développement du logiciel <a href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter</a> (version 1.0 publiée en avril 2020). L’enjeu
               principal du projet était de <b>proposer aux utilisateurs une interface de recherche
               pertinente et compréhensible pour explorer un graphe de métadonnées archivistiques de
               taille significative, qui en exploite la nature</b>.</p>
@@ -173,8 +172,8 @@
             </p>
             <h2 id="project_history">Historique rapide</h2>
             <ul>
-              <li>Mise en place par Sparna d’une base RDF (logiciel GraphDB Free) sur la grille de
-                services de la TGIR Huma-Num du CNRS, et d’un dépôt sur GitHub pour stocker le code
+              <li>Mise en place par Sparna d’une base RDF (avec le logiciel <a href="https://www.ontotext.com/products/graphdb/graphdb-free/">GraphDB Free</a>) sur la grille de
+                services de la <a href="https://www.huma-num.fr/">TGIR Huma-Num du CNRS</a>, et d’un dépôt sur GitHub pour stocker le code
                 du démonstrateur (été 2021) ; la base a été remplie provisoirement avec des données
                 RDF/RiC-O disponibles depuis longtemps aux Archives nationales.</li>
               <li>Début des développements de la version 2 de Sparnatural (août 2021), en mode
@@ -190,11 +189,11 @@
               <li>Suite aux développements réalisés dans le projet, une première version des
                 démonstrateurs a été mise en place, qui a fait l’objet de tests lors d’ateliers
                 utilisateurs. Deux ateliers ont eu lieu en novembre 2021, rassemblant une vingtaine
-                de personnes de profil divers (archivistes, chercheurs, généalogistes, ingénieurs HN
+                de personnes de profils divers (archivistes, chercheurs, généalogistes, ingénieurs HN
                 etc.), au cours desquels les participants, après présentation du projet et de
-                l’outil Sparnatural, ont pu tester l’interface. L’équipe projet a ensuite recueilli
-                les retours et besoins des utilisateurs soulevés par ces tests, puis présenté les
-                évolutions de Sparnatural envisagées.</li>
+                l’outil Sparnatural, ont pu tester l’interface. L’équipe projet a recueilli pendant ces ateliers 
+                leurs retours et les besoins qu'ils ont alors exprimés, puis présenté les
+                évolutions envisagées pour Sparnatural.</li>
               <li>Intégration progressive par Sparna des développements de Sparnatural dans le dépôt
                 GitHub du démonstrateur ; tests et mise en œuvre de ces nouveautés par le Lab dans
                 l’interface de recherche du démonstrateur.</li>
@@ -204,8 +203,8 @@
             <h2 id="content">Le contenu actuel du démonstrateur</h2>
             <p>Les métadonnées des Archives nationales ce sont aujourd’hui principalement :</p>
             <ul>
-              <li>plus de 30 000 instruments de recherche (en XML/EAD),</li>
-              <li>plus de 15 400 notices d’autorité (en XML/EAC-CPF) sur des producteurs,</li>
+              <li>plus de 30 000 instruments de recherche archivistiques (encodés conformément à <a href="https://www.loc.gov/ead/ead2002a.html">la DTD XML/EAD 2002</a>),</li>
+              <li>plus de 15 400 notices d’autorité (encodés conformément au <a href="https://eac.staatsbibliothek-berlin.de/">schéma XML/EAC-CPF</a>) sur des producteurs,</li>
               <li>et des vocabulaires servant à l’indexation de ces fichiers,</li>
             </ul>
             <p>pour décrire environ 375 km linéaires d’archives papier de tous types, sans compter
@@ -223,7 +222,7 @@
               en est responsable (le Département du Minutier central des notaires de Paris à la
               Direction des Fonds - DMC), pour plusieurs raisons :</p>
             <ul>
-              <li>elles forment <b>un tout cohérent</b> (en tout, ce sont les archives de 122 études, sans
+              <li>elles forment <b>un tout cohérent</b> (en tout, ce sont les archives de 122 études, produotes et préservées sans
                 rupture depuis la fin du XV<sup>e</sup> au début du XX<sup>e</sup> siècle, soit 194 500 cartons, plus de
                 212 000 cotes, plus de 26 km linéaires et un total estimé à 20 millions d’actes -
                 nous reprenons ici une partie des éléments donnés par la <a

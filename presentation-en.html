@@ -101,26 +101,26 @@
         <div class="row">
           <h1>Sparnatural demonstrator, Archives nationales : documentation</h1>
           <div class="col-md">
-            <p><i>by Florence Clavaud and Pauline Charbonnier, with the collaboration of Thomas
-                Francart (Sparna)</i>.</p>
-            <p>Date of this version: July, 12<sup>th</sup> 2022.</p>
+            <p><i>by Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
+            <p>Date of this version: July, 15<sup>th</sup> 2022.</p>
             <p>This documentation will be improved in the coming weeks. It is licensed under
               Creative Commons « Attribution 4.0 international (CC-BY 4.0) » (<a
                 href="https://creativecommons.org/licenses/by/4.0/deed.fr"
                 >https://creativecommons.org/licenses/by/4.0/deed.fr</a>).</p>
-            <p>This demonstrator is the result of an exploratory work on the transition from
-              archival metadata to data graphs, following the projects of qualitative prototype <a
-                href="https://piaaf.demo/logilab.fr">PIAAF</a> and development of the <a
-                href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter
-                software</a>. The main challenge of the project was to <b>provide users with a
-                relevant and accessible research interface to explore a significant archival
-                metadata graph that exploits its nature.</b>
-            </p>
             <p>This demonstrator was created as part of the development work, between August 2021
               and June 2022, of a new version of the open source visual SPARQL query editor <a
-                href="https://sparnatural.eu">Sparnatural</a>, for which the Ministry of Culture,
-              the National Library of France, and the National Archives have partnered to contract
+                href="https://sparnatural.eu">Sparnatural</a>, for which the French Ministry of Culture,
+              the National Library of France, and the National Archives of France have partnered to contract
               with Sparna, Sparnatural's lead developer.</p>
+            <p>This demonstrator, which uses the current version of Sparnatural, is the result of an exploratory work on the transition from
+              archival metadata to data graphs, following the projects of qualitative proof of concept <a
+                href="https://piaaf.demo/logilab.fr">PIAAF</a> (released in February 2018) and development of the <a
+                href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter
+                software</a> (version 1.0 released in April 2020). The main challenge of the project was to <b>provide users with a
+                relevant and accessible research interface to explore an archival
+                metadata graph of significant size, which exploits its nature.</b>
+            </p>
+            
             <ul>
               <li>
                 <a href="#ojectives">Objectives</a>
@@ -135,7 +135,7 @@
                     <a href="#metadata">Metadata selection</a>
                   </li>
                   <li>
-                    <a href="#process">The process of producing the data graph</a>
+                    <a href="#process">The data graph production process</a>
                   </li>
                   <li>
                     <a href="#stats">Statistical elements concerning the resulting RDF graph</a>
@@ -146,7 +146,7 @@
                 <a href="#interfaces">The graph exploration interfaces</a>
                 <ul>
                   <li>
-                    <a href="#design">Choice and design methods</a>
+                    <a href="#design">Choices and design methods</a>
                   </li>
                   <li>
                     <a href="#results">Results</a>
@@ -181,112 +181,108 @@
               team — i.e. representatives of the three partner institutions and Sparna — with the
               aim of providing answers to the following general questions:</p>
             <ul>
-              <li>How to value a knowledge graph as a knowledge graph? <br />(not behind a faceted
+              <li>How to value a knowledge graph as a knowledge graph? <br />(and not behind a faceted
                 search engine or clickable navigation links)</li>
               <li>How to promote exploratory user interactions (test/error) to discover the
                 data?</li>
-              <li>How to reconcile generic conceptual models with specific user views?</li>
+              <li>How to reconcile generic conceptual models with the specific points of view of the end users?</li>
             </ul>
-            <p>From the point of view of the National Archives, the demonstrator was to serve in
+            <p>From the point of view of the National Archives, the demonstrator was to be used in
               particular:</p>
             <ul>
               <li>to <b>test the evolutions of Sparnatural</b> and thereby contribute to the
                 development work;</li>
-              <li>to <b>set up a very first web application to query and consult a significant part
+              <li>to <b>set up a very first web application making it possible to query and consult a significant part
                   of the institution’s archival metadata</b>, converted to RDF/RiC-O.</li>
+              
             </ul>
             <p>In doing so, the objectives were also:</p>
             <ul>
-              <li>to demonstrate that large-scale semantisation of “classical” archival metadata is
-                possible, and that this opens up new search opportunities for users</li>
-              <li>to show what such an operation allows to learn about these metadata</li>
+              <li>to demonstrate that large-scale semantization of “classical” archival metadata is
+                possible, and that this opens up new search opportunities for users;</li>
+              <li>to show what such an operation allows to learn about these metadata;</li>
               <li>to build a methodology and acquire skills on the implementation of Sparnatural,
-                which can be used in other projects.</li>
+                which was likely to be used in other projects.</li>
             </ul>
-            <p>This work is part of an overall strategy for the evolution of metadata and of the
-              National Archives’ information system towards better quality metadata, more accessible
-              metadata and related entity graphs.</p>
+            <p>This work is part of an overall strategy for the evolution of National Archives' metadata and information system towards better quality, more accessible metadata and linked entity graphs.</p>
             <h2 id="project_history">Quick project history</h2>
             <ul>
-              <li>Sparna set up an RDF (GraphDB Free software) database on the CNRS Huma-Num TGIR
+              <li>Sparna set up an RDF  database (using <a href="https://www.ontotext.com/products/graphdb/graphdb-free/">GraphDB Free</a> software) on the <a href="https://www.huma-num.fr/about-us/">French Very Large Research Infrastructure (TGIR) Huma-Num of CNRS</a>
                 service grid, and a GitHub repository to store the demonstrator code (summer 2021);
                 the database has been provisionally filled with RDF/RiC-O data already available at
                 the National Archives.</li>
               <li>Start of development of Sparnatural version 2 (August 2021), in agile mode.</li>
-              <li>Workshops between Sparna and the Archives Lab to take charge of the Sparnatural
-                configuration method.</li>
+              <li>Workshops between Sparna and the Archives Lab for getting started with the Sparnatural configuration method.</li>
               <li>Selection of the metadata set, conversion to RDF/RiC-O data (see below <a
                   href="#processus">The production process of the datagraph</a>) and import of the
-                metadata set into the RDF database; first additional data processing (Lab, Autumn
+                metadata set into the RDF database; first additional data processing (Lab, autumn
                 2021).</li>
               <li>First Sparnatural configurations by the Lab in autumn 2021 (with the help of
                 Sparna).</li>
               <li>Following the developments of Sparnatural v2, a first version of the demonstrators
                 was set up, which was tested in user workshops. Two workshops were held in November
-                2021, bringing together about 20 people of various backgrounds (archivists,
+                2021, bringing together about 20 persons of various backgrounds (archivists,
                 researchers, genealogists, DH engineers, etc.), during which the participants, after
                 a presentation of the project and the Sparnatural tool, were able to test the
-                interface. The project team collected the feedback and needs of users raised by
-                these tests and then presented the Sparnatural developments envisaged.</li>
-              <li>Sparna’s progressive integration of Sparnatural developments into the
-                demonstrator’s GitHub repository; test and implementation of these new features by
+                interface. During these workshops, the project team collected their feedback and the needs raised by these tests, then presented the developments planned for Sparnatural.</li>
+              <li>Progressive integration by Sparna of Sparnatural developments into the
+                demonstrator’s repository on GitHub; testing and implementation of these new features by
                 the Lab in the demonstrator’s search interface.</li>
               <li>Second metadata conversion to RDF/RiC-O, and consolidation of search interface
                 configurations (May-June 2022).</li>
             </ul>
             <h2 id="content">The current content of the demonstrator</h2>
-            <p>The metadata of the National Archives are today mainly:</p>
+            <p>The metadata of the National Archives of France are today mainly:</p>
             <ul>
-              <li>more than 30,000 finding aids (in XML/EAD),</li>
-              <li>more than 15,400 authority records (in XML/EAC-CPF) on archival producers,</li>
+              <li>more than 30,000 finding aids (conforming to the <a href="https://www.loc.gov/ead/ead2002a.html">XML/EAD 2002 DTD</a>),</li>
+              <li>more than 15,400 authority records (conforming to the <a href="https://eac.staatsbibliothek-berlin.de/">XML/EAC-CPF schema</a>) on archival creators,</li>
               <li>vocabularies used to index these files,</li>
             </ul>
             <p>to describe about 375 linear km of paper archives of all types, not including
               natively digital archives. The <a
                 href="https://www.siv.archives-nationales.culture.gouv.fr">salle des inventaires
                 virtuelle</a>(online catalog) allows users to search all of these metadata.</p>
-            <p>Given this important volume, in the absence of semantic application as <a
+            <p>Given this important volume, in the absence of a semantic application such as <a
                 href="https://data.bnf.fr/">data.bnf.fr</a> and given the human and financial
               resources available, a subset of these metadata had to be selected to feed the
               Sparnatural demonstrator.</p>
             <h3 id="metadata">Metadata selection</h3>
-            <p><b>A part of the metadata describing the archives of Paris notaries kept in the
+            <p><b>A part of the metadata describing the archives of Parisian notaries kept in the
                 National Archives</b> have been retained in agreement with the department
               responsible for them (the Department of Minutier Central des Notaires de Paris at the
               Direction des Fonds — DMC), for several reasons:</p>
             <ul>
               <li>they form <b>a coherent whole</b> (in all, these are the archives of 122 notarial
-                offices, continuously since the end of the 15<sup>th</sup> to the beginning of the
-                  20<sup>th</sup> century, i.e. 194,500 boxes, more than 212 000 odds, more than 26
+                offices, produced and preserved continuously since the end of the 15<sup>th</sup> to the beginning of the
+                  20<sup>th</sup> century, i.e. 194,500 boxes, more than 212,000 reference codes, more than 26
                 km linear and an estimated total of 20 million acts — here we take over some of the
                 elements given by <a
                   href="https://www.siv.archives-nationales.culture.gouv.fr/siv/cms/content/helpGuide.action?uuid=2c6d64b0-8395-49a0-a913-4ad39d4c1b94&amp;version=8&amp;preview=false&amp;typeSearch=AideRechercheType&amp;searchString=Suzanne%20Campaux"
-                  >the research aid sheet</a> on inventory work at the DMC;</li>
+                  >the research aid sheet</a> on inventory work at the DMC;   
+              </li>
               <li><b>their description is rich</b> (about 1.6 million acts have already been
                 analyzed) and is constantly enriched, <b>while presenting overall the classic
-                  characteristics of digital directories</b> drawn up by the French public archival
+                  characteristics of the finding aids</b> drawn up by the French public archival
                 services;</li>
               <li>they describe <b>documents that are widely consulted by various types of
-                  audiences</b>; the archival collections placed under the responsibility of the DMC
-                accounted for 26 % of the communications of the National Archives of all sites in
+                  audiences</b>; the fonds placed under the responsibility of the DMC
+                accounted for 26 % of the communications of the National Archives, all sites combined, 
                 2019, according to <a
                   href="https://francearchives.fr/fr/file/9d09efcdaad5d47250fb010d7d8c8d3dcab796b5/Rapport_enquete_notaire_Fullenbaum%20Lenfant_2020.pdf"
                   >the survey report</a> entitled <i>Presentation of resources in notarial archives
                   and their valorisation on the websites of the Departmental and National
                   Archives</i>, carried out in April 2020 by Sandra Fullenbaum Lenfant, under the
                 direction of Marie-Françoise Limon-Bonnet;</li>
-              <li><b>archives of the same nature are kept in the departmental archives</b>. In
-                particular, the same investigation report can be seen in this regard.</li>
+              <li><b>archives of the same nature are kept in each of the departmental archives services</b>. The survey report quoted above indirectly gives a general overview of these fonds.</li>
             </ul>
-            <p>We therefore chose to work on <b>the authority records of archival producers (in
+            <p>We therefore chose to work on <b>the authority records of archival creators (in
                 XML/EAC-CPF) and finding aids (in XML/EAD 2002) relating to the archives of the
                 first 40 Paris notarial offices</b> (out of the 122 kept in the National Archives,
               i.e. about one third of the offices). The relevant XML/EAC-CPF and EAD 2002 files were
               selected from a complete export of validated XML files, carried out on 11 March 2022
               by the Information Systems Department of the National Archives. The selection was made
-              on the basis of the links established between the first forty EAC-CPF records of
-              notarial offices and notaries’ records, on the one hand, and the finding aids on the
-              other. This operation produced a corpus including:</p>
+              by following the links established between the first forty EAC-CPF records of
+              notarial offices and, on the one hand, the notaries’ records, on the other hand, the finding aids. This operation produced a corpus including:</p>
             <ul>
               <li>
                 <b>the 40 records describing notarial offices I to XL</b> (and the LIII office
@@ -296,27 +292,26 @@
                 offices</b>;</li>
               <li><b>the 1577 archival finding aids describing the archives of these offices</b> (32
                 % of the 4,902 existing finding aids validated in March 2022 for the DMC), including
-                933 digitized directories; 899 of these finding aids describe acts or mentions of an
+                933 digitized registers; 899 of these finding aids describe acts or mentions of an
                 act (based on the results of a SPARQL query executed on the obtained RDF graph).
               </li>
             </ul>
-            <p>To this set we have added <b>the records (on persons and organizations subject to
+            <p>To this set we have added <b>the records (on persons and organizations which are the subjects of
                 documents) and vocabularies (types of documents, subjects, activities, places of
-                Paris...) used in these records and inventories to index them</b>. These records and
+                Paris...) used in these records and finding aids to index them</b>. These records and
               vocabularies are published and available in a public <a
                 href="https://github.com/ArchivesNationalesFR/Referentiels">repository of the
-                National Archives on GitHub</a>. Please note that the versions of the producer
+                National Archives on GitHub</a>. Please note that the versions of the creator
               records in this repository are dated March 2022.</p>
-            <p>As part of the project, <b>these metadata sets were somewhat enriched</b>. Thus, for
-              the notaries of offices I and II, chronological relations between notaries were added
+            <p>As part of the project, <b>these metadata sets were somewhat enriched</b>. Thereby, for
+              the notaries from offices I and II, the chronological relations between successive notaries were added
               to the EAC-CPF records, paving the way for possible future work. Some new entries
-              (such as ‘notarial registry’, ‘list of acts’ and ‘mention of an act’) and definitions
-              (e.g. definitions assigned to patents, notarial deeds or notarial minutes) have also
+              (such as ‘notarial register’, ‘list of acts’ and ‘mention of an act’) and definitions
+              (e.g. definitions assigned to notarial deeds or notarial minutes) have also
               been added to the document types vocabulary, with the agreement of the DMC. The
               purpose of these additions was not to immediately enrich the source EAD files, but to
-              make these additions possible afterwards, while endowing themselves with rigorous,
-              reusable definitions to construct the RDF graph.</p>
-            <h3 id="process">The production process of the data graph</h3>
+              make these additions possible afterwards, while adopting rigorous definitions that we could immediately use to construct the RDF graph.</p>
+            <h3 id="process">The data graph production process</h3>
             <p>Metadata have been converted into linked data graphs, compliant to the new Conceptual
               Model <a href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf"
                 >Records in Contexts</a> and its technical transposition, the <a
