@@ -99,10 +99,10 @@
     <section id="sparnatural-section">
       <div class="container">
         <div class="row">
-          <h1>Sparnatural demonstrator, Archives nationales : documentation</h1>
+          <h1>Sparnatural demonstrator, Archives nationales: documentation</h1>
           <div class="col-md">
-            <p><i>by Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
-            <p>Date of this version: July, 15<sup>th</sup> 2022.</p>
+            <p>Authors: <i>Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
+            <p>Date of this version: July, 18<sup>th</sup> 2022.</p>
             <p>This documentation will be improved in the coming weeks. It is licensed under
               Creative Commons « Attribution 4.0 international (CC-BY 4.0) » (<a
                 href="https://creativecommons.org/licenses/by/4.0/deed.fr"
@@ -176,7 +176,8 @@
                 <a href="#conclusion">In conclusion: prospects</a>
               </li>
             </ul>
-            <h2 id="objectives">Objectives</h2>
+            <div id="objectives">
+            <h2>Objectives</h2>
             <p>The work to develop the current version of Sparnatural was carried out by the project
               team — i.e. representatives of the three partner institutions and Sparna — with the
               aim of providing answers to the following general questions:</p>
@@ -205,7 +206,10 @@
                 which was likely to be used in other projects.</li>
             </ul>
             <p>This work is part of an overall strategy for the evolution of National Archives’ metadata and information system towards better quality, more accessible metadata and linked entity graphs.</p>
-            <h2 id="project_history">Quick project history</h2>
+            
+            </div>
+            <div id="project_history">
+              <h2>Quick project history</h2>
             <ul>
               <li>Sparna set up an RDF  database (using <a href="https://www.ontotext.com/products/graphdb/graphdb-free/">GraphDB Free</a> software) on the <a href="https://www.huma-num.fr/about-us/">French Very Large Research Infrastructure (TGIR) Huma-Num of CNRS</a>
                 service grid, and a GitHub repository to store the demonstrator code (summer 2021);
@@ -231,7 +235,9 @@
               <li>Second metadata conversion to RDF/RiC-O, and consolidation of search interface
                 configurations (May-June 2022).</li>
             </ul>
-            <h2 id="content">The current content of the demonstrator</h2>
+            </div>
+            <div id="content">
+            <h2>The current content of the demonstrator</h2>
             <p>The metadata of the National Archives of France are today mainly:</p>
             <ul>
               <li>more than 30,000 finding aids (conforming to the <a href="https://www.loc.gov/ead/ead2002a.html">XML/EAD 2002 DTD</a>),</li>
@@ -246,7 +252,8 @@
                 href="https://data.bnf.fr/">data.bnf.fr</a> and given the human and financial
               resources available, a subset of these metadata had to be selected to feed the
               Sparnatural demonstrator.</p>
-            <h3 id="metadata">Metadata selection</h3>
+              <div  id="metadata">
+            <h3>Metadata selection</h3>
             <p><b>A part of the metadata describing the archives of Parisian notaries kept in the
                 National Archives</b> have been retained in agreement with the department
               responsible for them (the Department of Minutier Central des Notaires de Paris at the
@@ -311,7 +318,9 @@
               been added to the document types vocabulary, with the agreement of the DMC. The
               purpose of these additions was not to immediately enrich the source EAD files, but to
               make these additions possible afterwards, while adopting rigorous definitions that we could immediately use to construct the RDF graph.</p>
-            <h3 id="process">The data graph production process</h3>
+              </div>
+              <div  id="process">   
+            <h3>The data graph production process</h3>
             <p>The selected metadata have been converted into linked data graphs, compliant to the new <a href="https://www.ica.org/sites/default/files/ric-cm-02_july2021_0.pdf"
                 >Records in Contexts Conceptual Model (RiC-CM)</a> and its technical transposition, the <a
                 href="https://www.ica.org/standards/RiC/ontology">Records in Contexts-Ontology</a> (RiC-O, version 0.2,
@@ -350,7 +359,9 @@
             <p>
               <i>Example of a SPARQL query to create a class in the graph.</i>
             </p>
-            <h3 id="stats">Statistical elements concerning the resulting RDF graph</h3>
+              </div>
+              <div  id="stats">
+            <h3>Statistical elements concerning the resulting RDF graph</h3>
             <p>The graph obtained currently has about <b>50 million RDF triples</b>, including
               about 29 million inferred triples. We can therefore already estimate that the RDF
               graph resulting from the semantization of all metadata from the notarial archives of the
@@ -403,8 +414,12 @@
               <b>We have currently set up a private repository on GitHub to deposit and update the
                 RDF dataset.</b> Do not hesitate to contact us if you wish to have access to this
               repository or a copy of the dataset.</p>
-            <h2 id="interfaces">The graph exploration interfaces</h2>
-            <h3 id="design">Choices and design methods</h3>
+              </div>
+            </div>
+            <div  id="interfaces">
+            <h2>The graph exploration interfaces</h2>
+              <div id="design">
+            <h3>Choices and design methods</h3>
             <p>Several Sparnatural configuration options are possible: configuration via a Google
               spreadsheet or an OWL ontology (see the <a
                 href="https://docs.sparnatural.eu/index.html">documentation</a>). The Lab chose to
@@ -456,7 +471,9 @@
                 have been able to deploy the search interfaces of the National Archives demonstrator
                 in French and English.</li>
             </ul>
-            <h3 id="results">Results</h3>
+              </div>
+              <div  id="results">
+            <h3>Results</h3>
             <h4>Warnings</h4>
             <p><b>The demonstrator only consists of two search interfaces and this
               documentation</b>. The National Archives, unlike the BnF (with <a
@@ -468,7 +485,7 @@
               in particular, no webpage is associated with these IRIs, nor can we guarantee the
               sustainability of the root segment
               (http://data.archives-nationales.culture.gouv.fr/).</p>
-            <!--THOMAS ? ajouter notamment qques mots sur les limites techniques actuelles ?(incapacité de la base RDF à servir plus de 2 requêtes simultanées). Ce problème pourrait être réglé en opérant une migration vers la version Standard de GraphDB.-->
+            <!--THOMAS ? ajouter notamment qques mots sur les limites techniques actuelles ?(incapacité? de la base RDF à servir plus de 2 requêtes simultanées). Ce problème pourrait être réglé en opérant une migration vers la version Standard de GraphDB.-->
             <p>The results obtained still show some small technical flaws that we will try to correct. Furthermore, <b>we take any comments or suggestions for improvement</b>. We are aware that
               after the user workshops held at the end of 2021, these interfaces need to be tested by
               more users. Just like the RDF queried data, <b>the interfaces are likely to evolve
@@ -542,9 +559,11 @@
             <p>New relationships are also present, for example between notarial office and notaries
               (Notary <i>is member of</i> Notarial office), between notaries (Notary <i>has
                 successor</i> or <i>has family relation with</i> Notary), between archival resources (such as
-              Notarial register <i>includes or mentions</i> Mention of an act or List of acts).</p>
-            <h2 id="bilan">Bilan</h2>
-            <h3 id="research_device">The demonstrator as an exploration and research device</h3>
+              Notarial register <i>includes or mentions</i> Mention of an act or List of acts).</p></div></div>
+            <div  id="bilan">
+            <h2>Bilan</h2>
+              <div  id="research_device">
+            <h3>The demonstrator as an exploration and research device</h3>
             <p><b>The results are very positive in terms of the possibilities for exploring the
                 graph and the new research opportunities offered by Sparnatural</b>. <br /> Among
               the main points identified by users during the November 2021 workshops, once the
@@ -605,7 +624,9 @@
                 of the archives of the first 40 notarial offices: the
                 work of analyzing the notarial acts held within these fonds is continuing at the DMC, as in
                 the other fonds</b>.</p>
-            <h3 id="graph_obtained">The RDF graph obtained, an example of large-scale use of
+              </div>
+              <div  id="graph_obtained">
+            <h3>The RDF graph obtained, an example of large-scale use of
               RiC-O</h3>
             <p>The result of this large-scale conversion of XML/EAD and XML/EAC-CPF source data to
               RDF compliant with RiC-O clearly showed:</p>
@@ -629,7 +650,9 @@
             <p>Such lessons may, in our view, be useful to any institution or team that would
               consider following the same path. We would of course be interested in any comparable
               feedback.</p>
-            <h3 id="perspective">A new perspective on the metadata used</h3>
+              </div>
+              <div  id="perspective">
+            <h3>A new perspective on the metadata used</h3>
             <p>At this early stage of the work on metadata that the demonstrator allows to explore,
               as we have already mentioned above, <b>thanks to semantic technologies, we have new
                 quantitative elements on the content of the described archives</b>. We will be able
@@ -669,7 +692,9 @@
                 of the registers</b>. This example is very representative of other situations,
               related to the long history of the National Archives metadata and the phenomenon of
               stratification of finding aids.</p>
-            <h3 id="other_results">Other tangible results of the project</h3>
+              </div>
+              <div id="other_results">
+            <h3>Other tangible results of the project</h3>
             <p>The preparation of the RDF data for the Sparnatural demonstrator made it possible to
               carry out a work prior to the update of RiC-O Converter, during which the various
               actions to be undertaken were first identified and coded. This work will save some
@@ -679,7 +704,10 @@
               used in the graph, carried out during the configuration of the Sparnatural
               demonstrator, will be integrated into the RiC-O sources in order to have a complete
               translation over time.</p>
-            <h2 id="conclusion">In conclusion: prospects</h2>
+              </div>
+            </div>
+            <div  id="conclusion">
+            <h2>In conclusion: prospects</h2>
             <p><b>In a possible continuation of the project, it is envisaged that the two
                 configurations A and B should be merged into one, by hierarchizing classes and
                 properties, to give to the user the choice, within a single search interface, of a
@@ -696,6 +724,7 @@
                 href="https://oresm.hypotheses.org/files/2022/03/ORESM_JE_26112021_JFMoufflet_FClavaud-3.pdf"
                 >the presentation</a> in November 2021 of the proof of concept already carried out.
             </p>
+            </div>
           </div>
         </div>
       </div>
