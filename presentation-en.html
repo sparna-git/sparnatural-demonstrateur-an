@@ -102,7 +102,7 @@
           <h1>Sparnatural demonstrator, Archives nationales: documentation</h1>
           <div class="col-md">
             <p>Authors: <i>Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
-            <p>Date of this version: July, 22<sup>th</sup> 2022.</p>
+            <p>Date of this version: August, 23<sup>th</sup> 2022.</p>
             <p>This documentation will be improved in the coming weeks. It is licensed under
               Creative Commons « Attribution 4.0 international (CC-BY 4.0) » (<a
                 href="https://creativecommons.org/licenses/by/4.0/deed.fr"
@@ -234,6 +234,7 @@
                 the Lab in the demonstrator’s search interface.</li>
               <li>Second metadata conversion to RDF/RiC-O, and consolidation of search interface
                 configurations (May-June 2022).</li>
+              <li>Third metadata conversion to RDF/RiC-O (in order to fixe some inconsistencies in the triples generated from the EAD files), and a few updates in the search interfaces (August 2022).</li>
             </ul>
             </div>
             <div id="content">
@@ -330,7 +331,7 @@
               from the initial configuration work on the demonstrator.</p>
             <p><b>To convert the XML/EAD and XML/EAC-CPF files, we used the open source software <a
                   href="https://github.com/ArchivesNationalesFR/rico-converter">RiC-O
-                Converter</a></b>,developed for the National Archives in 2019 and available on
+                Converter</a></b>, developed for the National Archives in 2019 and available on
               GitHub since April 2020. RiC-O Converter produces RDF files compliant with RiC-O 0.1.
                 <b>The resulting files were then made compliant with RiC-O 0.2 and slightly enriched
                 or modified by specific scripts written by the Lab.</b> Among the enrichments and changes
@@ -362,7 +363,7 @@
               </div>
               <div  id="stats">
             <h3>Statistical elements concerning the resulting RDF graph</h3>
-            <p>The graph obtained currently has about <b>57,5 million RDF triples</b>, including
+            <p>The graph obtained currently has about <b>57,9 million RDF triples</b>, including
               about 37 million inferred triples. We can therefore already estimate that the RDF
               graph resulting from the semantization of all metadata from the notarial archives of the
               National Archives would amount to about 170 million triples. In addition, let us recall that the approximately 4900 finding aids of the DMC make up 16 % of the total
@@ -381,14 +382,14 @@
               <li>34 classes (entity categories) out of 106 (48 with inferred triples);</li>
               <li>25 <i>datatype properties</i> (relations whose target is a string) out of 62 (28
                 counting inferred triples);</li>
-              <li>77 <i>object properties</i> (relations whose target is an entity) out of 423 (160 with inferred
+              <li>79 <i>object properties</i> (relations whose target is an entity) out of 423 (162 with inferred
                 triples).</li>
             </ul>
             <p>SPARQL queries executed directly in the SPARQL endpoint of the RDF database, in order
               to go beyond the limit of 1000 results set for the Sparnatural interface, give <b>the
                 following counts for the main categories of objects described in the graph</b>:</p>
             <ul>
-              <li> 72,661 groups of records (fonds, series, bundles, clients files, etc.);</li>
+              <li> 72,665 groups of records (fonds, series, bundles, clients files, etc.);</li>
               <li><b>400,570 notarial acts</b> (described to date) within the bundles;</li>
               <li><b>104,383 mentions of acts</b> recorded in the registers;</li>
               <li>3135 registers;</li>
