@@ -30,13 +30,9 @@ var sampleQueries = {
 	              }
 	            ]
 	          },
-	          "children": [],
-	          "optional": false,
-	          "notExists": false
+	          "children": []
 	        }
-	      ],
-	      "optional": false,
-	      "notExists": false
+	      ]
 	    }
 	  ]
 	},
