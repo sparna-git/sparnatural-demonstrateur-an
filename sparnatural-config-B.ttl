@@ -260,7 +260,7 @@
                      rdfs:range :TypeDeDocument ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType>" ;
                      <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeChildrenDatasource> :tree_children_skosnarrower_with_count_langfr ;
-                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> :tree_root_skostopconcept_with_count_langfr ;
+                     <http://data.sparna.fr/ontologies/sparnatural-config-datasources#treeRootsDatasource> :tree_root_documentaryFormType_with_count_langfr ;
                      rdfs:label "have documentary form type"@en ,
                                 "ont pour type de document"@fr .
 
@@ -1090,7 +1090,7 @@ rdfs:Literal rdf:type owl:Class .
                 rdfs:subClassOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SparnaturalClass> ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#defaultLabelProperty> :skosPrefLabel ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#faIcon> "fas fa-file-contract" ;
-                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://data.archives-nationales.culture.gouv.fr/documentaryFormTypes>" ;
+                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2004/02/skos/core#Concept> ; <http://www.w3.org/2004/02/skos/core#inScheme> <http://data.archives-nationales.culture.gouv.fr/documentaryFormTypes>" ;
                 <http://data.sparna.fr/ontologies/sparnatural-config-core#tooltip> "Catégorie juridique d'un acte. Utilisé pour catégoriser les minutes notariales et les mentions d'actes dans les répertoires. Inclut aussi les états des documents, tel que copie authentique (très peu utilisé dans ce corpus)."@fr ,
                                                                                    "Legal category of a record. It is used to categorize notarial minutes and mentions of acts in the registries. It also includes states of documents, such as authentic copy (rarely used in this corpus)"@en ;
                 rdfs:label "Documentary form type"@en ,
@@ -1380,6 +1380,35 @@ ORDER BY UCASE(?label)""" .
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#childrenPath> "<http://www.w3.org/2004/02/skos/core#narrower>|^<http://www.w3.org/2004/02/skos/core#broader>" ;
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#labelPath> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                                               <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryTemplate> :query_tree_children_with_count_langfr .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_root_documentaryFormType_with_count_langfr
+:tree_root_documentaryFormType_with_count_langfr rdf:type owl:NamedIndividual ;
+                                                 <http://data.sparna.fr/ontologies/sparnatural-config-datasources#queryString> """PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?uri (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label) ?hasChildren (COUNT(?x) AS ?count)
+WHERE {
+  {
+    SELECT DISTINCT ?uri ?theLabel ?hasChildren
+    WHERE { <http://data.archives-nationales.culture.gouv.fr/documentaryFormTypes> skos:hasTopConcept|^skos:topConceptOf ?uri .
+      ?uri skos:prefLabel ?theLabel .
+      FILTER(isIRI(?uri))
+      FILTER(lang(?theLabel) = '' || lang(?theLabel) = $lang || lang(?theLabel) = 'fr')
+      OPTIONAL {
+        ?uri skos:narrower|^skos:broader ?children .
+      }
+      BIND(IF(bound(?children),true,false) AS ?hasChildren)
+    }
+  }
+
+  OPTIONAL {
+    ?x a $domain .
+    ?x $property ?uri .
+    # no range criteria
+    # ?uri a $range .
+  }
+}
+GROUP BY ?uri ?theLabel ?hasChildren
+ORDER BY UCASE(?label)""" .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#tree_root_skostopconcept_langfr
