@@ -27089,15 +27089,20 @@ function expand(event) {
 }
 // ***** TableX MODIFICATION
 var TableXResults = /** @class */ (function () {
-    function TableXResults(parser) {
+    function TableXResults(parser, bindingSetAdapter) {
         var _this = this;
-        var enhancedColumns = this.findColumnsToBeEnhanced(parser.getVariables());
-        // this.bindings = parser.getBindings();
-        this.bindings = parser.getBindings().map(function (binding) { return _this.enhanceBinding(binding, enhancedColumns); });
+        this.bindings = parser.getBindings();
+        // process complete binding sets
+        if (bindingSetAdapter) {
+            this.bindings = this.bindings.map(function (bindingSet) { return bindingSetAdapter(bindingSet); });
+        }
+        // add new bindings with labels + uris
+        this.bindings = this.bindings.map(function (bindingSet) { return _this.enhanceBinding(bindingSet); });
+        // remove _label from list of variables
         this.variables = parser.getVariables().filter(function (variable) {
             return !(variable.endsWith("_label")
                 &&
-                    enhancedColumns.includes(variable.substring(0, variable.length - ("_label".length))));
+                    parser.getVariables().includes(variable.substring(0, variable.length - ("_label".length))));
         });
     }
     TableXResults.prototype.getBindings = function () {
@@ -27109,19 +27114,12 @@ var TableXResults = /** @class */ (function () {
     TableXResults.prototype.asCsv = function () {
         return null;
     };
-    TableXResults.prototype.findColumnsToBeEnhanced = function (variables) {
-        var result = [];
-        for (var key in variables) {
-            if (variables.includes(variables[key] + "_label")) {
-                result.push(variables[key]);
-            }
-        }
-        return result;
-    };
-    TableXResults.prototype.enhanceBinding = function (bindingSet, columnsToBeEnhanced) {
+    TableXResults.prototype.enhanceBinding = function (bindingSet) {
         var newBinding = {};
         for (var key in bindingSet) {
-            if (columnsToBeEnhanced.includes(key)) {
+            // if we find the same key woth _label in the binding set
+            if (key + "_label" in bindingSet) {
+                // then recreate a special binding in the binding set with the URI and the label
                 var label = bindingSet[key + "_label"].value;
                 newBinding[key] = {
                     value: bindingSet[key].value,
@@ -27131,12 +27129,15 @@ var TableXResults = /** @class */ (function () {
                     label: label
                 };
             }
-            else if (key.endsWith("_label")
+            else if (
+            // if the key ends with xxx_label and the key xxx exists in the binding set, then ignore it
+            key.endsWith("_label")
                 &&
-                    columnsToBeEnhanced.includes(key.substring(0, key.length - ("_label".length)))) {
+                    key.substring(0, key.length - ("_label".length)) in bindingSet) {
                 // don't include it in bindings
             }
             else {
+                // otherwise just include as normal
                 newBinding[key] = bindingSet[key];
             }
         }
@@ -27217,7 +27218,7 @@ var TableX = /** @class */ (function () {
     // ***** TableX MODIFICATION
     TableX.prototype.postProcessRawResults = function (results) {
         if (results) {
-            return new TableXResults(results);
+            return new TableXResults(results, this.config.bindingSetAdapter);
         }
     };
     TableX.prototype.getRows = function () {
