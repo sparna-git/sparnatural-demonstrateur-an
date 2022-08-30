@@ -424,6 +424,7 @@
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#skosPrefLabel
 :skosPrefLabel rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf <http://data.sparna.fr/ontologies/sparnatural-config-core#SearchProperty> ;
+               rdfs:range :Label ;
                <http://data.sparna.fr/ontologies/sparnatural-config-core#sparqlString> "<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
                rdfs:label "skosPrefLabel"@fr .
 
@@ -503,6 +504,12 @@ rdfs:Literal rdf:type owl:Class .
                                                                              "Un intitulé ou une analyse brève d'une ressource archivistique, en général établie par un archiviste."@fr ;
           rdfs:label "Intitulé"@fr ,
                      "Title"@en .
+
+
+###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Label
+:Label rdf:type owl:Class ;
+       rdfs:subClassOf rdfs:Literal ;
+       rdfs:label "Label"@fr .
 
 
 ###  https://sparna-git.github.io/sparnatural-demonstrateur-an/ontology#Lieu
