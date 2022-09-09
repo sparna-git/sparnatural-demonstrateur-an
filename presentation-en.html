@@ -102,7 +102,7 @@
           <h1>Sparnatural demonstrator, Archives nationales: documentation</h1>
           <div class="col-md">
             <p>Authors: <i>Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
-            <p>Date of this version: August, 23<sup>th</sup> 2022.</p>
+            <p>Date of this version: September, 9<sup>th</sup> 2022.</p>
             <p>This documentation will be improved in the coming weeks. It is licensed under
               Creative Commons « Attribution 4.0 international (CC-BY 4.0) » (<a
                 href="https://creativecommons.org/licenses/by/4.0/deed.fr"
@@ -491,6 +491,7 @@
               after the user workshops held at the end of 2021, these interfaces need to be tested by
               more users. Just like the RDF queried data, <b>the interfaces are likely to evolve
                 significantly</b>.</p>
+                <p>Le source code of the demonstrator is available in the following repository on GitHub: <a href="https://github.com/sparna-git/sparnatural-demonstrateur-an">https://github.com/sparna-git/sparnatural-demonstrateur-an</a>.</p>
             <h4>A Configuration</h4>
             <p>The first configuration (<a href="index-A.html">A interface</a>) is <b>simple and
                 generalistic</b>; it can almost be applied to any RiC-O compliant archival dataset,
@@ -504,29 +505,29 @@
                 instances of the RiC-O <a
                   href="https://www.ica.org/standards/RiC/ontology#RecordResource">RecordResource
                   class</a>, with the exception of finding aids and authority records);</li>
-              <li>Person (which corresponds to class <a
-                  href="https://www.ica.org/standards/RiC/ontology#Person">rico:Person</a>);</li>
-              <li>Organization (which corresponds to class <a
+              <li>Person (which corresponds to <a
+                  href="https://www.ica.org/standards/RiC/ontology#Person">rico:Person</a> class);</li>
+              <li>Organization (which corresponds to <a
                   href="https://www.ica.org/standards/RiC/ontology#CorporateBody"
-                  >rico:CorporateBody</a>);</li>
-              <li>Place (which corresponds to class <a
-                  href="https://www.ica.org/standards/RiC/ontology#Place">rico:Place</a>);</li>
+                  >rico:CorporateBody</a> class);</li>
+              <li>Place (which corresponds to <a
+                  href="https://www.ica.org/standards/RiC/ontology#Place">rico:Place</a> class);</li>
               <li>Documentary form type (class of SKOS concepts defined in the vocabulary of the
-                document types of the National Archives, also instances of class <a
+                document types of the National Archives, also instances of <a
                   href="https://www.ica.org/standards/RiC/ontology#DocumentaryFormType"
-                  >rico:DocumentaryFormType</a>);</li>
+                  >rico:DocumentaryFormType</a> class);</li>
               <li>Subject (class of SKOS concepts defined in the vocabulary of the national archives
-                subjects, also instances of class <a
-                  href="https://www.ica.org/standards/RiC/ontology#Thing">rico:Thing</a>);</li>
+                subjects, also instances of <a
+                  href="https://www.ica.org/standards/RiC/ontology#Thing">rico:Thing</a> class);</li>
               <li>Occupation (class of SKOS concepts defined in the vocabulary of occupations and
-                functions of persons in the National Archives, also instances of class <a
+                functions of persons in the National Archives, also instances of <a
                   href="https://www.ica.org/standards/RiC/ontology#OccupationType"
-                  >rico:OccupationType</a>);</li>
+                  >rico:OccupationType</a> class);</li>
               <li>Digital surrogate (the instances of class <a
                   href="https://www.ica.org/standards/RiC/ontology#Instantiation"
                   >rico:Instantiation</a> having JPEG format, generated from the daogrp elements of
                 EAD files);</li>
-              <li>and other associated ‘entities’, which correspond to literal values of RiC-O
+              <li>and other associated ‘entities’, which correspond to literal values of RiC-O datatype 
                 properties: date, title, name.</li>
             </ul>
             <img alt="Inventories after death of goldsmiths in the 17th century"
@@ -549,8 +550,8 @@
               new categories correspondences with classes of the ontology extending RiC-O mentioned
               above:</p>
             <ul>
-              <li>Record set (which corresponds to class <a
-                  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a>),
+              <li>Record set (which corresponds to <a
+                  href="https://www.ica.org/standards/RiC/ontology#RecordSet">rico:RecordSet</a> class),
                 Notarial register, List of acts, Notarial act, Mention of an act, Reference Code;</li>
               <li>Notarial office, Notarial office number, Notary;</li>
               <li>Parisian district or parish, Street in Paris, Parisian building, Address.</li>
@@ -580,7 +581,7 @@
               Sparnatural makes possible. This example is the same as the third pre-recorded query
               in the B search interface.</p>
             <img style="width:1000px;" src="assets/img/requetePrenregistree_configB-EN.jpg"
-              alt="Pre-recorded query in the B interface : Documentary form types of the notarial
+              alt="Pre-recorded query in the B interface: Documentary form types of the notarial
               actes dated 1848, with their reference codes" />
             <p>
               <i>
@@ -715,7 +716,7 @@
                 quick or more precise exploration</b> (e.g. select Person > Notary in a single
               interface). This will involve changing the configuration possibilities offered by
               Sparnatural.</p>
-            <p>The Lab of National Archives pans to produce and publish a generic Sparnatural search
+            <p>The Lab of National Archives plans to produce and publish a generic Sparnatural search
               ontology for RiC-O compliant RDF data, starting with configuration A.</p>
             <p>Finally, <b>the National Archives Lab is now able on its own to design a Sparnatural search
                 interface for other data sets</b>. The reuse of Sparnatural is therefore
