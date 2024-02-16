@@ -1,8 +1,8 @@
 # Graph-Based Archival Description
 
-This is a fork of: <https://sparna-git.github.io/sparnatural-demonstrateur-an/>
+This is a fork of [Démonstrateur Sparnatural des Archives nationales de France](https://sparna-git.github.io/sparnatural-demonstrateur-an/) \| [Original GitHub repo](https://github.com/sparna-git/sparnatural-demonstrateur-an)
 
-Original GitHub repo: <https://github.com/sparna-git/sparnatural-demonstrateur-an>
+{% if page.url == "/" %}
 
 ## Graph-Based Archival Description at the Archives of Ontario
 
@@ -19,3 +19,5 @@ Live demo: <http://biohackathon.org/d3sparql/>
 GitHub repo: <https://github.com/ktym/d3sparql>
 
 ## Original Page Content
+
+{% endif %}
