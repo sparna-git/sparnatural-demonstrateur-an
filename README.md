@@ -1,6 +1,6 @@
 # Graph-Based Archival Description
 
-[GitHub repo]({{ site.gh-repo }}) \| This is a fork of [Démonstrateur Sparnatural des Archives nationales de France](https://sparna-git.github.io/sparnatural-demonstrateur-an/) \| [Original GitHub repo](https://github.com/sparna-git/sparnatural-demonstrateur-an)
+[GitHub repo]({{ site.gh-repo }}) \| This is a fork of [Démonstrateur Sparnatural des Archives nationales de France](https://sparna-git.github.io/sparnatural-demonstrateur-an/) \| [Original GitHub repo](https://github.com/sparna-git/sparnatural-demonstrateur-an) \| SPARQL endpoint to use: <http://51.159.140.210/graphdb/repositories/sparnatural-demo-anf>
 
 {% if page.url == "/" %}
 
