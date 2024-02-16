@@ -1,9 +1,12 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Sparnatural Archives nationales : Démonstrateur</title>
+    <title>{{ site.title }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Google Fonts -->
@@ -84,8 +87,8 @@
                   ></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a>
             </li>
             <li>
-              <a href="https://www.archives-nationales.culture.gouv.fr/">
-                <img src="assets/img/archives-nationales.png" style="width:200px;" />
+              <a href="{{ site.glam-incubator.url }}">
+                <img src="{{ site.glam-incubator.logo }}" style="width:200px;" />
               </a>
             </li>
           </ul>
@@ -101,6 +104,7 @@
         <div class="row">
           <h1>Mentions légales</h1>
           <div class="col-md">
+            {% capture readme %}{% include_relative README.md %}{% endcapture %}{{ readme | markdownify }}
             <h4>Conditions de réutilisation des données</h4>
             <p>Les données RDF interrogeables par la présente application web ont été produites par
               les Archives nationales. Il s’agit d’informations publiques ; l’usager dispose d’un

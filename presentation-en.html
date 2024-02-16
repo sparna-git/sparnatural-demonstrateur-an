@@ -1,9 +1,12 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Sparnatural Archives Nationales : Démonstrateur</title>
+    <title>{{ site.title }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Google Fonts -->
@@ -84,8 +87,8 @@
                   ></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a>
             </li>
             <li>
-              <a href="https://www.archives-nationales.culture.gouv.fr/">
-                <img src="assets/img/archives-nationales.png" style="width:200px;" />
+              <a href="{{ site.glam-incubator.url }}">
+                <img src="{{ site.glam-incubator.logo }}" style="width:200px;" />
               </a>
             </li>
           </ul>
@@ -101,6 +104,7 @@
         <div class="row">
           <h1>Sparnatural demonstrator, Archives nationales: documentation</h1>
           <div class="col-md">
+            {% capture readme %}{% include_relative README.md %}{% endcapture %}{{ readme | markdownify }}
             <p>Authors: <i>Florence Clavaud and Pauline Charbonnier (Lab of the Archives nationales of France)</i>.</p>
             <p>Date of this version: June, 19<sup>th</sup> 2023.</p>
             <p>This documentation will be improved in the coming weeks. It is licensed under

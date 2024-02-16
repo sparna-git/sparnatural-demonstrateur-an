@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sparnatural Archives Nationales : Démonstrateur</title>
+  <title>{{ site.title }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -74,7 +77,7 @@
           </li>
           <li><a class="nav-link" href="mentions-legales.html"><span data-i18n="menu.mentions-legales"></span></a></li>
           <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
-          <li><a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:200px;" /></a></li>
+          <li><a href="{{ site.glam-incubator.url }}"><img src="{{ site.glam-incubator.logo }}" style="width:200px;" /></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -85,8 +88,9 @@
     <section id="sparnatural-section">
       <div class="container">
         <div class="row">
-          <h1 data-i18n="page.title"></h1>
+          <!--<h1 data-i18n="page.title"></h1>-->
           <div class="col-md">
+            {% capture readme %}{% include_relative README.md %}{% endcapture %}{{ readme | markdownify }}
             <h4>Français</h4>
             <p>Ce démonstrateur, construit avec l’outil <a href="http://sparnatural.eu" target="_blank">Sparnatural</a> vous permet d’interroger un graphe de connaissances produit à partir d’une partie des métadonnées décrivant les archives des notaires de Paris conservées aux Archives nationales. Ces métadonnées ont été sémantisées conformément à l’ontologie <a href="https://www.ica.org/standards/RiC/ontology">Records In Contexts (RiC-O)</a>. Le démonstrateur est composé de deux interfaces de recherche. Le <a href="index-A.html">démonstrateur A</a> propose une interface simple et généraliste d’exploration de ces métadonnées, qui pourrait être utilisée pour d’autres métadonnées archivistiques. Le <a href="index-B.html">démonstrateur B</a> propose une interface d’exploration de ces métadonnées qui s’appuie sur les spécificités des archives notariales. Notez que les IRIs des ressources RDF ne sont actuellement pas déréférençables.</p>
             <p>Date de la dernière mise à jour : 9 septembre 2022.</p>

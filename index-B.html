@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sparnatural Archives nationales : Démonstrateur</title>
+  <title>{{ site.title }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -101,7 +104,7 @@
           </li>
           <li><a class="nav-link" href="mentions-legales.html"><span data-i18n="menu.mentions-legales"></span></a></li>
           <li><a class="nav-link" href="http://sparnatural.eu"><span data-i18n="menu.sparnatural"></span>&nbsp;<i style="font-size:15px;" class="fad fa-external-link-alt"></i></a></li>
-          <li><a href="https://www.archives-nationales.culture.gouv.fr/"><img src="assets/img/archives-nationales.png" style="width:200px;" /></a></li>
+          <li><a href="{{ site.glam-incubator.url }}"><img src="{{ site.glam-incubator.logo }}" style="width:200px;" /></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -112,8 +115,9 @@
     <section id="sparnatural-section">
       <div class="container">
         <div class="row">
-          <h1 data-i18n="page.title"></h1>
+          <!--<h1 data-i18n="page.title"></h1>-->
           <div class="col-md">
+            {% capture readme %}{% include_relative README.md %}{% endcapture %}{{ readme | markdownify }}
             <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface d'exploration dans ces métadonnées qui s'appuie sur les spécificités des archives notariales</b>.</p>
           </div>
         </div>
