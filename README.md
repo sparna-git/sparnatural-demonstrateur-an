@@ -1,6 +1,6 @@
 # Graph-Based Archival Description
 
-This is a fork of [Démonstrateur Sparnatural des Archives nationales de France](https://sparna-git.github.io/sparnatural-demonstrateur-an/) \| [Original GitHub repo](https://github.com/sparna-git/sparnatural-demonstrateur-an)
+[GitHub repo]({{ site.gh-repo }}) \| This is a fork of [Démonstrateur Sparnatural des Archives nationales de France](https://sparna-git.github.io/sparnatural-demonstrateur-an/) \| [Original GitHub repo](https://github.com/sparna-git/sparnatural-demonstrateur-an)
 
 {% if page.url == "/" %}
 

@@ -1,5 +1,6 @@
 title: "Graph-Based Archival Description"
 url: "https://gbad-project.github.io/"
+gh-repo: https://github.com/gbad-project/gbad-project.github.io
 description: "A proof of concept that explores the possibilities and potential benefits of a graph-based data model for archival description, using the International Council on Archives’ new Records in Contexts (RiC) standard and Linked Open Data (RDF data format)."
 markdown: kramdown
 glam-incubator:
