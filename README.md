@@ -10,14 +10,10 @@
 
 Source: <https://glam.ischool.utoronto.ca/?project=graph-based-archival-description-at-the-archives-of-ontario>
 
+{% endif %}
+
 ## d3sparql.js
 
-JavaScript library for executing SPARQL query and transforming resulted JSON for visualization in D3.js.
-
-Live demo: <http://biohackathon.org/d3sparql/>
-
-GitHub repo: <https://github.com/ktym/d3sparql>
+[Live demo](http://biohackathon.org/d3sparql/) \| JavaScript library for executing SPARQL query and transforming resulted JSON for visualization in D3.js. \| [GitHub repo](https://github.com/ktym/d3sparql)
 
 ## Original Page Content
-
-{% endif %}
