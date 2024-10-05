@@ -114,11 +114,34 @@
         <div class="row">
           <h1 data-i18n="page.title"></h1>
           <div class="col-md">
-            <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface d'exploration dans ces métadonnées qui s'appuie sur les spécificités des archives notariales</b>.</p>
+            <p><a href="https://docs.google.com/spreadsheets/d/1LBumEdCIl8CUlkB0PGqPK6T_9-4nnpix/edit?gid=101429402">Lien vers le tableau de config</a></p>
           </div>
         </div>
 
-        <div class="row" style="padding-bottom:10px;">
+        <!-- This is where Sparnatural is inserted -->
+        <div class="row">
+          <div class="col-md">
+            <spar-natural 
+              src="sparnatural-config-B.ttl"
+              endpoint="https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2F51.159.140.210%2Fgraphdb%2Frepositories%2Fsparnatural-demo-anf"
+              lang="fr"
+              defaultLang="fr"
+              distinct="true"
+              limit="1000"
+              debug="true"
+            ></spar-natural>
+
+            <input type="hidden" id="query-json"></input>
+          </div>
+        </div>
+
+        <!-- -->
+        <div class="row" style="margin-top:10px;margin-bottom:10px;">
+          <div class="col-md-6">
+            <div style="font-style: italic; font-size:0.9em;">
+              <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
+            </div>
+          </div>
           <div class="col-md-6">
             <form>
               <select class="form-control" style="width:100%; appearance: auto !important;" id="select-examples">
@@ -128,40 +151,7 @@
                 <option value="example.3" data-i18n="example.B.3.title"></option>
                 <option value="example.4" data-i18n="example.B.4.title"></option>
               </select>
-          </form>
-          </div>
-          <div class="col-md-6">
-            <div style="text-align:right;">
-              <span style="font-size:90%; font-style: italic;"> 
-                <span data-i18n="endpoint.querying"></span> <a id="endpoint" href="...">...</a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- This is where Sparnatural is inserted -->
-        <div class="row">
-          
-
-          <spar-natural 
-            src="sparnatural-config-B.ttl"
-            endpoint="https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2F51.159.140.210%2Fgraphdb%2Frepositories%2Fsparnatural-demo-anf"
-            lang="fr"
-            defaultLang="fr"
-            distinct="true"
-            limit="1000"
-            debug="true"
-          ></spar-natural>
-
-          <input type="hidden" id="query-json"></input>
-        </div>
-
-        <!-- -->
-        <div class="row">
-          <div class="col-md">
-            <div style="font-style: italic; font-size:0.9em;">
-              <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -318,9 +308,6 @@
 
 
       const sparnatural = document.querySelector("spar-natural");
-
-      document.querySelector("#endpoint").setAttribute("href", sparnatural.getAttribute("endpoint"));
-      document.querySelector("#endpoint").textContent = sparnatural.getAttribute("endpoint");
 
       const yasqe = new Yasqe(document.getElementById("yasqe"), {
         requestConfig: { 
