@@ -352,6 +352,17 @@
         sparnatural.enablePlayBtn();
       });
 
+      sparnatural.addEventListener("init", (event) => {
+        // notify the specification to yasr plugins
+        for (const plugin in yasr.plugins) {
+          if (yasr.plugins[plugin].notifyConfiguration) {
+            yasr.plugins[plugin].notifyConfiguration(
+              sparnatural.sparnatural.specProvider
+            );
+          }
+        }
+      });
+
       // listener when sparnatural updates the query
       // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
       sparnatural.addEventListener("queryUpdated", (event) => {
@@ -361,6 +372,13 @@
         
         // save query
         document.getElementById('query-json').value = JSON.stringify(event.detail.queryJson);
+
+        // notify the query to yasr plugins
+        for (const plugin in yasr.plugins) {
+          if (yasr.plugins[plugin].notifyQuery) {
+            yasr.plugins[plugin].notifyQuery(event.detail.queryJson);
+          }
+        }
       });
 
       // listener when the sparnatural submit button is clicked
