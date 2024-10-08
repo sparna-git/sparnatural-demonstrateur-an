@@ -333,7 +333,7 @@
         maxPersistentResponseSize: 0
       });
 
-      yasr.plugins["TableX"].uriHrefAdapter = function(uri) {
+      yasr.plugins["TableX"].config.uriHrefAdapter = function(uri) {
         if(uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
           return "http://51.159.140.210/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
         } else {
