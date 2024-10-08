@@ -121,6 +121,8 @@
         <!-- This is where Sparnatural is inserted -->
         <!-- URL du SHACL issu du tableau de config : https://xls2rdf.sparna.fr/rest/convert?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1LBumEdCIl8CUlkB0PGqPK6T_9-4nnpix%2Fexport%3Fformat%3Dxlsx&noPostProcessings=true-->
         <!-- URL directe de RiC-O 0.2 : https://raw.githubusercontent.com/ICA-EGAD/RiC-O/refs/heads/master/ontology/previous-versions/RiC-O_v0-2_release/RiC-O_v0-2.rdf -->
+
+        <!-- endpoint : https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2F51.159.140.210%2Fgraphdb%2Frepositories%2Fsparnatural-demo-anf -->
         <div class="row">
           <div class="col-md">
             <spar-natural 
@@ -129,7 +131,7 @@
               lang="fr"
               defaultLang="fr"
               distinct="true"
-              limit="1000"
+              limit="5000"
               debug="true"
             ></spar-natural>
 
@@ -323,10 +325,12 @@
       // init yasR result display
       // register a specific plugin that is capable of displaying clikable label + URI
       Yasr.registerPlugin("TableX",SparnaturalYasguiPlugins.TableX);
+      Yasr.registerPlugin("Grid",SparnaturalYasguiPlugins.GridPlugin);
+      Yasr.registerPlugin("Map",SparnaturalYasguiPlugins.MapPlugin);
       delete Yasr.plugins['table'];
 
       const yasr = new Yasr(document.getElementById("yasr"), {
-        pluginOrder: ["TableX", "response"],
+        pluginOrder: ["TableX", "", "response"],
         defaultPlugin: "TableX",
         // disable persistency
         persistencyExpire: 0,
