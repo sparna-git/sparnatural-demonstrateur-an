@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://sparnatural-demo-anf.huma-num.fr/ontology#"
+     xml:base="https://sparnatural-demo-anf.huma-num.fr/ontology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rico="https://www.ica.org/standards/RiC/ontology#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:ric-dft="https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
+     xmlns:ric-rst="https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
+     xmlns:demoanonto="https://sparnatural-demo-anf.huma-num.fr/ontology#">
+    <owl:Ontology rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology">
+        <owl:imports rdf:resource="https://www.ica.org/standards/RiC/ontology/1.0.2"/>
+        <rdfs:comment xml:lang="en">The ontology created by the Archives nationales de France (AnF) for describing the archival fonds and collections the institution holds.
+It is in fact an extension of RiC-O (at the moment RiC-O 1.0.2).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#ActeNotarie -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#ActeNotarie">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Record"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"/>
+                                <owl:hasValue rdf:resource="https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"/>
+                                <owl:hasValue rdf:resource="https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#FindingAid"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://sparnatural-demo-anf.huma-num.fr/ontology#InstrumentRecherche"/>
+        <owl:disjointWith rdf:resource="https://sparnatural-demo-anf.huma-num.fr/ontology#NoticeAutorite"/>
+        <owl:disjointWith rdf:resource="https://sparnatural-demo-anf.huma-num.fr/ontology#Repertoire"/>
+        <rdfs:comment xml:lang="fr">Acte établi par un notaire. Inclut les minutes, premiers originaux des actes notariés, complets de toutes leurs annexes, signées du ou des notaires et des parties à l’acte et dont le notaire a charge de la conservation jusqu’à ce que la loi en transfère la responsabilité à un service public d’archives. Les minutes sont inscrites au répertoire de ce même notaire et font foi (valeur probatoire), constituant des actes authentiques au sens du Code civil.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Acte notarié</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Archive -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Archive">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordResource"/>
+        <owl:disjointWith rdf:resource="https://sparnatural-demo-anf.huma-num.fr/ontology#InstrumentRecherche"/>
+        <owl:disjointWith rdf:resource="https://sparnatural-demo-anf.huma-num.fr/ontology#NoticeAutorite"/>
+        <rdfs:comment xml:lang="fr">Tout ensemble ou pièce d’archives, hors des instruments de recherche et notices d’autorité.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Archives</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#CopieNumerique -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#CopieNumerique">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Instantiation"/>
+        <rdfs:comment xml:lang="fr">Toute copie numérique fidèle et intégrale d’une ressource archivistique, produite à des fins de communication aux publics comme substitut de l’original.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Copie numérique</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#EdificeParisien -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#EdificeParisien">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Place"/>
+        <rdfs:label xml:lang="fr">Édifice de Paris</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#EtudeNotariale -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#EtudeNotariale">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#CorporateBody"/>
+        <rdfs:label xml:lang="fr">Étude notariale</rdfs:label>
+        <skos:note xml:lang="fr">pourrait être considéré équivalent de : rico:CorporateBody; rico:hasOrHadCorporateBodyType &lt;http://data.archives-nationales.culture.gouv.fr/corporateBodyType/FRAN_RI_104-d5blomr902-13lmns87apgev&gt;&quot;@fr.</skos:note>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Fonds -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Fonds">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasRecordSetType"/>
+                <owl:hasValue rdf:resource="https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="fr">Fonds d&apos;archives</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#InstrumentRecherche -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#InstrumentRecherche">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Record"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"/>
+                <owl:hasValue rdf:resource="https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#FindingAid"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="fr">Instrument de recherche archivistique</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#ListeActes -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#ListeActes">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordPart"/>
+        <rdfs:comment xml:lang="fr">Subdivision logique d’un répertoire de notaire, concernant le plus souvent une période donnée, par exemple une année.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Liste d’actes notariés</rdfs:label>
+        <skos:note xml:lang="fr">pourrait être considéré équivalent de : RecordPart, inclus dans un Repertoire, et dont l&apos;intitulé commence par &apos;Liste&apos;</skos:note>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#MentionActe -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#MentionActe">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordPart"/>
+        <rdfs:comment xml:lang="fr">Mention d’un acte dans une liste d’actes notariés. Le notaire y spécifie toujours la date de l’acte (année et mois, pas toujours le quantième dans le mois), le type d’acte, le nom de l’intéressé ou des parties.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Mention d’acte notarié</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#MotMatiere">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Concept"/>
+        <rdfs:comment xml:lang="fr">Toute chose qui n’est ni un agent ni un lieu, et qui peut être le sujet d’une ressource archivistique. Peut notamment être un objet matériel, un événement, un concept. Peut avoir un nom propre.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Mot matière</rdfs:label>
+        <skos:example xml:lang="fr">Traité de Maastricht (1992)</skos:example>
+        <skos:example xml:lang="fr">guerre 1914-1918</skos:example>
+        <skos:example xml:lang="fr">tourisme</skos:example>
+        <skos:example xml:lang="fr">église</skos:example>
+        <skos:example xml:lang="fr">élection</skos:example>
+        <skos:note xml:lang="fr">Utilisé pour qualifier, en attendant mieux, les concepts définis dans le référentiel matières des Archives nationales.</skos:note>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Notaire -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Notaire">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Person"/>
+        <rdfs:comment xml:lang="fr">Juriste investi d&apos;une mission d&apos;autorité publique, qui prépare des contrats sous la forme authentique, pour le compte de ses clients.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Notaire</rdfs:label>
+        <skos:note xml:lang="fr">Pourrait être considéré équivalent de rico:Person; rico:hasOrHadOccupationType &lt;http://data.archives-nationales.culture.gouv.fr/occupationType/FRAN_RI_010-d3nyu9x713-9kcjiv44l4wh&gt;&quot;@fr</skos:note>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#NoticeAutorite -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#NoticeAutorite">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Record"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasDocumentaryFormType"/>
+                <owl:hasValue rdf:resource="https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="fr">Notice d’autorité archivistique, qui décrit classiquement une entité contextuelle telle qu’un agent.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Notice d’autorité</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#QuartierOuParoisse -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#QuartierOuParoisse">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Place"/>
+        <rdfs:comment xml:lang="fr">Quartier, paroisse ou arrondissement parisien.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Quartier ou paroisse de Paris</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Repertoire -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Repertoire">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Record"/>
+        <rdfs:comment xml:lang="fr">Liste, en général chronologique, se présentant sous forme de registre ou d’ensemble de feuillets, que le notaire a obligation de tenir, aujourd’hui jour par jour, en y faisant figurer date, nature de l’acte (titre qui en caractérise le contenu, par exemple : vente, procuration, inventaire…), espèce de l’acte (minute ou brevet), noms des parties et toutes autres mentions prescrites par la loi ou les règlements. Une fois versé avec les minutes dans un service public d’archives, le répertoire sert principalement à repérer un acte donné en l’absence outils de recherche plus commodes, mais le répertoire, comme la minute, comporte intrinsèquement une valeur probatoire.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Répertoire de notaire</rdfs:label>
+        <skos:note xml:lang="fr">Pourrait être considéré équivalent de : Record ayant pour type de document répertoire - rico:hasDocumentaryFormType &lt;http://data.archives-nationales.culture.gouv.fr/documentaryFormType/FRAN_RI_001-d-a04blhkno-92bbw9jou9ed&gt;&quot;@fr .</skos:note>
+    </owl:Class>
+    
+
+
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#VoieParisienne -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#VoieParisienne">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Place"/>
+        <rdfs:label xml:lang="fr">Voie de Paris</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
