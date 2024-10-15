@@ -69,6 +69,16 @@ It is in fact an extension of RiC-O (at the moment RiC-O 1.0.2).</rdfs:comment>
     
 
 
+    <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Adresse -->
+
+    <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Adresse">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Place"/>
+        <rdfs:label xml:lang="en">Address in Paris</rdfs:label>
+        <rdfs:label xml:lang="fr">Adresse à Paris</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://sparnatural-demo-anf.huma-num.fr/ontology#Archive -->
 
     <owl:Class rdf:about="https://sparnatural-demo-anf.huma-num.fr/ontology#Archive">
