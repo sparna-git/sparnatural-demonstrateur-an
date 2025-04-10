@@ -34,6 +34,7 @@
 
     <!-- Sparnatural CSS -->
     <link href="sparnatural-10.css" rel="stylesheet" />
+    <link href="sparnatural-history.css" rel="stylesheet" />
 
     <style>
       
@@ -143,12 +144,12 @@
 
         <!-- -->
         <div class="row" style="margin-top:10px;margin-bottom:10px;">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div style="font-style: italic; font-size:0.9em;">
               <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <form>
               <select class="form-control" style="width:100%; appearance: auto !important;" id="select-examples">
                 <option value="none" data-i18n="example.placeholder" selected></option>
@@ -159,6 +160,10 @@
               </select>
             </form>
           </div>
+          <div class="col-md-2">
+            <sparnatural-history lang="en"></sparnatural-history>
+            <button id="myCustomButton" class="btn btn-primary" style="width:100%;"><i class="fad fa-history"></i>&nbsp; <span data-i18n="History"></span></button>
+          </div>
         </div>
 
       </div>
@@ -168,7 +173,7 @@
     <section id="yasqe-section">
       <div class="container">
 
-        <div id="yasqe" style="display:none; " />
+        <div id="yasqe" style="display:none; "></div>
 
       </div>
     </section>
@@ -281,6 +286,7 @@
 
     <!-- Sparnatural Javascript -->
     <script type="text/javascript" src="./sparnatural-10.js"></script>
+    <script type="text/javascript" src="./sparnatural-history.js"></script>
     <script type="text/javascript" src="./sparnatural-yasgui-plugins.js"></script>
 
     <!-- Json url (Compression) -->
@@ -314,7 +320,7 @@
 
 
       const sparnatural = document.querySelector("spar-natural");
-
+      let lastquery = null;
       const yasqe = new Yasqe(document.getElementById("yasqe"), {
         requestConfig: { 
           endpoint: sparnatural.getAttribute("endpoint"),
@@ -364,12 +370,21 @@
           }
         }
       });
+      const historyComponent = document.querySelector("sparnatural-history");
+
+document.getElementById("myCustomButton").addEventListener("click", () => {
+  historyComponent.openHistoryModal();
+});
+
+
+
 
       // listener when sparnatural updates the query
       // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
       sparnatural.addEventListener("queryUpdated", (event) => {
         // get the SPARQL query string, and pass it to yasQE
         queryString = sparnatural.expandSparql(event.detail.queryString);
+        lastquery = event.detail.queryJson;
         yasqe.setValue(queryString);
         
         // save query
@@ -382,15 +397,28 @@
           }
         }
       });
-
+      const historyElement = document.querySelector("sparnatural-history");
       // listener when the sparnatural submit button is clicked
       // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
       sparnatural.addEventListener("submit", (event) => {
         // enable loader on button
-        sparnatural.disablePlayBtn() ; 
+        sparnatural.disablePlayBtn() ;
+        if (historyElement && typeof historyElement.saveQuery === "function") {
+    historyElement.saveQuery(lastquery);
+  } else {
+    console.warn("Impossible d'appeler saveQuery sur sparnatural-history.");
+  }
+  
         // trigger the query from YasQE
         yasqe.query();
       });
+      
+
+historyElement.addEventListener("loadQuery", (event) => {
+  const query = event.detail.query;
+  sparnatural.loadQuery(query);
+});
+
 
       // listener when the sparnatural reset button is clicked
       // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
