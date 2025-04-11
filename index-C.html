@@ -161,8 +161,8 @@
             </form>
           </div>
           <div class="col-md-2">
-            <sparnatural-history lang="en"></sparnatural-history>
-            <button id="myCustomButton" class="btn btn-primary" style="width:100%;"><i class="fad fa-history"></i>&nbsp; <span data-i18n="History"></span></button>
+            <sparnatural-history lang="fr"></sparnatural-history>
+            <button id="myCustomButton" class="btn btn-primary" style="width:100%;"><i class="fad fa-history"></i>&nbsp; <span data-i18n="history"></span></button>
           </div>
         </div>
 
@@ -320,6 +320,13 @@
 
 
       const sparnatural = document.querySelector("spar-natural");
+      const historyComponent = document.querySelector("sparnatural-history");
+
+      if(lang == "en") { 
+        sparnatural.setAttribute("lang", "en");
+        historyComponent.setAttribute("lang", "en");
+      }
+
       let lastquery = null;
       const yasqe = new Yasqe(document.getElementById("yasqe"), {
         requestConfig: { 
@@ -370,11 +377,11 @@
           }
         }
       });
-      const historyComponent = document.querySelector("sparnatural-history");
 
-document.getElementById("myCustomButton").addEventListener("click", () => {
-  historyComponent.openHistoryModal();
-});
+      
+      document.getElementById("myCustomButton").addEventListener("click", () => {
+        historyComponent.openHistoryModal();
+      });
 
 
 
@@ -403,21 +410,16 @@ document.getElementById("myCustomButton").addEventListener("click", () => {
       sparnatural.addEventListener("submit", (event) => {
         // enable loader on button
         sparnatural.disablePlayBtn() ;
-        if (historyElement && typeof historyElement.saveQuery === "function") {
-    historyElement.saveQuery(lastquery);
-  } else {
-    console.warn("Impossible d'appeler saveQuery sur sparnatural-history.");
-  }
-  
+        historyElement.saveQuery(lastquery);
         // trigger the query from YasQE
         yasqe.query();
       });
       
 
-historyElement.addEventListener("loadQuery", (event) => {
-  const query = event.detail.query;
-  sparnatural.loadQuery(query);
-});
+      historyElement.addEventListener("loadQuery", (event) => {
+        const query = event.detail.query;
+        sparnatural.loadQuery(query);
+      });
 
 
       // listener when the sparnatural reset button is clicked
