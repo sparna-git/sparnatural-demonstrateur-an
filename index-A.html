@@ -128,7 +128,7 @@
           <div class="col-md-6">
             <div style="text-align:right;">
               <span style="font-size:90%; font-style: italic;"> 
-                <span data-i18n="endpoint.querying"></span> <a id="endpoint" href="https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2F51.159.140.210%2Fgraphdb%2Frepositories%2Fsparnatural-demo-anf">https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2F51.159.140.210%2Fgraphdb%2Frepositories%2Fsparnatural-demo-anf</a>
+                <span data-i18n="endpoint.querying"></span> <a id="endpoint" href="https://rdf.archives-nationales.culture.gouv.fr/graphdb/repositories/sparnatural-demo-anf">https://rdf.archives-nationales.culture.gouv.fr/graphdb/repositories/sparnatural-demo-anf</a>
               </span>
             </div>
           </div>
@@ -408,7 +408,7 @@
       Yasr.registerPlugin("Timeline",Timeline);
       Yasr.plugins.LabelledUriTable.defaults.uriHrefAdapter = function(uri) {
         if(uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
-          return "http://51.159.140.210/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
+          return "https://rdf.archives-nationales.culture.gouv.fr/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
         } else {
           return uri;
         }
