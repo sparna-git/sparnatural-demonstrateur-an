@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Sparnatural Archives nationales : Démonstrateur</title>
+    <title>Sparnatural Archives Nationales : démonstrateur</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Google Fonts -->
@@ -25,8 +25,7 @@
     <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet"
       type="text/css" />
     <!-- Sparnatural CSS -->
-    <link href="sparnatural-10.css" rel="stylesheet" />
-    <link href="sparnatural-history.css" rel="stylesheet" />
+    <link href="sparnatural.css" rel="stylesheet" />
     <style>
       .yasqe .CodeMirror {
           font-size: 0.8em;
@@ -132,32 +131,45 @@
         <div class="row">
           <h1 data-i18n="page.title"></h1>
           <div class="col-md">
-            <p>
-              <a
-                href="https://docs.google.com/spreadsheets/d/1LBumEdCIl8CUlkB0PGqPK6T_9-4nnpix/edit?gid=101429402"
-                >Lien vers le tableau de config</a>
-            </p>
+            <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface
+                simple et généraliste d'exploration dans ces métadonnées</b>, qui pourrait être
+              utilisée pour d'autres métadonnées archivistiques.</p>
+          </div>
+        </div>
+        <div class="row" style="padding-bottom:10px;">
+          <div class="col-md-6">
+            <form>
+              <select class="form-control" style="width:100%; appearance: auto !important;"
+                id="select-examples">
+                <option value="none" data-i18n="example.placeholder" selected></option>
+                <option value="example.1" data-i18n="example.A.1.title"></option>
+                <option value="example.2" data-i18n="example.A.2.title"></option>
+              </select>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div style="text-align:right;">
+              <span style="font-size:90%; font-style: italic;">
+                <span data-i18n="endpoint.querying"></span>
+                <!--<a id="endpoint"
+                  href="https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/sparql"
+                  >https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/sparql</a>-->
+                <a id="endpoint"
+                  href="https://sparql.archives-nationales.culture.gouv.fr/garance/sparql"
+                  >https://sparql.archives-nationales.culture.gouv.fr/garance/sparql</a>
+              </span>
+            </div>
           </div>
         </div>
         <!-- This is where Sparnatural is inserted -->
-        <!-- URL du SHACL issu du tableau de config : https://xls2rdf.sparna.fr/rest/convert?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1LBumEdCIl8CUlkB0PGqPK6T_9-4nnpix%2Fexport%3Fformat%3Dxlsx&noPostProcessings=true-->
-        <!-- URL directe de RiC-O 0.2 : https://raw.githubusercontent.com/ICA-EGAD/RiC-O/refs/heads/master/ontology/previous-versions/RiC-O_v0-2_release/RiC-O_v0-2.rdf -->
-        <!-- endpoint : https://rdf.archives-nationales.culture.gouv.fr/graphdb/repositories/sparnatural-demo-anf -->
-        <!-- https://raw.githubusercontent.com/sparna-git/sparnatural-demonstrateur-an/refs/heads/main/anf-onto_v1.rdf-->
-        <!-- https://raw.githubusercontent.com/ICA-EGAD/RiC-O/refs/heads/master/ontology/previous-versions/RiC-O_v0-2_release/RiC-O_v0-2.rdf-->
         <div class="row">
-          <div class="col-md">
-            <spar-natural
-              src="https://xls2rdf.sparna.fr/rest/convert?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1LBumEdCIl8CUlkB0PGqPK6T_9-4nnpix%2Fexport%3Fformat%3Dxlsx&noPostProcessings=true https://raw.githubusercontent.com/sparna-git/sparnatural-demonstrateur-an/refs/heads/main/anf-onto_v1.rdf"
-              endpoint="https://rdf.archives-nationales.culture.gouv.fr/graphdb/repositories/sparnatural-demo-anf"
-              lang="fr" defaultLang="fr" distinct="true" limit="5000" debug="true"></spar-natural>
-            <input type="hidden" id="query-json">
-          </div>
+          <div id="sparnatural-container"></div>
+          <input type="hidden" id="query-json">
         </div>
         <!-- -->
-        <div class="row" style="margin-top:10px;margin-bottom:10px;">
-          <div class="col-md-5">
-            <div style="font-style: italic; font-size:0.9em;">
+        <div class="row">
+          <div class="col-md">
+            <div style="font-style: italic; font-size:0.9em; padding-top:0.3em; padding-left:0.3em;">
               <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"
                 ></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#"
                 id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span
@@ -166,22 +178,10 @@
                   data-i18n="actions.export"></span></a>
             </div>
           </div>
-          <div class="col-md-5">
-            <form>
-              <select class="form-control" style="width:100%; appearance: auto !important;"
-                id="select-examples">
-                <option value="none" data-i18n="example.placeholder" selected></option>
-                <option value="example.1" data-i18n="example.B.1.title"></option>
-                <option value="example.2" data-i18n="example.B.2.title"></option>
-                <option value="example.3" data-i18n="example.B.3.title"></option>
-                <option value="example.4" data-i18n="example.B.4.title"></option>
-              </select>
-            </form>
-          </div>
-          <div class="col-md-2">
-            <sparnatural-history lang="fr"></sparnatural-history>
-            <button id="myCustomButton" class="btn btn-primary" style="width:100%;"><i
-                class="fad fa-history"></i>&nbsp; <span data-i18n="history"></span></button>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="float-end"></div>
           </div>
         </div>
       </div>
@@ -287,7 +287,7 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/timeline.js"></script>
-    <script src="sampleQueries-B.js"></script>
+    <script src="sampleQueries-A.js"></script>
     <!-- Sparnatural-specific -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
@@ -298,8 +298,7 @@
     <!-- vis.js for the timeline -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <!-- Sparnatural Javascript -->
-    <script type="text/javascript" src="./sparnatural-10.js"></script>
-    <script type="text/javascript" src="./sparnatural-history.js"></script>
+    <script type="text/javascript" src="./sparnatural.js"></script>
     <script type="text/javascript" src="./sparnatural-yasgui-plugins.js"></script>
     <!-- Json url (Compression) -->
     <script src="https://cdn.jsdelivr.net/gh/masotime/json-url@master/dist/browser/json-url.js"></script>
@@ -330,19 +329,97 @@
             });
             $('body').i18n();
             
+            var sparnatural;
+            $(document).ready(function ($) {
+                
+                sparnatural = document.getElementById('sparnatural-container').Sparnatural({
+                    config: "sparnatural-config-A.ttl",
+                    language: lang,
+                    maxDepth: 4,
+                    addDistinct: true,
+                    sendQueryOnFirstClassSelected: true,
+                    backgroundBaseColor: '29,224,153',
+                    // backgroundBaseColor: '33,177,236',
+                    autocomplete: null,
+                    list: null,
+                    defaultEndpoint: $('#endpoint').text(),
+                    onQueryUpdated: function (queryString, queryJson) {
+                        queryString = semanticPostProcess(queryString);
+                        queryString = displayLabelPostProcess(queryString);
+                        queryString = orderByPostProcess(queryString);
+                        $('#sparql code').html(queryString.replace(/&/g, "&amp;").replace(/</g, "<").replace(/>/g, ">"));
+                        yasqe.setValue(queryString);
+                        // yasqe.query();
+                        
+                        // save query
+                        document.getElementById('query-json').value = JSON.stringify(queryJson);
+                    },
+                    // triggered when "play" button is clicked
+                    onSubmit: function (form) {
+                        // enable loader on button
+                        form.sparnatural.enableLoading();
+                        // trigger the query from YasQE
+                        yasqe.query();
+                    }
+                });
+                
+                // load ?query= param if present
+                var UrlString = window.location.search;
+                var urlParams = new URLSearchParams(UrlString);
+                if (urlParams.has("query") === true) {
+                    var compressedJson = urlParams. get ("query");
+                    var compressCodec = JsonUrl('lzma');
+                    compressCodec.decompress(compressedJson).then(json = > {
+                        sparnatural.loadQuery(JSON.parse(json));
+                    });
+                }
+            });
             
-            const sparnatural = document.querySelector("spar-natural");
-            const historyComponent = document.querySelector("sparnatural-history");
-            
-            if (lang == "en") {
-                sparnatural.setAttribute("lang", "en");
-                historyComponent.setAttribute("lang", "en");
+            prefixesPostProcess = function (queryString) {
+                if (queryString.indexOf("rdf-schema#") == -1) {
+                    queryString = queryString.replace("SELECT ", "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \nSELECT ");
+                }
+                queryString = queryString.replace("SELECT ", "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> \nSELECT ");
+                return queryString;
             }
             
-            let lastquery = null;
+            displayLabelPostProcess = function (queryString) {
+                // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+                // queryString = queryString.replace(new RegExp('}$'), "  ?this rdfs:label ?theLabel FILTER(lang(?theLabel) = 'fr') \n}");
+                /*
+                 if(queryString.includes("?this WHERE")) {
+                 queryString = queryString.replace(new RegExp('}$'), "  OPTIONAL { ?this rdfs:label ?rdfsLabel FILTER(lang(?rdfsLabel) = 'fr') }\n  OPTIONAL { ?this skos:prefLabel ?skosPrefLabel FILTER(lang(?skosPrefLabel) = 'fr') }\n  BIND(COALESCE(?rdfsLabel, ?skosPrefLabel) AS ?theLabel) \n}");
+                 queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT ?this (STR(?theLabel) AS ?label)");
+                 }
+                 */
+                
+                
+                // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
+                // Builds the URL to the page :
+                // http://data.archives-nationales.culture.gouv.fr/agent/005080
+                // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
+                /*
+                 queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ((IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/'))))) AS ?page)");
+                 */
+                return queryString;
+            }
+            
+            orderByPostProcess = function (queryString) {
+                // queryString = queryString.replace(new RegExp('}$'), "}\nORDER BY ?label LIMIT 100");
+                // queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT (STR(?theLabel) AS ?label) ?this");
+                queryString = queryString.replace(new RegExp('}$'), "}\nLIMIT 10000");
+                return queryString;
+            }
+            
+            semanticPostProcess = function (queryString) {
+                queryString = prefixesPostProcess(queryString);
+                queryString = sparnatural.expandSparql(queryString);
+                return queryString;
+            }
+            
             const yasqe = new Yasqe(document.getElementById("yasqe"), {
                 requestConfig: {
-                    endpoint: sparnatural.getAttribute("endpoint"),
+                    endpoint: $('#endpoint').text(),
                     method: "GET",
                     header: {
                     }
@@ -350,112 +427,30 @@
                 copyEndpointOnNewTab: false
             });
             
-            // init yasR result display
-            // register a specific plugin that is capable of displaying clikable label + URI
-            Yasr.registerPlugin("TableX", SparnaturalYasguiPlugins.TableX);
-            Yasr.registerPlugin("Grid", SparnaturalYasguiPlugins.GridPlugin);
-            Yasr.registerPlugin("Map", SparnaturalYasguiPlugins.MapPlugin);
-            delete Yasr.plugins[ 'table'];
-            
-            const yasr = new Yasr(document.getElementById("yasr"), {
-                pluginOrder:[ "TableX", "", "response"],
-                defaultPlugin: "TableX",
-                // disable persistency
-                persistencyExpire: 0,
-                maxPersistentResponseSize: 0
-            });
-            
-            yasr.plugins[ "TableX"].config.uriHrefAdapter = function (uri) {
+            Yasr.registerPlugin("LabelledUriTable", SparnaturalYasguiPlugins.TableX);
+            Yasr.registerPlugin("Timeline", Timeline);
+            Yasr.plugins.LabelledUriTable.defaults.uriHrefAdapter = function (uri) {
                 if (uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
                     return "https://rdf.archives-nationales.culture.gouv.fr/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
                 } else {
                     return uri;
                 }
             };
+            delete Yasr.plugins[ 'table'];
+            delete Yasr.plugins[ 'response'];
+            const yasr = new Yasr(document.getElementById("yasr"), {
+                pluginOrder:[ "LabelledUriTable", "Timeline"],
+                // disable persistency
+                persistencyExpire: 0,
+                maxPersistentResponseSize: 0
+            });
+            
             
             // link yasqe and yasr
             yasqe.on("queryResponse", function (_yasqe, response, duration) {
                 yasr.setResponse(response, duration);
-                // when response is received, enable the button
-                sparnatural.enablePlayBtn();
+                sparnatural.disableLoading();
             });
-            
-            sparnatural.addEventListener("init", (event) = > {
-                // notify the specification to yasr plugins
-                for (const plugin in yasr.plugins) {
-                    if (yasr.plugins[plugin].notifyConfiguration) {
-                        yasr.plugins[plugin].notifyConfiguration(
-                        sparnatural.sparnatural.specProvider);
-                    }
-                }
-                historyComponent.notifyConfiguration(sparnatural.sparnatural.specProvider);
-            });
-            
-            
-            
-            
-            
-            
-            document.getElementById("myCustomButton").addEventListener("click", () = > {
-                historyComponent.openHistoryModal();
-            });
-            
-            
-            
-            
-            // listener when sparnatural updates the query
-            // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
-            sparnatural.addEventListener("queryUpdated", (event) = > {
-                // get the SPARQL query string, and pass it to yasQE
-                queryString = sparnatural.expandSparql(event.detail.queryString);
-                lastquery = event.detail.queryJson;
-                yasqe.setValue(queryString);
-                
-                // save query
-                document.getElementById('query-json').value = JSON.stringify(event.detail.queryJson);
-                
-                // notify the query to yasr plugins
-                for (const plugin in yasr.plugins) {
-                    if (yasr.plugins[plugin].notifyQuery) {
-                        yasr.plugins[plugin].notifyQuery(event.detail.queryJson);
-                    }
-                }
-            });
-            const historyElement = document.querySelector("sparnatural-history");
-            // listener when the sparnatural submit button is clicked
-            // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
-            sparnatural.addEventListener("submit", (event) = > {
-                // enable loader on button
-                sparnatural.disablePlayBtn();
-                historyElement.saveQuery(lastquery);
-                // trigger the query from YasQE
-                yasqe.query();
-            });
-            
-            
-            historyElement.addEventListener("loadQuery", (event) = > {
-                const query = event.detail.query;
-                sparnatural.loadQuery(query);
-            });
-            
-            
-            // listener when the sparnatural reset button is clicked
-            // see http://docs.sparnatural.eu/Javascript-integration.html#sparnatural-events
-            sparnatural.addEventListener("reset", (event) = > {
-                // empties the SPARQL query on yasQE
-                yasqe.setValue("");
-            });
-            
-            // load ?query= param if present
-            var UrlString = window.location.search;
-            var urlParams = new URLSearchParams(UrlString);
-            if (urlParams.has("query") === true) {
-                var compressedJson = urlParams. get ("query");
-                var compressCodec = JsonUrl('lzma');
-                compressCodec.decompress(compressedJson).then(json = > {
-                    sparnatural.loadQuery(JSON.parse(json));
-                });
-            }
             
             document.getElementById('sparql-toggle').onclick = function () {
                 if (document.getElementById('yasqe').style.display == 'none') {

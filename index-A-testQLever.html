@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sparnatural Archives nationales : Démonstrateur</title>
+  <title>Sparnatural Archives Nationales : démonstrateur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,8 +36,6 @@
     <link href="sparnatural.css" rel="stylesheet" />
 
     <style>
-      
-       
       .yasqe .CodeMirror {
         font-size: 0.8em;
       }
@@ -113,20 +111,17 @@
       <div class="container">
         <div class="row">
           <h1 data-i18n="page.title"></h1>
-          <div class="col-md">
-            <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface d'exploration dans ces métadonnées qui s'appuie sur les spécificités des archives notariales</b>.</p>
+          <div class="col-md">            
+            <p>Le formulaire de recherche disponible sur la présente page propose <b>une interface simple et généraliste d'exploration dans ces métadonnées</b>, qui pourrait être utilisée pour d'autres métadonnées archivistiques.</p>
           </div>
         </div>
-
         <div class="row" style="padding-bottom:10px;">
           <div class="col-md-6">
             <form>
               <select class="form-control" style="width:100%; appearance: auto !important;" id="select-examples">
                 <option value="none" data-i18n="example.placeholder" selected></option>
-                <option value="example.1" data-i18n="example.B.1.title"></option>
-                <option value="example.2" data-i18n="example.B.2.title"></option>
-                <option value="example.3" data-i18n="example.B.3.title"></option>
-                <option value="example.4" data-i18n="example.B.4.title"></option>
+                <option value="example.1" data-i18n="example.A.1.title"></option>
+                <option value="example.2" data-i18n="example.A.2.title"></option>
               </select>
           </form>
           </div>
@@ -142,15 +137,21 @@
         <!-- This is where Sparnatural is inserted -->
         <div class="row">
           <div id="sparnatural-container"></div>
-          <input type="hidden" id="query-json"></input>
+          <input type="hidden" id="query-json"> </input>
         </div>
 
         <!-- -->
         <div class="row">
-          <div class="col-md">
-            <div style="font-style: italic; font-size:0.9em;">
+          <div class="col-md">       
+
+            <div style="font-style: italic; font-size:0.9em; padding-top:0.3em; padding-left:0.3em;">
               <a href="#" id="sparql-toggle"><i id="sparql-toggle-icon" class="fad fa-eye fa-fw"></i>&nbsp; <span data-i18n="actions.toggle"></span></a>&nbsp;|&nbsp;<a href="#" id="share"><i id="share-icon" class="fad fa-share-square"></i>&nbsp; <span data-i18n="actions.share"></span></a>&nbsp;|&nbsp;<a href="#" id="export"><i id="export-icon" class="fad fa-file-export"></i>&nbsp; <span data-i18n="actions.export"></span></a>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="float-end"></div>
           </div>
         </div>
 
@@ -257,7 +258,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/timeline.js"></script>
-  <script src="sampleQueries-B.js"></script>
+  <script src="sampleQueries-A.js"></script>
 
   <!-- Sparnatural-specific -->
 
@@ -309,14 +310,13 @@
       $( document ).ready(function($) {       
 
         sparnatural = document.getElementById('sparnatural-container').Sparnatural({
-          config: "sparnatural-config-B.ttl",
+          config: "sparnatural-config-A.ttl",
           language: lang,
           maxDepth: 4,                                                                        
           addDistinct: true,
           sendQueryOnFirstClassSelected: true,
           backgroundBaseColor: '29,224,153',
-          // to set a blue background
-          // backgroundBaseColor: '29,153,224',
+          // backgroundBaseColor: '33,177,236',
           autocomplete : null,
           list : null,
           defaultEndpoint : $('#endpoint').text(),
@@ -370,13 +370,15 @@
           queryString = queryString.replace("SELECT DISTINCT ?this", "SELECT DISTINCT ?this (STR(?theLabel) AS ?label)");
         }
         */
+        
 
         // queryString = queryString.replace(new RegExp('}$'), "  FILTER(isIRI(?this)) \n}");
         // Builds the URL to the page : 
         // http://data.archives-nationales.culture.gouv.fr/agent/005080
         // http://sparnatural-demo-anf.huma-num.fr/lodview/agent/005080.html
         /*
-        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT (IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/')))) AS ?page)");*/
+        queryString = queryString.replace(new RegExp('SELECT DISTINCT \\?this'), "SELECT DISTINCT ((IRI((CONCAT('https://sparnatural-demo-anf.huma-num.fr/lodview/', STRAFTER(STR(?this), 'http://data.archives-nationales.culture.gouv.fr/'))))) AS ?page)");
+        */
         return queryString;
       }
 
@@ -419,6 +421,7 @@
         persistencyExpire: 0,
         maxPersistentResponseSize: 0
       });
+
 
       // link yasqe and yasr
       yasqe.on("queryResponse", function(_yasqe, response, duration) {
@@ -466,6 +469,7 @@
             sparnatural.loadQuery(sampleQueries[key]) ;
         }
       }
+
     </script>
   </script>
 
