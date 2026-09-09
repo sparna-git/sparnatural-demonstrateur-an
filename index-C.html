@@ -367,7 +367,7 @@
             
             yasr.plugins[ "TableX"].config.uriHrefAdapter = function (uri) {
                 if (uri.startsWith("http://data.archives-nationales.culture.gouv.fr/")) {
-                    return "https://rdf.archives-nationales.culture.gouv.fr/lodview/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
+                    return "https://rdf.archives-nationales.culture.gouv.fr/trifid/" + uri.substring("http://data.archives-nationales.culture.gouv.fr/".length);
                 } else {
                     return uri;
                 }
