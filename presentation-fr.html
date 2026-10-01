@@ -102,18 +102,18 @@
           <h1>Le démonstrateur Sparnatural des Archives nationales : documentation</h1>
           <div class="col-md">
             <p>Auteurs : <i>Florence Clavaud et Pauline Charbonnier (Lab des Archives nationales)</i>.</p>
-            <p>Date de la présente version : 10 juin 2025.</p>
-            <p>La présente documentation sera
-              améliorée dans les prochaines semaines. Elle est placée sous licence Creative Commons « Attribution 4.0 international (CC-BY
+            <p>Date de la présente version : 1er octobre 2026.</p>
+            <p>La présente documentation est placée sous licence Creative Commons « Attribution 4.0 international (CC-BY
               4.0) » (<a href="https://creativecommons.org/licenses/by/4.0/deed.fr"
                 >https://creativecommons.org/licenses/by/4.0/deed.fr</a>).</p>
             <p>Ce démonstrateur a été réalisé dans le cadre du travail de développement, entre août 2021 et juin 2022, d’une nouvelle version de l’éditeur visuel open source de requêtes SPARQL <a href="https://sparnatural.eu">Sparnatural</a>, pour lequel le ministère de la Culture français, la Bibliothèque nationale de France et les Archives nationales se sont associés afin de passer un marché avec la société Sparna, développeur principal de Sparnatural.</p>
-            <p>Ce démonstrateur, qui utilise Sparnatural dans sa version actuelle, est le résultat d’un travail exploratoire sur la transition des
+            <p>Ce démonstrateur, qui utilise Sparnatural, est le résultat d’un travail exploratoire sur la transition des
               métadonnées archivistiques vers des graphes de données, qui fait suite aux projets de
               preuve de concept qualitative <a href="https://piaaf.demo/logilab.fr">PIAAF</a> (publié en février 2018) et de développement du logiciel <a href="https://github.com/ArchivesNationalesFR/Referentiels">RiC-O Converter</a> (version 1.0 publiée en avril 2020). L’enjeu
               principal du projet était de <b>proposer aux utilisateurs une interface de recherche
               pertinente et compréhensible pour explorer un graphe de métadonnées archivistiques de
               taille significative, qui en exploite la nature</b>.</p>
+            <p><b>Le démonstrateur a fait l’objet de changements en 2026 en ce qui concerne son architecture</b>. Les données qu’il contient seront prochainement mises à jour.</p>
             <ul>
               <li>
                 <a href="#objectives">Objectifs</a>
@@ -202,6 +202,7 @@
               <li>Deuxième conversion des métadonnées en RDF/RiC-O, et consolidation des
                 configurations des interfaces de recherche (mai-juin 2022).</li>
               <li>Troisième opération de conversion des métadonnées (pour corriger quelques incohérences dans les triplets issus des fichiers EAD) et quelques modifications dans les interfaces (août 2022).</li>
+              <li>Migration des données de GraphDB vers une instance du logiciel open source <a href="https://github.com/ad-freiburg/qlever">QLever</a>, avec le support de la société Zazuko, après des tests de performance dans l’exécution des imports et de l’indexation, ainsi que dans l’exécution des requêtes SPARQL. Pour l’affichage des pages HTML de présentation des entités, abandon de l’application Lodview au profit du logiciel <a href="https://github.com/zazuko/trifid">Trifid</a> (été 2026).</li>
             </ul>
             </div>
             <div id="content">
@@ -376,7 +377,7 @@
                 surtout, si tant est qu’il faille encore la prouver, la très grande richesse de ces
                 gisements archivistiques.</b></p>
                <img src="assets/img/sparnatural_AN_example_diagram.jpg" style="width:1000px;" alt="Vue partielle de la description d'un acte notarié dans le graphe" id="diagramme-acte-notarie"/>
-                <p><i>Représentation partielle, via un diagramme, de la description d’un acte notarié dans le graphe. <br/>Voir aussi la page <a href="https://rdf.archives-nationales.culture.gouv.fr/lodview/recordResource/041835-c1p6y1e0w26r--183v6ez58hjun.html">https://rdf.archives-nationales.culture.gouv.fr/lodview/recordResource/041835-c1p6y1e0w26r--183v6ez58hjun.html</a> dans le démonstrateur.</i></p>
+                <p><i>Représentation partielle, via un diagramme, de la description d’un acte notarié dans le graphe. <br/>Voir aussi la page <a href="http://rdf.archives-nationales.culture.gouv.fr/trifid/recordResource/041835-c1p6y1e0w26r--183v6ez58hjun">http://rdf.archives-nationales.culture.gouv.fr/trifid/recordResource/041835-c1p6y1e0w26r--183v6ez58hjun</a> dans le démonstrateur.</i></p>
             <p>Nous allons poursuivre le travail sur ces données, comme expliqué ci-dessous.</p>
                 <p><b>Vous pouvez désormais accéder au dépôt public dans lequel nous gérons le jeu de données RDF sur GitHub : <a href="https://github.com/ArchivesNationalesFR/Sparnatural_prototype_data">https://github.com/ArchivesNationalesFR/Sparnatural_prototype_data</a></b>. N’hésitez pas à nous contacter si vous
               avez des questions sur ces données !</p>
@@ -450,14 +451,13 @@
               <a href="https://data.bnf.fr">data.bnf.fr</a>), de site web permettant de consulter les graphes de données. Une
               fonctionnalité a donc été ajoutée au démonstrateur Sparnatural, pour associer à chaque
               entité résultat une page permettant de consulter de façon simple sa description (via
-              l’application <a href="https://lodview.it/">Lodview</a>). Cette fonctionnalité n’est pas totalement optimale. Par
+              l’application Lodview, remplacée en 2026 par <a href="https://github.com/zazuko/trifid">Trifid</a>). Cette fonctionnalité n’est pas totalement optimale. Par
               ailleurs les IRIs des ressources RDF ne sont actuellement pas déréférençables ; en
               particulier, aucune page web n’est associée à ces IRIS, dont nous ne pouvons pas non
               plus garantir la pérennité du segment racine
               (http://data.archives-nationales.culture.gouv.fr/).</p>
             <!--THOMAS ? ajouter notamment qques mots sur les limites techniques actuelles ?(incapacité de la base RDF à servir plus de 2 requêtes simultanées). Ce problème pourrait être réglé en opérant une migration vers la version Standard de GraphDB.-->
-            <p>Les résultats obtenus présentent encore quelques petits défauts techniques que nous
-              nous efforcerons de corriger. Par ailleurs, <b>nous sommes bien entendu preneurs de toute
+            <p><b>Nous sommes bien entendu preneurs de toute
               remarque ou suggestion d’amélioration</b>. Nous avons conscience qu’après les ateliers
               utilisateurs organisés fin 2021, ces interfaces doivent être mises à l’épreuve d’un
               plus grand nombre d’usagers. Tout comme les données RDF interrogées, <b>les interfaces
@@ -554,6 +554,7 @@
               pas une couverture homogène des fonds d’archives des 40 premières études notariales :
               le travail d’analyse des actes notariés conservés au sein de ces fonds se poursuit au
               DMC, comme dans les autres fonds</b>. </p>
+                <p>Précisons pour terminer que l’on peut requêter directement à distance les données du démonstrateur ; l’adresse du SPARQL end point est <a href="https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/sparql">https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/sparql</a>. <b>Ce SPARQL end point bénéficie aussi depuis 2026 d’une interface utilisateur</b> : <a href="https://sparql.archives-nationales.culture.gouv.fr/archives-notariales">https://sparql.archives-nationales.culture.gouv.fr/archives-notariales</a>. Vous pourrez partager les URL de vos requêtes (cliquer sur le bouton "Share"). Enfin, nous proposons  un outil expérimental permettant de faire une recherche rapide sur le nom des entités (valeur de la propriété rdfs:label), puis de visualiser, après avoir sélectionné un résultat et l’avoir fait glisser dans la fenêtre de droite, le graphe dans lequel l’entité sélectionnée s’inscrit (en cliquant sur les icônes figurant à droite du rectangle qui représente l’entité). Cet outil est disponible à l’adresse suivante, pour l’instant sans documentation associée : <a href="https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/graph-explorer/">https://sparql.archives-nationales.culture.gouv.fr/archives-notariales/graph-explorer/</a>.</p>
               </div>
               <div  id="graph_obtained">
             <h3>Le graphe RDF obtenu, un exemple d’utilisation à grande échelle de RiC-O</h3>
@@ -630,34 +631,36 @@
             <p>La préparation des données RDF pour le démonstrateur Sparnatural a permis de réaliser
               un travail préalable à la mise à jour de RiC-O Converter, au cours duquel les
               différentes actions à mener à bien ont été identifiées et codées une première fois. Ce
-              travail permettra de gagner un peu de temps pour la suite. En effet, nous prévoyons de
-              développer une deuxième version de RiC-O Converter, afin de le rendre compatible avec
-              la version 0.2 de RiC-O.</p>
+              travail a permis de gagner un peu de temps pour la suite. De fait, depuis septembre 2022 nous avons pu produire avec Sparna et publier une version 2.0 puis <a href="https://github.com/ArchivesNationalesFR/rico-converter/">une version 3.0 du logiciel RiC-O Converter</a>. Cette dernière version produit des données RDF conformes à la dernière version en date de RiC-O, la version 1.1, publiée en mai 2025.</p>
             <p>La traduction en français des libellés anglais des classes et propriétés RiC-O
               utilisées dans le graphe, réalisée lors de la configuration du démonstrateur
-              Sparnatural, va être intégrée dans les sources de RiC-O afin de disposer d’une
-              traduction complète à terme.</p>
+              Sparnatural, a été intégrée dans les sources de RiC-O, ce qui a permis à cette ontologie d’intégrer une première traduction en français de ces composants, mise à jour depuis.</p>
               </div>
             </div>
             <div  id="conclusion">
-            <h2>En guise de conclusion : perspectives</h2>
-            <p><b>Dans une possible suite du projet, il est notamment envisagé de fusionner en une
+            <h2>En guise de conclusion : perspectives (section mise à jour en octobre 2026)</h2>
+              <p><b>Nous prévoyons de <b>mettre à jour les données du graphe en procédant à une nouvelle conversion des métadonnées source (qui ont elles-mêmes évolué) conformément à RiC-O 1.2</b>, fin 2026 ou début 2027. Nous pourrions aussi prendre en compte un sous-ensemble plus important de métadonnées ; cela pourrait notamment s’avérer utile dans le contexte du projet C-PARLA dans lequel le Lab et le Département du Minutier central sont impliqués. Nous devrons aussi probablement en même temps revoir le périmètre exact du jeu de données, <b>les référentiels qui s’y trouvent actuellement bénéficiant depuis avril 2026 d’une application web et d'un SPARQL endpoint dédiés</b>, via <a href="https://rdf.archives-nationales.culture.gouv.fr/garance">Garance</a>.</b></p>
+              <p>À cette occasion nous procèderons à une mise à jour des configurations Sparnatural, pour bénéficier des évolutions récentes de l’outil, comme l’utilisation de SHACL comme méthode de configuration ou la recherche et l’affichage de lieux (ici en particulier les voies de Paris) sur une carte.</p>
+              
+                
+           <!-- <p><b>Dans une possible suite du projet, il est notamment envisagé de fusionner en une
               seule les deux configurations A et B, en hiérarchisant classes et propriétés, pour
               laisser le choix à l’utilisateur, au sein d’une seule interface de recherche, d’une
               exploration rapide ou plus précise</b> (par exemple sélectionner Personne > Notaire dans
               une seule interface). Cela impliquera de faire évoluer les possibilités de
-              configuration offertes par Sparnatural.</p>
-            <p>Le Lab des Archives nationales prévoit de produire et publier une ontologie de recherche Sparnatural
+              configuration offertes par Sparnatural.</p>-->
+           <!-- <p>Le Lab des Archives nationales prévoit de produire et publier une ontologie de recherche Sparnatural
               générique pour les données RDF conformes à RiC-O en prenant pour point de départ la
-              configuration A.</p>
-            <p>Enfin, <b>le Lab des Archives nationales est désormais en mesure de concevoir seul une
+              configuration A.</p>-->
+            <p>Enfin, <b>le Lab des Archives nationales est désormais en mesure de concevoir une
               interface de recherche Sparnatural pour d’autres jeux de données</b>. La réutilisation de
-              Sparnatural est donc prévue dans le cadre d’autres projets de recherche, par exemple
+              Sparnatural a donc été possible dans le cadre d’autres projets de recherche, par exemple
               pour explorer les données du projet <a href="https://oresm.hypotheses.org/">ORESM</a>
               (Œuvres et Référentiels des Etudiants, Suppôts et Maîtres de l’université de Paris au
-              Moyen Âge). Voir à ce sujet <a
+              Moyen Âge), dont le portail web devrait être rendu public bientôt. <!--Voir à ce sujet <a
                 href="https://oresm.hypotheses.org/files/2022/03/ORESM_JE_26112021_JFMoufflet_FClavaud-3.pdf"
-                >la présentation</a>, faite en novembre 2021, de la preuve de concept déjà réalisée.</p>
+                >la présentation</a>, faite en novembre 2021, de la preuve de concept déjà réalisée.--></p>
+              <p>L’application <a href="https://rdf.archives-nationales.culture.gouv.fr/garance">Garance</a> de publication des référentiels sémantisés des Archives nationales devrait également bientôt être dotée d’un formulaire de recherche avancée construit avec Sparnatural.</p>
             </div>
           </div>
         </div>
